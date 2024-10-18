@@ -2,10 +2,6 @@
     import Navigation from "$lib/components/pages/Navigation.svelte";
 </script>
 
-<svelte:head>
-    <link rel="stylesheet" href="/css/theme.default.css" />
-</svelte:head>
-
 <div class="layout-wrapper">
     <div class="layout-inner">
         <header>
@@ -28,6 +24,8 @@
         --theme-bg-3: #7788d9;
 
         --theme-text-1: #baab78;
+
+        --main-width: 130ch;
     }
 
     .layout-wrapper {
@@ -41,7 +39,7 @@
     }
 
     .layout-inner {
-        max-width: 120ch;
+        max-width: 140ch;
         width: 100%;
         height: 100%;
         margin-inline: auto;
