@@ -11,9 +11,9 @@
 </section>
 <nav class="layout-section flat dark">
     <a href="/">HOME</a>
-    <a href="/">FAQ</a>
-    <a href="/">TESTIMONIALS</a>
-    <a href="/">THE <i>"MAGIC"</i> BLOG</a>
+    <a href="/faq">FAQ</a>
+    <a href="/testimonials">TESTIMONIALS</a>
+    <a href="/blog">THE <i>"MAGIC"</i> BLOG</a>
 </nav>
 <main class="layout-wrapper">
 
