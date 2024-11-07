@@ -1,5 +1,7 @@
 <script>
     import Navigation from "$lib/components/pages/Navigation.svelte";
+    /** @type {{children?: import('svelte').Snippet}} */
+    let { children } = $props();
 </script>
 
 <header class="layout-section">
@@ -16,7 +18,7 @@
     <a href="/blog">THE <i>"MAGIC"</i> BLOG</a>
 </nav>
 <main class="layout-wrapper">
-    <slot/>
+    {@render children?.()}
 </main>
 
 <style>
