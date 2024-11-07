@@ -1,38 +1,22 @@
 <script>
     import Navigation from "$lib/components/pages/Navigation.svelte";
-    import { Markii } from 'markii'
-    import { browser } from "$app/environment";
-    import { onMount } from "svelte";
-
-    onMount(() => {
-        if (browser) new Markii()
-    })
 </script>
 
+<header class="layout-section">
+    <h1>SMACK MAGIC</h1>
+</header>
+<section class="layout-section" id="endorsement">
+    <h1>AMERICA'S FAVOURITE <i>"SALES-JERK"</i>,<br/> JOE MAGIC, HITS 1 MILLION SMACK MAGICS SOLD</h1>
+    <p>- Kitchen Utensils Weekly</p>
+</section>
+<nav class="layout-section flat dark">
+    <a href="/">HOME</a>
+    <a href="/">FAQ</a>
+    <a href="/">TESTIMONIALS</a>
+    <a href="/">THE <i>"MAGIC"</i> BLOG</a>
+</nav>
 <main class="layout-wrapper">
-    <article class="layout-section" id="introduction">
-        <h1 mq-speed-x="0.0025" mq-tiled>
-            <span style="font-style: italic;">INTRODUCING SMACK MAGIC!!</span>
-        </h1>
-    </article>
-    <article class="layout-section" id="blog">
-        <h1>
-            <span>Click Here</span><br/>
-            <span>Joe "Magic"'s "Magic" Blog!</span>
-        </h1>
-    </article>
-    <article class="layout-section" id="faq">
-        <h1>
-            <span>introducing...</span><br/>
-            <span>SMACK MAGIC!!!</span>
-        </h1>
-    </article>
-    <article class="layout-section" id="testimonials">
-        <h1>
-            <span>introducing...</span><br/>
-            <span>SMACK MAGIC!!!</span>
-        </h1>
-    </article>
+
 </main>
 
 <style>
@@ -46,59 +30,76 @@
         --theme-primary-3: #ffee63;
         --theme-primary-4: #ffe502;
 
-        --theme-text-1: #baab78;
+        --theme-text-1: #001071;
+
         --main-width: 130ch;
     }
 
-    .layout-wrapper {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px; 
+    :global(html) {
         background: linear-gradient(
             to bottom,
             var(--theme-bg-1),
             var(--theme-bg-2)
         );
         color: var(--theme-text-1);
+    }
+
+    :global(body) {
+        display: flex;
+        flex-direction: column;
+        max-width: 140ch;
+        margin-inline: auto;
+        padding: 2rem;
+        gap: 2rem;
+    }
+
+    header {
+        max-width: 50ch;
+        padding: 1rem;
+        padding-bottom: 0.4rem;
+        padding-left: 0.4rem;
+    }
+
+    .layout-wrapper {
+        display: flex;
+        flex-direction: column;
         height: 100%;
     }
 
     .layout-section {
-        max-width: 275px;
+        border: 6px ridge var(--theme-primary-2);
+        background-color: var(--theme-primary-1);
+        background: linear-gradient(45deg, var(--theme-primary-3), var(--theme-primary-1));
+        margin-inline: auto;
         width: 100%;
-        aspect-ratio: 1 / 1;
-        background-color: var(--theme-bg-1);
-        border: 6px groove var(--theme-bg-1);
+        padding: 1rem;
     }
 
-    article.layout-section {
-        display: flex;
-        flex-direction: column;
+    .layout-section.flat {
+        border: none;
     }
 
-    main {
-        flex: 1 1;
+    .layout-section.dark {
+        color: white;
+        background: #000000;
     }
 
-    #introduction {
-        grid-column: 2;
-        grid-row: 1;
+    #endorsement {
+        font-size: 2rem;
+        max-width: 80ch;
+        transform: rotateZ(4deg);
+
+        & h1 {
+            text-align: center;
+        }
+
+        & p {
+            font-size: 1.45rem;
+            text-align: right;
+        }
     }
 
-    #blog {
-        grid-column: 3;
-        grid-row: 3;
-    }
-
-    #faq {
-        grid-column: 3;
-        grid-row: 5;
-    }
-
-    #testimonials {
-        grid-column: 5;
-        grid-row: 5;
+    nav a {
+        color: inherit;
     }
 </style>
