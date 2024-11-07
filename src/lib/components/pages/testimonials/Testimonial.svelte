@@ -1,9 +1,8 @@
 <script lang="ts">
-    export let name: string
-    export let comment: string
+    let { name, date, content } = $props()
 </script>
 
 <article>
     <h1>{name}</h1>
-    <p>{comment}</p>
+    <p>{content}</p>
 </article>

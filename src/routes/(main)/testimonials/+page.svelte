@@ -1,8 +1,5 @@
 <script>
-    import Testimonial from "$lib/components/pages/testimonials/Testimonial.svelte";
-</script>
+    import Testimonials from "$lib/components/pages/testimonials/Testimonials.svelte";
 
-<Testimonial name="dude" comment="so good"/>
-<Testimonial name="dude" comment="so good"/>
-<Testimonial name="dude" comment="so good"/>
-<Testimonial name="dude" comment="so good"/>
+</script>
+<Testimonials/>
