@@ -16,7 +16,7 @@
     <a href="/blog">THE <i>"MAGIC"</i> BLOG</a>
 </nav>
 <main class="layout-wrapper">
-
+    <slot/>
 </main>
 
 <style>
