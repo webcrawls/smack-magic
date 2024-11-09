@@ -10,10 +10,6 @@
 <header class="layout-section">
     <h1>SMACK MAGIC</h1>
 </header>
-<section class="layout-section" id="endorsement">
-    <h1>AMERICA'S FAVOURITE <i>"SALES-JERK"</i>,<br/> JOE MAGIC, HITS 1 MILLION SMACK MAGICS SOLD</h1>
-    <p>- Kitchen Utensils Weekly</p>
-</section>
 <nav class="layout-section flat dark">
     <a href="/">HOME</a>
     <a href="/faq">FAQ</a>
@@ -23,6 +19,9 @@
 <main class="layout-wrapper">
     {@render children?.()}
 </main>
+<footer>
+    <p>Copyright © 2008 by Smack Magic Corp.</p>
+</footer>
 
 <style>
     :global(:root) {
