@@ -1,0 +1,25 @@
+<header>
+    <h1>SMACK MAGIC</h1>
+</header>
+
+<style>
+    header {
+        max-width: var(--width-small);
+        width: 100%;
+
+        padding: 1rem;
+        padding-bottom: 0.4rem;
+        padding-left: 0.4rem;
+
+        margin-inline: auto;
+        margin-block: 2rem;
+
+        border: 6px ridge var(--theme-primary-2);
+        background-color: var(--theme-primary-1);
+        background: linear-gradient(
+            45deg,
+            var(--theme-primary-3),
+            var(--theme-primary-1)
+        );
+    }
+</style>
