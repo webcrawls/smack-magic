@@ -4,3 +4,14 @@
 </script>
 
 {@render children?.()}
+
+<style>
+	:global(*) {
+	    box-sizing: border-box;
+	    font-family: monospace;
+	    image-rendering: pixelated;
+	    margin: 0;
+		padding: 0;
+		border: 0;
+	}
+</style>

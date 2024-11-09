@@ -45,6 +45,7 @@
             var(--theme-bg-1),
             var(--theme-bg-2)
         );
+        background-attachment: fixed;
         color: var(--theme-text-1);
     }
 
