@@ -18,7 +18,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 4rem;
         max-width: 50ch;
         margin-inline: auto;
     }

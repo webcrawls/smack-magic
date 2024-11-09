@@ -3,11 +3,6 @@
 </script>
 
 <article>
-    <h1>{question}</h1>
-    <p>{answer}</p>
-</article>
-
-<article>
     <header>
         <h1>{question}</h1>
     </header>
@@ -30,10 +25,11 @@
 
         display: flex;
         flex-direction: column;
+        gap: 0.5rem;
     }
 
     h1 {
-        font-size: 1.5;
+        font-size: 1.5rem;
     }
 
     .asker {
