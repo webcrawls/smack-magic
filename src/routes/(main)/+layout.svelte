@@ -20,13 +20,13 @@
     {@render children?.()}
 </main>
 <footer>
-    <p>Copyright © 2008 by Smack Magic Corp.</p>
+    <p>Copyright © 2008 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
 </footer>
 
 <style>
     :global(:root) {
-        --theme-bg-1: #001071;
-        --theme-bg-2: #001cd5;
+        --theme-bg-1: #020b46;
+        --theme-bg-2: #324bee;
         --theme-bg-3: #7788d9;
 
         --theme-primary-1: #87b5ff;
@@ -68,6 +68,35 @@
         display: flex;
         flex-direction: column;
         height: 100%;
+        position: relative;
+    }
+
+    .layout-overlay {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0, 0.5);
+        z-index: 1;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .overlay-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: transform 0.5s ease-in;
+        transform: translateY(100vh)
+    }
+
+    .overlay-wrapper.visible {
+        background-color: blue;
+        transform: translateY(0);
     }
 
     .layout-section {
@@ -86,21 +115,6 @@
     .layout-section.dark {
         color: white;
         background: #000000;
-    }
-
-    #endorsement {
-        font-size: 2rem;
-        max-width: 80ch;
-        transform: rotateZ(4deg);
-
-        & h1 {
-            text-align: center;
-        }
-
-        & p {
-            font-size: 1.45rem;
-            text-align: right;
-        }
     }
 
     nav a {
