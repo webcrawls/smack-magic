@@ -1,5 +1,7 @@
 <script>
     let { title, children } = $props()
+
+    $effect(() => console.log({title, children}))
 </script>
 
 <main>
@@ -28,7 +30,7 @@
         flex: 1 1;
     }
 
-    main > h1 {
+    :global(main > h1) {
         color: white;
     }
 </style>
