@@ -3,7 +3,7 @@ const testimonial = (name, date, content) => ({ name, date, content, rating: 5.0
 /**
  * A list of customer testimonials.
  */
-const testimonials = [
+export default [
     testimonial("Bob A", "November 2008",
         "The <i>Smack Magic</i> has <b>revolutionized my game in the kitchen</b>. No more <i>long prep " +
         "times</i>, like with the old knife and cutting board. Welcome to the future! Salad in " +
@@ -18,6 +18,4 @@ const testimonials = [
         "Nuts, onions, fruits, vegetables. It does it all! I used to never know what I was doing in " +
         "the kitchen. Now I’m one of the pros! The Smack Magic is also <b>easy to rinse <u>AND</u> " +
         "dishwasher safe</b>. The perfect dice every time!"),
-]
-
-export default testimonials;
+    ]
