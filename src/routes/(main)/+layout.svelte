@@ -55,11 +55,4 @@
         margin-inline: auto;
         gap: 2rem;
     }
-
-    .layout-wrapper {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        position: relative;
-    }
 </style>
