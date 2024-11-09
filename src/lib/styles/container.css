@@ -1,0 +1,14 @@
+.container {
+    border: rgb(33, 139, 129) 4px solid;
+    padding: 1rem;
+    color: white;
+    background-color: rgb(58, 146, 117);
+
+    & p {
+        max-width: 60ch;
+    }
+}
+
+.container.no-border, .container.borderless {
+    border: none;
+}

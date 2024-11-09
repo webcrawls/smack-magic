@@ -10,7 +10,8 @@
 <style>
     aside {
         width: 100%;
-        background-color: gray;
+        background-color: rgb(194, 194, 194);
+        color: black;
         display: flex;
         flex-direction: column;
         /* TODO make this responsive... also.. kinda scuffed... */

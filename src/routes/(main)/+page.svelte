@@ -1,5 +1,8 @@
 <script>
-    import LandingA from "$lib/components/pages/landing/LandingA.svelte";
+    import PageWrapper from "$lib/components/pages/PageWrapper.svelte";
 
 </script>
-<!-- <LandingA/> -->
+
+<PageWrapper title="Landing">
+
+</PageWrapper>

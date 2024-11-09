@@ -1,6 +1,7 @@
 <script>
+    import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
-    import HeadlineHero from "$lib/components/headline/HeadlineHero.svelte";
+    import HeadlineHero from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
     import PopupOverlay from "$lib/components/popup/PopupOverlay.svelte";
 
@@ -8,19 +9,16 @@
     let { children } = $props();
 </script>
 
-<PopupOverlay/>
 
 <Header/>
-<HeadlineHero/>
+<!-- <HeadlineHero/> -->
 <Navigation/>
 
+{@render children?.()}
 
-<main class="layout-wrapper">
-    {@render children?.()}
-</main>
-<footer>
-    <p>Copyright © 2008 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
-</footer>
+<Footer/>
+
+<PopupOverlay/>
 
 <style>
     :global(:root) {
