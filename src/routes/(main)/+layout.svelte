@@ -1,8 +1,11 @@
 <script>
-    import Navigation from "$lib/components/pages/Navigation.svelte";
+    import PopupOverlay from "$lib/components/popup/PopupOverlay.svelte";
+
     /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
 </script>
+
+<PopupOverlay/>
 
 <header class="layout-section">
     <h1>SMACK MAGIC</h1>
