@@ -6,8 +6,8 @@
 
 <section>
     <h1>Frequently Asked Questions</h1>
-    {#each faq as { question, answer }}
-        <FaqEntry {question} {answer}/>
+    {#each faq as { question, answer, askedBy, askedWhen }}
+        <FaqEntry {question} {answer} {askedBy} {askedWhen}/>
     {/each}
     <br/>
     <FaqWarning/>
