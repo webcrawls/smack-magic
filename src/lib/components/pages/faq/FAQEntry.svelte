@@ -1,5 +1,5 @@
 <script>
-    let { question, answer, askedBy, askedWhen } = $props()
+    let { question, answer, askedBy, askedWhen } = $props();
 </script>
 
 <article>
@@ -12,9 +12,15 @@
         <h1>{question}</h1>
     </header>
     <p class="content">{@html answer}</p>
-    <p class="asker">asked by <span class="askedBy">{@html askedBy}</span>, <span class="askedWhen">{askedWhen}</span></p>    
+    {#if askedBy}
+        <p class="asker">
+            asked by <span class="askedBy">{@html askedBy}</span>
+            {#if askedWhen}
+                , <span class="askedWhen">{askedWhen}</span>
+            {/if}
+        </p>
+    {/if}
 </article>
-
 
 <style>
     article {
