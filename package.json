@@ -1,6 +1,6 @@
 {
-	"name": "site-project",
-	"version": "0.0.1",
+	"name": "smack-magic-web",
+	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",

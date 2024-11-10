@@ -1,5 +1,9 @@
+<script>
+    import logo from './logo-test.png'
+</script>
+
 <header>
-    <h1>SMACK MAGIC</h1>
+    <img src={logo} alt="the Smack Magic! logo"/>
 </header>
 
 <style>
@@ -21,5 +25,15 @@
             var(--theme-primary-3),
             var(--theme-primary-1)
         );
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    header img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
 </style>
