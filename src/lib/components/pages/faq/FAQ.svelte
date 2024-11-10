@@ -10,20 +10,21 @@
 {/snippet}
 
 <PageWrapper {title}>
+    <div class="wrapper">
     {#each faq as { question, answer, askedBy, askedWhen }}
         <FaqEntry {question} {answer} {askedBy} {askedWhen}/>
     {/each}
-    <br/>
+    </div>
     <FaqWarning/>
 </PageWrapper>
 
 <style>
-    section {
+    .wrapper {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-items: center;
         gap: 4rem;
-        max-width: 50ch;
         margin-inline: auto;
+        width: 100%;
     }
 </style>

@@ -26,6 +26,9 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
+        width: 100%;
+        max-width: 60ch;
     }
 
     h1 {
