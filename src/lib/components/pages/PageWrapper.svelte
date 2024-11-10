@@ -1,18 +1,17 @@
 <script>
     let { title, children } = $props()
-
     $effect(() => console.log({title, children}))
 </script>
 
 <main>
     {#if typeof title === "function"}
-       {@render title()}
+       {@render title?.()}
     {:else}
         <h1>{title}</h1>
     {/if}
 
     {#if children}
-        {@render children()}
+        {@render children?.()}
     {/if}
 </main>
 

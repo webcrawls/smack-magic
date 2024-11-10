@@ -1,17 +1,16 @@
 <script>
     import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
-    import HeadlineHero from "$lib/components/headline/HeadlineStatic.svelte";
+    import HeadlineStatic from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
     import PopupOverlay from "$lib/components/popup/PopupOverlay.svelte";
 
-    /** @type {{children?: import('svelte').Snippet}} */
     let { children } = $props();
 </script>
 
 
 <Header/>
-<!-- <HeadlineHero/> -->
+<HeadlineStatic/>
 <Navigation/>
 
 {@render children?.()}
