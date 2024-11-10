@@ -14,14 +14,12 @@
         color: black;
         display: flex;
         flex-direction: column;
-        /* TODO make this responsive... also.. kinda scuffed... */
-        padding-inline: 30rem;
         padding-block: 2rem;
         margin-inline: auto;
+        padding-inline: 5rem;
     }
     
     .author {
-
         align-self: end;
         font-style: italic;
         font-size: 3rem;
@@ -29,7 +27,6 @@
 
     .headline {
         align-self: start;
-        max-width: 40ch;
         width: 100%;
         /* TODO make this responsive */
         font-size: 4rem;
