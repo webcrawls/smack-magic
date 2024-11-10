@@ -12,22 +12,26 @@
     } = $props();
 </script>
 
-<section class="container no-border">
+<section class="container theme-none">
     <BlogMessage {title} {author} {date} {content} {comment} responses={children}/>
 
-    {#each children as { title, author, date, content, responses }}
-        <svelte:self
-            {title}
-            {author}
-            {date}
-            {content}
-            {responses}
-            comment={true}
-        />
-    {/each}
+    <ul class="post-replies">
+        {#each children as { title, author, date, content, responses }}
+            <svelte:self
+                {title}
+                {author}
+                {date}
+                {content}
+                {responses}
+                comment={true}
+            />
+        {/each}
+    </ul>
 </section>
 
 <style>
-    section {
+    .post-replies {
+        list-style-type: none;
+        margin-left: 2rem;
     }
 </style>

@@ -9,6 +9,13 @@
     }
 }
 
+.container.theme-none {
+    border: none;
+    padding: 0;
+    color: inherit;
+    background: none;
+}
+
 .container.no-border, .container.borderless {
     border: none;
 }

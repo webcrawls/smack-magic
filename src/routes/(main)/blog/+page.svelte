@@ -1,9 +1,21 @@
 <script>
-    import BlogList from "$lib/components/pages/blog/BlogList.svelte";
     import PageWrapper from "$lib/components/pages/PageWrapper.svelte";
+    import BlogPost from "$lib/components/pages/blog/BlogPost.svelte";
+    import blog from "$lib/copy/blog";
 </script>
 
-<PageWrapper>
-    <h1 slot="title">The <i>"MAGIC"</i> Blog</h1>
-    <BlogList/>
+<PageWrapper title="The 'MAGIC' Blog">
+    <div class="wrapper">
+        {#each blog as { title, author, date, content, responses }}
+             <BlogPost {title} {author} {date} {content} {responses} />
+        {/each}
+    </div>
 </PageWrapper>
+
+<style>
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+</style>

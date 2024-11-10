@@ -11,7 +11,9 @@
     {/if}
 
     {#if children}
-        {@render children?.()}
+        <div class="container theme-none">
+            {@render children?.()}
+        </div>
     {/if}
 </main>
 
@@ -23,11 +25,11 @@
 
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 1rem;
+    }
+
+    .container {
+        width: 100%;
         height: 100%;
-        position: relative;
-        flex: 1 1;
     }
 
     :global(main > h1) {
