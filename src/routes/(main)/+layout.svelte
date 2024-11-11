@@ -20,6 +20,16 @@
 <PopupOverlay/>
 
 <style>
+    @font-face {
+        src: url("/font/kimberley bl.otf");
+        font-family: "Kimberley";
+    }
+
+    @font-face {
+        src: url("/font/Super Squad.otf");
+        font-family: "Super Squad";
+    }
+
     :global(:root) {
         --theme-bg-1: #020b46;
         --theme-bg-2: #324bee;

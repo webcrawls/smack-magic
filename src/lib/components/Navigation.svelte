@@ -22,7 +22,7 @@
     }
 
     ul {
-        list-style-type: none;
+        list-style-type: none;     
 
         width: 100%;
         max-width: var(--width-main);
@@ -31,12 +31,14 @@
         display: flex;
         justify-content: center;
         gap: 3rem;
-        padding-block: 0.5rem;
+        padding-block: 1rem;
     }
 
     a { 
         color: inherit;
         font-size: 2rem;
+        font-family: sans-serif;
+        text-decoration: none;
     }
 
     a:hover::before {

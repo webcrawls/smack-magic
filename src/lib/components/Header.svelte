@@ -21,6 +21,8 @@
             var(--theme-primary-1) 80%
         );
         padding-block: 2rem;
+
+        overflow: hidden;
     }
 
     header img {

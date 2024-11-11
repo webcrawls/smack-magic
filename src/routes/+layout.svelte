@@ -17,6 +17,5 @@
 
 	:global(html, body) {
 		min-height: 100%;
-		overflow: hidden;
 	}
 </style>
