@@ -13,15 +13,17 @@
         <div class="header-bg" aria-hidden="true"></div>
     </header>
 
-    {#if children}
-        {@render children?.()}
-    {/if}
+    <div class="children">
+        {#if children}
+            {@render children?.()}
+        {/if}
+    </div>
 </main>
 
 <style>
     main {
         margin-top: 4rem;
-        
+        margin-inline: 2rem;
         height: 100%;
         width: 100%;
         max-width: var(--width-main);
@@ -30,10 +32,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
         flex: 1 1;
 
         background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .children {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1 1;
+        margin-inline: 2rem;
     }
 
     .container {
