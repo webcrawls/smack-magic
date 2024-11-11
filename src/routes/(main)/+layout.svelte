@@ -45,6 +45,11 @@
         font-family: "7 Segments";
     }
 
+    @font-face {
+        src: url("/font/Windows Regular.ttf");
+        font-family: "Windows Regular";
+    }
+
     :global(:root) {
         --theme-bg-1: #020b46;
         --theme-bg-2: #324bee;

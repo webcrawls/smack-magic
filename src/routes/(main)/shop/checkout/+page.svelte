@@ -20,7 +20,7 @@
     {:else}
         <article class="container light">
             <h1>Error</h1>
-            <p>/* Todo */</p>
+            <p>Unfortunately, we could not serve this request due to a high demand for our resources. Please try again later.</p>
             <a href='/'>Back</a>
         </article>
     {/if}

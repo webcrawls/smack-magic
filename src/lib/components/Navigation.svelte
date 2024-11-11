@@ -53,7 +53,6 @@
     a { 
         color: inherit;
         font-size: 2rem;
-        font-family: sans-serif;
         text-decoration: none;
     }
 
