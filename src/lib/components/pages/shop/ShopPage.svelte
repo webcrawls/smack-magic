@@ -3,19 +3,19 @@
     import ShopItemCard from "./ShopItemCard.svelte";
     import ShopNavigation from "./ShopNavigation.svelte";
 
-    const perPage = 9
+    const perPage = 9;
 
-    let page = $state(0)
+    let page = $state(0);
 
-    let itemStart = $derived(page * perPage)
-    let itemEnd = $derived((page + 1) * perPage)
+    let itemStart = $derived(page * perPage);
+    let itemEnd = $derived((page + 1) * perPage);
 </script>
 
-<ShopNavigation/>
+<ShopNavigation />
 <ul>
     {#each shop.categories[0].items as item}
         <li>
-            <ShopItemCard {item}/>
+            <ShopItemCard {item} />
         </li>
     {/each}
 </ul>
@@ -47,5 +47,17 @@
     p {
         color: white;
         opacity: 0.9;
+    }
+
+    @media screen and (max-width: 768px) {
+        ul {
+            flex-direction: column;
+        }
+        
+        li {
+            flex: 1 1;
+            width: 100%;
+            height: 100%;
+        }
     }
 </style>
