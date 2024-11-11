@@ -26,7 +26,6 @@
         aspect-ratio:  1 / 1;
         background-color: black;
         color: white;
-        transition: border 0.2s;
     }
 
     article:hover {

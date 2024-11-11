@@ -23,10 +23,13 @@
     ul {
         display: flex;
         flex-direction: row;
+        justify-content: center;
+        
         list-style-type: none;
         flex-wrap: wrap;
+        margin: 2rem;
 
-        gap: 3rem;
+        gap: 2rem;
         padding-top: 0;
         padding-inline: 3rem;
 

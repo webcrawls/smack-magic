@@ -46,8 +46,4 @@
         pointer-events: all;
         background-color: rgb(0,0,0,0.5);
     }
-
-    .popup-wrapper {
-
-    }
 </style>

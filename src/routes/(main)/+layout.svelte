@@ -4,8 +4,12 @@
     import HeadlineStatic from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
     import PopupOverlay from "$lib/components/popup/PopupOverlay.svelte";
+    import { current } from "$lib/components/popup/popups.svelte";
+    import PopupWrapper from "$lib/components/popup/PopupWrapper.svelte";
 
     let { children } = $props();
+
+    $effect(() => console.log(current.popups))
 </script>
 
 
@@ -16,6 +20,12 @@
 {@render children?.()}
 
 <Footer/>
+
+{#each current.popups as popup}
+    <PopupWrapper>
+        <svelte:component this={popup.element}/>
+    </PopupWrapper>
+{/each}
 
 <PopupOverlay/>
 
@@ -28,6 +38,11 @@
     @font-face {
         src: url("/font/Super Squad.otf");
         font-family: "Super Squad";
+    }
+
+    @font-face {
+        src: url("/font/7-segments-display.otf");
+        font-family: "7 Segments";
     }
 
     :global(:root) {
