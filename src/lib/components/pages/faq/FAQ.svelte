@@ -26,5 +26,6 @@
         margin-inline: auto;
         width: 100%;
         gap: 2rem;
+        margin-top: 2rem;
     }
 </style>

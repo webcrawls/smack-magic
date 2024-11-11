@@ -18,10 +18,11 @@
 
 <style>
     .testimonial-wrapper {
+        margin-top: 2rem;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1rem;
+        gap: 2rem;
     }
 </style>

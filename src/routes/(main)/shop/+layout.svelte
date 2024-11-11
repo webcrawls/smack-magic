@@ -5,7 +5,6 @@
 </script>
 
 <PageWrapper title="BUY BUY BUY!!!">
-    <ShopNavigation/>
     <slot/>
 </PageWrapper>
 

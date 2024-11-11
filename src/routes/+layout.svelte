@@ -8,7 +8,7 @@
 <style>
 	:global(*) {
 	    box-sizing: border-box;
-	    font-family: monospace;
+	    font-family: sans-serif;
 	    image-rendering: pixelated;
 	    margin: 0;
 		padding: 0;

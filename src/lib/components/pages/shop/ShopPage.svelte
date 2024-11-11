@@ -1,6 +1,7 @@
 <script>
     import shop from "$lib/copy/shop";
     import ShopItemCard from "./ShopItemCard.svelte";
+    import ShopNavigation from "./ShopNavigation.svelte";
 
     const perPage = 9
 
@@ -10,6 +11,7 @@
     let itemEnd = $derived((page + 1) * perPage)
 </script>
 
+<ShopNavigation/>
 <ul>
     {#each shop.categories[0].items as item}
         <li>
@@ -24,7 +26,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        
+
         list-style-type: none;
         flex-wrap: wrap;
         margin: 2rem;

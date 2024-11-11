@@ -1,6 +1,9 @@
 <script>
-    import { crossfade } from "svelte/transition";
     import { cart } from "./shop.svelte";
+    import Currency from "./Currency.svelte";
+    import { goto } from "$app/navigation";
+
+    const checkout = () => goto('/shop/checkout')
 </script>
 
 <section>
@@ -12,15 +15,18 @@
             <ul class="items">
                 {#each cart.items as item}
                     <li>
-                        <p><a href="#">{item.name}</a> - <b>${item.price}</b></p>
+                        <p><a href="#">{item.name}</a> - <b><Currency value={item.price}/></b></p>
                     </li>
                 {/each}
             </ul>
         {/if}
     </main>
     <footer>
-        <h1>Subtotal</h1>
-        <p>${cart.subtotal}</p>
+        <div class="subtotal">
+            <h1>Subtotal</h1>
+            <p><Currency value={cart.subtotal}/></p>    
+        </div>
+        <button onclick={checkout}>Checkout</button>
     </footer>
 </section>
 
@@ -29,6 +35,7 @@
         max-width: 480px;
         width: 100%;
         height: 240px;
+        
         background-color: black;
         color: white;
         border: white 3px solid;
@@ -38,7 +45,8 @@
     }
 
     main {
-        flex: 1 1;
+        width: 100%;
+        height: 100%;
     }
 
     .items {
@@ -48,12 +56,16 @@
         padding: 0.5rem;
         gap: 0.1rem;
 
+        height: 100%;
+        overflow: scroll;
+
         & a {
             color: inherit;
         }
     }
 
     .empty {
+        padding: 1rem;
         width: 100%;
         height: 100%;
         display: flex;
@@ -71,10 +83,25 @@
 
     footer {
         border-top: 2px solid white;
+        padding-inline: 0.35rem;
+        padding-block: 0.2rem;
+        
         display: flex;
         flex-direction: row;
-        align-items: center;
+        justify-content: space-between;
+
         gap: 1rem;
         padding-inline: rem;
+    
+        & .subtotal {
+            
+        }
+
+        & button {
+            border: 3px groove gray;
+            background-color: gray;
+            padding-block: 0.2rem;
+            padding-inline: 0.7rem;
+        }
     }
 </style>

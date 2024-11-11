@@ -20,6 +20,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        margin-bottom: 0.65rem;
     }
 
     article .date {

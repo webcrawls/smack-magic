@@ -10,7 +10,7 @@ export const cart = (() => {
             for (const item of items) {
                 val += item.price
             }
-            return val
+            return val.toFixed(2)
         },
         add: (item) => {
             items = [...items, item]

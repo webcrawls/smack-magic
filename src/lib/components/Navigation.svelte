@@ -1,10 +1,22 @@
+<script>
+    import { page } from '$app/stores';
+</script>
+
+{#snippet link(path, text)}
+    {#if $page.url.pathname === path}
+        <a href="{path}" style="font-weight: bold;">{text}</a>
+    {:else}
+        <a href="{path}">{text}</a>
+    {/if}
+{/snippet}
+
 <nav>
     <ul>
-        <li><a href="/">HOME</a></li>
-        <li><a href="/faq">FAQ</a></li>
-        <li><a href="/testimonials">TESTIMONIALS</a></li>
-        <li><a href="/blog">THE <i>"MAGIC"</i> BLOG</a></li>
-        <li><a href="/shop">SHOP</a></li>
+        <li>{@render link("/", "HOME")}</li>
+        <li>{@render link("/faq", "FAQ")}</li>
+        <li>{@render link("/testimonials", "TESTIMONIALS")}</li>
+        <li>{@render link("/blog", "THE MAGIC BLOG")}</li>
+        <li>{@render link("/shop", "SHOP")}</li>
     </ul>
 </nav>
 
@@ -43,10 +55,6 @@
         font-size: 2rem;
         font-family: sans-serif;
         text-decoration: none;
-    }
-
-    a:hover::before {
-        content: '>>';
     }
 
     a:hover {

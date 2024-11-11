@@ -16,6 +16,7 @@
     .wrapper {
         display: flex;
         flex-direction: column;
-        gap: 4rem;
+        gap: 2rem;
+        margin-top: 2rem;
     }
 </style>

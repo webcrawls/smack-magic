@@ -51,6 +51,7 @@
         right: 32px;
         top: 32px;
         transition: opacity 0.25s;
+        z-index: 999;
     }
 
     .dropdown-wrapper.show {
