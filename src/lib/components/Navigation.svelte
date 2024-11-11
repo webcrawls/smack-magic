@@ -29,9 +29,12 @@
         margin-inline: auto;
 
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
-        gap: 3rem;
+        column-gap: 3rem;
+        row-gap: 1rem;
         padding-block: 1rem;
+        padding-inline: 1rem;
     }
 
     a { 

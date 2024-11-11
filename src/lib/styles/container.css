@@ -16,6 +16,12 @@
     background: none;
 }
 
+.container.theme-light {
+    background-color: aliceblue;
+    border: 4px solid gray;    
+    color: black;
+}
+
 .container.no-border, .container.borderless {
     border: none;
 }

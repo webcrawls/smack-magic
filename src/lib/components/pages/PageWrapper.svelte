@@ -30,6 +30,8 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+
+        background-color: rgba(255, 255, 255, 0.1);
     }
 
     .container {
@@ -42,6 +44,7 @@
         --background-color: #ffe500;
         position: relative;
         padding-inline: 2rem;
+        width: 100%;
     }
 
     .header-bg {

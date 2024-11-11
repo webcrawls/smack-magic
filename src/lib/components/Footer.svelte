@@ -1,11 +1,11 @@
 <footer>
-    <p>Copyright © 2008 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
+    <p>Copyright ©2008 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
     <nav>
-        <a href="#">about us</a>
+        <a href="/about-us">about us</a>
         <p>|</p>
-        <a href="#">terms of service</a>
+        <a href="/terms-of-service">terms of service</a>
         <p>|</p>
-        <a href="#">privacy policy</a>
+        <a href="/privacy-policy">privacy policy</a>
     </nav>
 </footer>
 
@@ -15,7 +15,7 @@
         max-width: var(--width-main);
         margin-inline: auto;
         color: white;
-        min-height: 7rem;
+        padding: 1rem;
 
         display: flex;
         flex-direction: column;
@@ -23,6 +23,7 @@
         align-items: center;
 
         gap: 1rem;
+        background-color: rgba(255,255,255,0.1);
     }
 
     nav {

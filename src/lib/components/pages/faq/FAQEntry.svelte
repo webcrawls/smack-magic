@@ -1,8 +1,10 @@
 <script>
+    import '$lib/styles/container.css'
+
     let { question, answer, askedBy, askedWhen } = $props();
 </script>
 
-<article>
+<article class="container theme-light">
     <header>
         <h1>{question}</h1>
     </header>
@@ -19,8 +21,8 @@
 
 <style>
     article {
-        background-color: aliceblue;
-        border: 4px solid gray;
+        width: 100%;
+        max-width: var(--width-small);
         padding: 0.5rem;
 
         display: flex;

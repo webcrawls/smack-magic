@@ -8,6 +8,11 @@
 
 <style>
     p {
+        margin-block: 1rem;
+        color: white;
+        opacity: 0.9;
+        text-align: center;
+        margin-inline: auto;
         max-width: 70ch;
     }
 </style>

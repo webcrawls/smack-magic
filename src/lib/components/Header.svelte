@@ -6,7 +6,7 @@
 
 <header class:large={size === "large"}
         class:small={size === "small"}>
-    <a href="/">
+    <a href="/" aria-hidden="true">
         <img src={logo} alt="the Smack Magic! logo"/>
     </a>
 </header>
@@ -25,7 +25,7 @@
         overflow: hidden;
     }
 
-    header img {
+    img {
         width: 100%;
         height: 100%;
         max-height: 200px;
@@ -35,7 +35,7 @@
         transition: transform 0.25s;
     }
 
-    header img:hover {
+    img:hover {
         transform: scale(1.1);
     }
 </style>
