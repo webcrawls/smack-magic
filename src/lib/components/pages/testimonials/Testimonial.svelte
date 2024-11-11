@@ -15,17 +15,9 @@
 </article>
 
 <style>
-    article {
-        max-width: 80ch;
-        
-        display: flex;
-        flex-direction: column;
+    header {
         gap: 0.5rem;
-    }
-
-    article header {
         display: flex;
-        gap: 0.5rem;
         align-items: center;
         justify-content: space-between;
     }

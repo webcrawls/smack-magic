@@ -1,32 +1,24 @@
-.container {
-    --border-color: black;
-    --background: black;
-    --text-color: white; 
+.container.light {
+    --background: white;
+    --border-color: gray;    
+    --text-color: black;
+}
 
-    --border: var(var(--border-color) 4px solid;
+.container {
+    --background: black;
+    --border-color: black;
+    --text-color: white;
+    --border: var(--border-color) 4px solid;
+
+    width: 100%;
+    max-width: 70ch;
 
     border: var(--border);
     color: var(--text-color);
     background: var(--background);
 
     padding: 1rem;
-    color: white;
-    background-color: rgb(58, 146, 117);
 
-    & p {
-        max-width: 60ch;
-    }
-}
-
-.container.theme-none {
-    border: none;
-    padding: 0;
-    color: inherit;
-    background: none;
-}
-
-.container.theme-light, .container.light {
-    --background: aliceblue;
-    --border-color: gray;    
-    --text-color: black;
+    display: flex;
+    flex-direction: column;
 }

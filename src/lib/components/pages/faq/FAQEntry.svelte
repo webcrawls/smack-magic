@@ -1,11 +1,13 @@
 <script>
     import '$lib/styles/container.css'
+    import pin from './pin.gif'
 
     let { question, answer, askedBy, askedWhen } = $props();
 </script>
 
-<article class="container theme-light">
+<article class="container light">
     <header>
+        <img class="pin" src={pin} aria-hidden="true"/>
         <h1>{question}</h1>
     </header>
     <p class="content">{@html answer}</p>
@@ -20,17 +22,18 @@
 </article>
 
 <style>
-    article {
-        width: 100%;
-        max-width: var(--width-small);
-        padding: 0.5rem;
-
+    header {
+        padding-bottom: 0.5rem;
         display: flex;
-        flex-direction: column;
+        justify-content: flex-start;
         gap: 0.5rem;
+        align-items: center;
+    }
 
-        width: 100%;
-        max-width: 60ch;
+    .pin {
+        width: 32px;
+        height: 32px;
+        transform: scale(1.25);
     }
 
     h1 {
