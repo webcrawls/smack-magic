@@ -4,9 +4,9 @@
 
 {#snippet link(path, text)}
     {#if $page.url.pathname === path}
-        <a href="{path}" class="current">{text}</a>
+        <a href="{path}" class="current">{@html text}</a>
     {:else}
-        <a href="{path}">{text}</a>
+        <a href="{path}">{@html text}</a>
     {/if}
 {/snippet}
 
@@ -15,7 +15,7 @@
         <li>{@render link("/", "HOME")}</li>
         <li>{@render link("/faq", "FAQ")}</li>
         <li>{@render link("/testimonials", "TESTIMONIALS")}</li>
-        <li>{@render link("/blog", "THE MAGIC BLOG")}</li>
+        <li class="blog">{@render link("/blog", "<span>THE</span> <img src='/img/magic.gif'/> <span>SHOW</span>")}</li>
         <li class="shop">{@render link("/shop", "SHOP")}</li>
     </ul>
 </nav>
@@ -77,5 +77,11 @@
         background-color: #11429c;
         color: yellow;
         padding-inline: 2rem;
+    }
+
+    .blog > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>

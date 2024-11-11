@@ -7,7 +7,6 @@
         locale = "en_US",
         logo = "https://smack-magic.pages.dev/img/logo.jpeg"
     } = $props()
-
 </script>
 
 <meta property="og:url" content="{url}" />
