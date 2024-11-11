@@ -12,6 +12,7 @@
 </script>
 
 <ShopNavigation />
+
 <ul>
     {#each shop.categories[0].items as item}
         <li>
@@ -19,7 +20,8 @@
         </li>
     {/each}
 </ul>
-<p>Showing items {itemStart + 1} to {itemEnd + 1}...</p>
+
+<!-- <p>Showing items {itemStart + 1} to {itemEnd + 1}...</p> -->
 
 <style>
     ul {
@@ -53,7 +55,7 @@
         ul {
             flex-direction: column;
         }
-        
+
         li {
             flex: 1 1;
             width: 100%;
