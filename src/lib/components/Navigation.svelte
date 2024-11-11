@@ -16,7 +16,7 @@
         <li>{@render link("/faq", "FAQ")}</li>
         <li>{@render link("/testimonials", "TESTIMONIALS")}</li>
         <li>{@render link("/blog", "THE MAGIC BLOG")}</li>
-        <li>{@render link("/shop", "SHOP")}</li>
+        <li class="shop">{@render link("/shop", "SHOP")}</li>
     </ul>
 </nav>
 
@@ -58,5 +58,12 @@
 
     a:hover {
         font-weight: bolder;
+    }
+
+    .shop {
+        border: 3px inset purple;
+        background-color: purple;
+        color: yellow;
+        padding-inline: 2rem;
     }
 </style>
