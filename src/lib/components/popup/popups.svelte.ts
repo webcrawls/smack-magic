@@ -18,7 +18,7 @@ export const current = (() => {
         popups = [ ...popups, popup ]
     }
 
-    add(SalePopup)
+    setTimeout(() => add(SalePopup), 1000)
 
     return {
         get popups() {
