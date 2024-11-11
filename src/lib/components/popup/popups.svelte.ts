@@ -3,7 +3,20 @@ import SalePopup from "./sale/SalePopup.svelte"
 export const current = (() => {
     let popups = $state([])
 
-    const add = (element) => { popups = [...popups, { element, x: 100, y: 100 }] }
+    const remove = (element) => {
+        console.log({popups, element})
+        popups = popups.filter(popup => popup.element !== element)
+    }
+
+    const add = (element) => {
+        const popup = {
+            element,
+            destroy: remove.bind(this, element),
+            x: 100, y: 100
+        }
+
+        popups = [ ...popups, popup ]
+    }
 
     add(SalePopup)
 

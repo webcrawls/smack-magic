@@ -1,8 +1,20 @@
 <script>
-    let { x = 0, y = 0 } = $props()
+    let {
+        x = 0,
+        y = 0,
+        destroy = () => {},
+        dismissOnClick = true
+    } = $props()
+
+    const onclick = () => {
+        console.log({dismissOnClick, destroy})
+        if (dismissOnClick) {
+            destroy()
+        }
+    }
 </script>
 
-<div class="popup" style='--pos-x: {x}; --pos-y: {y};'>
+<div class="popup" style='--pos-x: {x}; --pos-y: {y};' {onclick}>
     <slot/>
 </div>
 

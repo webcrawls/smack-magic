@@ -22,7 +22,7 @@
 <Footer/>
 
 {#each current.popups as popup}
-    <PopupWrapper>
+    <PopupWrapper destroy={popup.destroy} element={popup.element}>
         <svelte:component this={popup.element}/>
     </PopupWrapper>
 {/each}
