@@ -4,9 +4,8 @@
     import shop from "$lib/copy/shop";
 </script>
 
-<ShopNavigation/>
-
 <PageWrapper title="BUY BUY BUY!!!">
+    <ShopNavigation/>
     <slot/>
 </PageWrapper>
 

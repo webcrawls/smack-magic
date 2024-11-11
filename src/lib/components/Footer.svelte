@@ -1,5 +1,5 @@
 <footer>
-    <p>Copyright ©2008 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
+    <p>Copyright ©2009 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
     <nav>
         <a href="/about-us">about us</a>
         <p>|</p>

@@ -10,15 +10,14 @@
     let itemEnd = $derived((page + 1) * perPage)
 </script>
 
-<p>Showing items {itemStart + 1} to {itemEnd + 1}...</p>
-
 <ul>
-    {#each shop.categories[0].items as {name, price}}
+    {#each shop.categories[0].items as item}
         <li>
-            <ShopItemCard {name} {price}/>
+            <ShopItemCard {item}/>
         </li>
     {/each}
 </ul>
+<p>Showing items {itemStart + 1} to {itemEnd + 1}...</p>
 
 <style>
     ul {
@@ -29,7 +28,7 @@
 
         gap: 3rem;
         padding-top: 0;
-        padding: 3rem;
+        padding-inline: 3rem;
 
         width: 100%;
         height: 100%;
@@ -38,5 +37,10 @@
     li {
         flex: 0 0 30%;
         list-style-type: none;
+    }
+
+    p {
+        color: white;
+        opacity: 0.9;
     }
 </style>

@@ -1,20 +1,29 @@
 <script>
+    import { cart } from "./shop.svelte";
     import DropdownCart from "./ShopCartPopup.svelte";
 
-    let cart = null
+    let cartElement = undefined
     let showCart = $state(false)
 
     const handleWindowClick = (e) => {
-        if (cart.contains(e.target)) return
+        if (cartElement.contains(e.target)) return
+        
         showCart = false
+    }
+
+    const toggleCart = (e) => {
+        if (cartElement.contains(e.target)) return
+
+        e.preventDefault()
+        setTimeout(() => showCart = !showCart)
     }
 </script>
 
 <svelte:window onclick={handleWindowClick}/>
 
 <nav class="shop-nav">
-    <a href="#" onclick={() => setTimeout(() => showCart = true, 100)}>0 items in cart</a>
-    <div class="dropdown-wrapper" bind:this={cart} class:show={showCart}>
+    <a href="#" onclick={toggleCart}>Cart: ${cart.subtotal}</a>
+    <div class="dropdown-wrapper" bind:this={cartElement} class:show={showCart}>
         <DropdownCart/>
     </div>
 </nav>
@@ -48,4 +57,6 @@
         opacity: 1;
         visibility: visible;
     }
+
+    a { color: inherit; }
 </style>

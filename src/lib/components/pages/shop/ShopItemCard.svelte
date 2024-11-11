@@ -1,9 +1,16 @@
 <script>
     import "$lib/styles/container.css"
+    import { cart } from "./shop.svelte";
 
-    let { name, price } = $props()
+    let { item } = $props()
+    let { name, price } = item
+
+    const add = () => {
+        cart.add(item)
+    }
 </script>
 
+<a href="#" onclick={add}>
 <article class="container light">
     <h1>{name}</h1>
     <img/>
@@ -11,11 +18,18 @@
         <p>{price}</p>
     </footer>
 </article>
+</a>
 
 <style>
     article {
         width: 100%;
         aspect-ratio:  1 / 1;
         background-color: black;
+        color: white;
+        transition: border 0.2s;
+    }
+
+    article:hover {
+        --border-color: white;
     }
 </style>
