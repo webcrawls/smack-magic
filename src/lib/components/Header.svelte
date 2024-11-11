@@ -1,5 +1,5 @@
 <script lang="ts">
-    import logo from './logo-trimmed.png'
+    import logo from './logo-outline.png'
 
     let size: "large" | "small" = $state("small")
 </script>
