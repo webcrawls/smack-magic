@@ -22,6 +22,9 @@
 
 <style>
     main {
+        margin-top: 4rem;
+        
+        height: 100%;
         width: 100%;
         max-width: var(--width-main);
         margin-inline: auto;
@@ -30,6 +33,8 @@
         flex-direction: column;
         align-items: center;
         gap: 2rem;
+
+        flex: 1 1;
 
         background-color: rgba(255, 255, 255, 0.1);
     }

@@ -4,6 +4,7 @@
         <li><a href="/faq">FAQ</a></li>
         <li><a href="/testimonials">TESTIMONIALS</a></li>
         <li><a href="/blog">THE <i>"MAGIC"</i> BLOG</a></li>
+        <li><a href="/shop">SHOP</a></li>
     </ul>
 </nav>
 

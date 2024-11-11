@@ -11,7 +11,7 @@
 
 <Header/>
 <Navigation/>
-<HeadlineStatic/>
+<!-- <HeadlineStatic/> -->
 
 {@render children?.()}
 
