@@ -50,6 +50,5 @@
         display: flex;
         flex-direction: column;
         margin-inline: auto;
-        gap: 2rem;
     }
 </style>

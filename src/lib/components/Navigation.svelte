@@ -1,16 +1,17 @@
-<nav class="layout-section flat dark">
-    <a href="/">HOME</a>
-    <a href="/faq">FAQ</a>
-    <a href="/testimonials">TESTIMONIALS</a>
-    <a href="/blog">THE <i>"MAGIC"</i> BLOG</a>
+<nav>
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/testimonials">TESTIMONIALS</a></li>
+        <li><a href="/blog">THE <i>"MAGIC"</i> BLOG</a></li>
+    </ul>
 </nav>
 
 <style>
-    .layout-section {
+    nav {
         width: 100%;
-        max-width: var(--width-main);
-
         border: 6px ridge var(--theme-primary-2);
+        border-inline: none; /* maybe? */
 
         background-color: var(--theme-primary-1);
         background: linear-gradient(
@@ -18,13 +19,24 @@
             var(--theme-primary-3),
             var(--theme-primary-1)
         );
+    }
+
+    ul {
+        list-style-type: none;
+
+        width: 100%;
+        max-width: var(--width-main);
         margin-inline: auto;
-        padding: 1rem;
+
+        display: flex;
+        justify-content: center;
+        gap: 3rem;
+        padding-block: 0.5rem;
     }
 
     a { 
         color: inherit;
-        font-size: 1.25rem;
+        font-size: 2rem;
     }
 
     a:hover::before {

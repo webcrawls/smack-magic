@@ -9,6 +9,8 @@
 
 <style>
     aside {
+        margin-block: 4rem;
+
         width: 100%;
         background-color: rgb(194, 194, 194);
         color: black;
