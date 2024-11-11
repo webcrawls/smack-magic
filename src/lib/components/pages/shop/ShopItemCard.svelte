@@ -4,7 +4,7 @@
     import { cart } from "./shop.svelte";
 
     let { item } = $props();
-    let { name, price } = item;
+    let { name, price, previousPrice } = item;
 
     const add = () => {
         cart.add(item);
@@ -14,9 +14,19 @@
 <article class="container light" onclick={add}>
     <header>
         <h1>{name}</h1>
-        <Currency value={price} />
+        <div class="price-section">
+            <span class="old">
+                {#if !!previousPrice}
+                    <p>Previously&nbsp;</p>
+                    <Currency value={previousPrice} />
+                {/if}
+            </span>
+            <span class="new">
+                <Currency value={price} />
+            </span>
+        </div>
     </header>
-    <img alt="{name} image"/>
+    <img alt="{name} image" />
 </article>
 
 <style>
@@ -38,7 +48,7 @@
 
     header {
         padding: 0.5rem;
-        background-color: rgba(0,0,0,0.55);
+        background-color: rgba(0, 0, 0, 0.55);
         font-size: 1rem;
         position: absolute;
         bottom: 0;
@@ -49,5 +59,19 @@
         --border-color: white;
     }
 
+    .price-section {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
 
+    .price-section .old {
+        color: var(--theme-primary-2);
+        display: flex;
+        /* text-decoration: line-through; */
+    }
+
+    .price-section .new {
+        font-size: 2rem;
+    }
 </style>
