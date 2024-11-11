@@ -30,8 +30,9 @@
 
 <Spinner>
     <div class="content">
-        <h1>ON SALE NOW!</h1>
+        <h4>SALE ENDS SOON!</h4>
         <SevenSegment value={formatDuration({ seconds: timeRemaining })}/>
+        <h1>BUY NOW!</h1>
     </div>
 </Spinner>
 
@@ -43,5 +44,6 @@
         align-items: center;
         width: 100%;
         height: 100%;
+        transform: scale(0.9);
     }
 </style>
