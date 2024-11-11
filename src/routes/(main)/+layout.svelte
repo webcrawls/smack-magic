@@ -10,8 +10,8 @@
 
 
 <Header/>
-<HeadlineStatic/>
 <Navigation/>
+<HeadlineStatic/>
 
 {@render children?.()}
 

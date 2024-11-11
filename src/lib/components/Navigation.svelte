@@ -22,16 +22,16 @@
         padding: 1rem;
     }
 
-    .layout-section.flat {
-        border: none;
-    }
-
-    .layout-section.dark {
-        color: white;
-        background: #000000;
-    }
-
-    nav a {
+    a { 
         color: inherit;
+        font-size: 1.25rem;
+    }
+
+    a:hover::before {
+        content: '>>';
+    }
+
+    a:hover {
+        font-weight: bolder;
     }
 </style>
