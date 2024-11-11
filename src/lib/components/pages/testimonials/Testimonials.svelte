@@ -9,17 +9,19 @@
 {/snippet}
 
 <PageWrapper {title}>
-    {#each testimonials as {name, date, content, rating}} 
-        <Testimonial {name} {date} {content} {rating}/>
-    {/each}
+    <div class="testimonial-wrapper">
+        {#each testimonials as {name, date, content, rating}} 
+            <Testimonial {name} {date} {content} {rating}/>
+        {/each}  
+    </div>
 </PageWrapper>
 
 <style>
-    section {
+    .testimonial-wrapper {
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 4rem;
+        gap: 1rem;
     }
 </style>

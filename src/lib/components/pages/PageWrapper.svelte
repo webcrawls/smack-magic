@@ -14,9 +14,7 @@
     </header>
 
     {#if children}
-        <div class="container theme-none">
-            {@render children?.()}
-        </div>
+        {@render children?.()}
     {/if}
 </main>
 

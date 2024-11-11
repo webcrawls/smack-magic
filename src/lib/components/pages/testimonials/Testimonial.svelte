@@ -1,10 +1,11 @@
 <script lang="ts">
     import Rating from "$lib/components/rating/Rating.svelte";
+    import "$lib/styles/container.css";
 
     let { name, date, content, rating = 5.0 } = $props()
 </script>
 
-<article>
+<article class="container light">
     <header>
         <h1>{name}</h1>
         <Rating {rating}/>
@@ -15,9 +16,6 @@
 
 <style>
     article {
-        background-color: rgb(123, 157, 187);
-        border: 4px solid rgb(132, 132, 212);
-        padding: 0.5rem;
         max-width: 80ch;
         
         display: flex;
@@ -29,6 +27,7 @@
         display: flex;
         gap: 0.5rem;
         align-items: center;
+        justify-content: space-between;
     }
 
     article .date {
