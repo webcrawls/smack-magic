@@ -4,11 +4,14 @@
 </script>
 
 <main>
-    {#if typeof title === "function"}
-       {@render title?.()}
-    {:else}
-        <h1>{title}</h1>
-    {/if}
+    <header>
+        {#if typeof title === "function"}
+           {@render title?.()}
+        {:else}
+            <h1>{title}</h1>
+        {/if}
+        <div class="header-bg" aria-hidden="true"></div>
+    </header>
 
     {#if children}
         <div class="container theme-none">
@@ -25,6 +28,8 @@
 
         display: flex;
         flex-direction: column;
+        align-items: center;
+        gap: 2rem;
     }
 
     .container {
@@ -32,7 +37,17 @@
         height: 100%;
     }
 
-    :global(main > h1) {
-        color: white;
+    main > header {
+        color: var(--theme-primary-2);
+        --background-color: #ffe500;
+        position: relative;
+        padding-inline: 2rem;
+    }
+
+    .header-bg {
+        position: absolute;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: linear-gradient(to top, var(--background-color), var(--theme-primary-1));
+        z-index: -1;
     }
 </style>
