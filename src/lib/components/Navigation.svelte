@@ -61,8 +61,8 @@
     }
 
     .shop {
-        border: 3px inset purple;
-        background-color: purple;
+        border: 3px inset #11429c;
+        background-color: #11429c;
         color: yellow;
         padding-inline: 2rem;
     }
