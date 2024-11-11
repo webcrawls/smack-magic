@@ -1,18 +1,25 @@
 <script>
-    import { goto } from '$app/navigation';
-    import pow from './pow.svg'
+    import { goto } from "$app/navigation";
+    import SpinnerImage from "./SpinnerImage.svelte";
 
-    let { spinning = true, linked = true, link = "/shop" } = $props()
+    let { spinning = true, linked = true, link = "/shop" } = $props();
 
     const onclick = () => {
-        if (linked) goto(link)
-    }
+        if (linked) goto(link);
+    };
 </script>
 
 <div class="spinner" class:spinning class:linked {onclick}>
-    <img class="spinner-bg" src={pow}/>
-    <div class="content">
-        <slot/>
+    <div class="background offset">
+        <SpinnerImage fill="#000000" opacity="0.5" />
+    </div>
+    <div class="background">
+        <SpinnerImage fill="#ffe502" />
+    </div>
+    <div class="content-wrapper">
+        <div class="content">
+            <slot />
+        </div>
     </div>
 </div>
 
@@ -23,30 +30,38 @@
         position: relative;
     }
 
-    .spinner.linked, .spinner.linked > * {
-        cursor: pointer;
+    .background {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+
+    .content-wrapper {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
     }
 
     .content {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 2;
-        padding: 1rem;
+        transform: translate(-7.5%, 50%) scale(0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
-    .spinner-bg {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 0;
+    .offset {
+        top: 15px;
+        left: 15px;
     }
 
-    .spinning > .spinner-bg {
+    :global(.spinning > .background svg) {
         animation: spin 10s linear infinite;
     }
 
@@ -55,4 +70,10 @@
             transform: rotate(360deg);
         }
     }
+
+    .spinner.linked,
+    .spinner.linked > * {
+        cursor: pointer;
+    }
+
 </style>

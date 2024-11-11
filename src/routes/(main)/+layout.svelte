@@ -27,7 +27,6 @@
     </PopupWrapper>
 {/each}
 
-<PopupOverlay/>
 
 <style>
     @font-face {
