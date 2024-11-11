@@ -4,7 +4,7 @@
 
 {#snippet link(path, text)}
     {#if $page.url.pathname === path}
-        <a href="{path}" style="font-weight: bold;">{text}</a>
+        <a href="{path}" class="current">{text}</a>
     {:else}
         <a href="{path}">{text}</a>
     {/if}
@@ -57,10 +57,22 @@
     }
 
     a:hover {
-        font-weight: bolder;
+        font-style: italic;
     }
 
-    .shop {
+    .current {
+        font-style: italic;
+        font-weight: bold;
+    }
+
+    .shop > a {
+        border: 3px outset #11429c;
+        background-color: #11429c;
+        color: yellow;
+        padding-inline: 2rem;
+    }
+
+    .shop > a.current {
         border: 3px inset #11429c;
         background-color: #11429c;
         color: yellow;
