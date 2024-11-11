@@ -1,7 +1,12 @@
 <script>
 	/** @type {{children?: import('svelte').Snippet}} */
 	let { children } = $props();
+	import Metadata from '$lib/components/Metadata.svelte';
 </script>
+
+<svelte:head>
+	<Metadata/>
+</svelte:head>
 
 {@render children?.()}
 
