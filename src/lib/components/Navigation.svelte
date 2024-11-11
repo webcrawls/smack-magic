@@ -15,7 +15,7 @@
         <li>{@render link("/", "HOME")}</li>
         <li>{@render link("/faq", "FAQ")}</li>
         <li>{@render link("/testimonials", "TESTIMONIALS")}</li>
-        <li class="blog">{@render link("/blog", "<span>THE</span> <img src='/img/magic.gif'/> <span>SHOW</span>")}</li>
+        <li class="blog">{@render link("/blog", "<span>THE</span> <img src='/img/magic.gif'/> <span>BLOG</span>")}</li>
         <li class="shop">{@render link("/shop", "SHOP")}</li>
     </ul>
 </nav>
@@ -83,5 +83,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+
+    :global(.blog img) {
+        margin-inline: 1rem;
     }
 </style>

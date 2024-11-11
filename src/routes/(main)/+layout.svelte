@@ -21,14 +21,23 @@
 
 <Footer/>
 
-{#each current.popups as popup}
-    <PopupWrapper destroy={popup.destroy} element={popup.element}>
-        <svelte:component this={popup.element}/>
-    </PopupWrapper>
-{/each}
+<div class="popup-container">    
+    {#each current.popups as {element, destroy}}
+        <PopupWrapper {destroy} {element}/>
+    {/each}
+</div>
 
 
 <style>
+    .popup-container {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        pointer-events: none;
+    }
+
     @font-face {
         src: url("/font/kimberley bl.otf");
         font-family: "Kimberley";

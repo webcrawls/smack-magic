@@ -14,7 +14,7 @@
         <SpinnerImage fill="#000000" opacity="0.5" />
     </div>
     <div class="background">
-        <SpinnerImage fill="#ffe502" />
+        <SpinnerImage fill="#ffcb00" />
     </div>
     <div class="content-wrapper">
         <div class="content">
