@@ -14,6 +14,14 @@ export default {
         { 
             name: "Featured",
             items: [
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
+                { name: "Smack Magic Family Pack", price: 49.99 },
                 { name: "Smack Magic Family Pack", price: 49.99 }
             ]
         }

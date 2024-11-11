@@ -1,12 +1,5 @@
 <script>
-    import shop from "$lib/copy/shop";
+    import ShopPage from "$lib/components/pages/shop/ShopPage.svelte";
 </script>
 
-{#each shop as { name, items }}
-    <h2>{name}</h2>
-    <ul>
-        {#each items as item}
-            <li>{item}</li>
-        {/each}
-    </ul>
-{/each}
+<ShopPage/>
