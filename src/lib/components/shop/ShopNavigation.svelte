@@ -1,6 +1,6 @@
 <script>
     import { cart } from "./shop.svelte";
-    import DropdownCart from "./ShopCartPopup.svelte";
+    import DropdownCart from "./CartPopup.svelte";
 
     let cartElement = undefined
     let showCart = $state(false)
@@ -22,18 +22,13 @@
 <svelte:window onclick={handleWindowClick}/>
 
 <nav class="shop-nav">
-    <a href="#" onclick={toggleCart}>Cart: ${cart.subtotal}</a>
-    <div class="dropdown-wrapper" bind:this={cartElement} class:show={showCart}>
-        <DropdownCart/>
-    </div>
+
 </nav>
 
 <style>
     nav {
         width: 100%;
-        
-        background-color: black;
-        color: white;
+                color: white;
 
         display: flex;
         justify-content: end;

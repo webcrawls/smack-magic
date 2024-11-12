@@ -8,6 +8,7 @@
         destroy = () => {},
         dismissOnClick = true,
         fadeIn = "0.75s",
+        element = undefined
     } = $props()
 
     let loaded = $state(false)
@@ -27,14 +28,11 @@
     })
 </script>
 
-
-
-
 <div class="popup"
-    class:loaded
+     class:loaded
      style='--pos-x: {x}; --pos-y: {y}; {!!fadeIn ? `--fade-in: ${fadeIn}` : ''}'
      {onclick}>
-    <slot/>
+    {@render element?.()}
 </div>
 
 <style>
@@ -51,5 +49,6 @@
     .popup.loaded {
         visibility: visible;
         opacity: 1;
+        pointer-events: all;
     }
 </style>

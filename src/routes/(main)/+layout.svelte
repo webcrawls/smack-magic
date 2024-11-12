@@ -1,21 +1,31 @@
 <script>
+    import { browser } from "$app/environment";
+    import { page } from "$app/stores";
     import Footer from "$lib/components/Footer.svelte";
     import Header from "$lib/components/Header.svelte";
     import HeadlineStatic from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
-    import PopupOverlay from "$lib/components/popup/PopupOverlay.svelte";
     import { current } from "$lib/components/popup/popups.svelte";
     import PopupWrapper from "$lib/components/popup/PopupWrapper.svelte";
+    import SalePopup from "$lib/components/popup/sale/SalePopup.svelte";
+    import { onMount } from "svelte";
 
     let { children } = $props();
 
     $effect(() => console.log(current.popups))
+
+    onMount(() => {
+        if (!browser) return;
+        if (!$page.url.pathname.startsWith("/shop")) {
+            setTimeout(() => current.add(SalePopup), 1000)            
+        }
+    })
 </script>
 
 
 <Header/>
 <Navigation/>
-<!-- <HeadlineStatic/> -->
+<HeadlineStatic/>
 
 {@render children?.()}
 
@@ -30,12 +40,13 @@
 
 <style>
     .popup-container {
-        position: absolute;
+        position: fixed;
         top: 0; left: 0;
         width: 100vw;
         height: 100vh;
         overflow: hidden;
         pointer-events: none;
+        z-index: 99;
     }
 
     @font-face {
@@ -56,6 +67,11 @@
     @font-face {
         src: url("/font/Windows Regular.ttf");
         font-family: "Windows Regular";
+    }
+
+    @font-face {
+        src: url("/font/windows-xp-tahoma.otf");
+        font-family: "Windows Tahoma";
     }
 
     :global(:root) {
@@ -88,5 +104,9 @@
         display: flex;
         flex-direction: column;
         margin-inline: auto;
-    }
+
+        font-family: sans-serif;
+        /* font-family: "Windows Tahoma", sans-serif; */
+        font-size: 1.5rem;
+}
 </style>

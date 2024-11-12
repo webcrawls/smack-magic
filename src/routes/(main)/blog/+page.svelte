@@ -1,6 +1,6 @@
 <script>
-    import PageWrapper from "$lib/components/pages/PageWrapper.svelte";
-    import BlogPost from "$lib/components/pages/blog/BlogPost.svelte";
+    import PageWrapper from "$lib/components/PageWrapper.svelte"
+    import BlogPost from "$lib/components/blog/BlogPost.svelte";
     import blog from "$lib/copy/blog";
 </script>
 

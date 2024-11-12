@@ -28,8 +28,14 @@
     });
 </script>
 
-<Spinner>
+<Spinner link="/shop#items">
     <h4>SALE ENDS SOON!</h4>
     <SevenSegment value={formatDuration({ seconds: timeRemaining })} />
     <h1>BUY NOW!</h1>
 </Spinner>
+
+<style>
+    h4, h1 {
+       -webkit-text-stroke: 1.5px #ffcb00;
+    }
+</style>

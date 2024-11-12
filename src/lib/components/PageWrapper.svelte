@@ -51,7 +51,8 @@
     }
 
     main > header {
-        color: var(--theme-primary-2);
+        color: var(--text-color);
+        padding-block: 0.25rem;
         --background-color: #ffe500;
         position: relative;
         padding-inline: 2rem;

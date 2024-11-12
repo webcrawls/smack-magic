@@ -13,7 +13,7 @@
 
 <ShopNavigation />
 
-<ul>
+<ul id="items">
     {#each shop.categories[0].items as item}
         <li>
             <ShopItemCard {item} />

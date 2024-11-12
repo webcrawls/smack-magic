@@ -1,11 +1,9 @@
 <footer>
     <p>Copyright © 2009 by <a style="color: inherit" href="#">Smack Magic Corp</a></p>
     <nav>
-        <a href="/about-us">about us</a>
+        <a href="/terms-of-service">Terms of Service</a>
         <p>|</p>
-        <a href="/terms-of-service">terms of service</a>
-        <p>|</p>
-        <a href="/privacy-policy">privacy policy</a>
+        <a href="/privacy-policy">Privacy Policy</a>
     </nav>
 </footer>
 

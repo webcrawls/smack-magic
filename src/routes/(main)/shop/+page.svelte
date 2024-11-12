@@ -1,5 +1,6 @@
 <script>
-    import ShopPage from "$lib/components/pages/shop/ShopPage.svelte";
+    import { afterNavigate } from "$app/navigation";
+    import ShopPage from "$lib/components/shop/ShopPage.svelte";
 </script>
 
 <ShopPage/>

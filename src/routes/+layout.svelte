@@ -13,7 +13,6 @@
 <style>
 	:global(*) {
 	    box-sizing: border-box;
-	    font-family: "Windows Regular", sans-serif;
 	    image-rendering: pixelated;
 	    margin: 0;
 		padding: 0;
