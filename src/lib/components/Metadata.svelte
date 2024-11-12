@@ -1,11 +1,11 @@
 <script>
     let {
-        title = "Smack Magic Vegetable Chopper",
-        description = "TODO",
+        title = "The Smack Magic Vegetable Chopper",
+        description = "Created by Joe 'Magic', the king of infomercials, The Smack Magic Vegetable Chopper has revolutionized prep in the kitchen, sending it into a future of easy use, less stress, and more fun!",
         url = "https://smack-magic.pages.dev/",
         domain = "smack-magic.pages.dev",
         locale = "en_US",
-        logo = "https://smack-magic.pages.dev/img/logo.jpeg"
+        logo = "/img/logo.jpeg"
     } = $props()
 </script>
 
