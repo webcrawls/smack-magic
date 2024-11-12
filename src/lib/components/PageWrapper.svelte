@@ -21,7 +21,6 @@
 
 <style>
     main {
-        margin-top: 4rem;
         margin-inline: 2rem;
         height: 100%;
         width: 100%;

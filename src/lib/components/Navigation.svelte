@@ -4,6 +4,10 @@
     import about from '$lib/img/about.gif'
     import testimonials from '$lib/img/testimonials.gif'
     import faq from '$lib/img/faq.gif'
+    import magic from '$lib/img/magic.gif'
+
+    // import magic from '$lib/img/magic.gif'
+    import newGif from '$lib/img/new.gif'
 
 
     let images = [ shop, about, testimonials, faq ]
@@ -16,22 +20,32 @@
     {/each}
 </svelte:head>
 
-{#snippet link(path, def, imageSrc)}
-    {#if $page.url.pathname === path && !!imageSrc}
-        <a href="{path}" class="current"><img src={imageSrc}/></a>
+{#snippet link(path, def, current)}
+    {#if $page.url.pathname === path}
+        <a href="{path}">
+            {#if typeof current === "function"}
+                {@render current()}
+            {:else}
+                <img src={current}/>
+            {/if}
+        </a>
     {:else}
         <a href="{path}">{@html def}</a>
     {/if}
 {/snippet}
 
-<nav>
-    <ul>
-        <li>{@render link("/", "ABOUT", about)}</li>
-        <li>{@render link("/faq", "FAQ", faq)}</li>
-        <li>{@render link("/testimonials", "TESTIMONIALS", testimonials)}</li>
-        <li class="blog">{@render link("/blog", "<span>THE</span> <img src='/img/magic.gif'/> <span>BLOG</span>")}</li>
-        <li class="shop">{@render link("/shop", "SHOP", shop)}</li>
-    </ul>
+{#snippet blogLink()}
+    <span>THE</span>
+    <img src={magic}/>
+    <span>BLOG</span>
+{/snippet}
+
+<nav style="--new-gif: {newGif};">
+    {@render link("/", "ABOUT", about)}
+    {@render link("/blog", "THE MAGIC BLOG", blogLink)}
+    {@render link("/testimonials", "TESTIMONIALS", testimonials)}
+    {@render link("/faq", "FAQ", faq)}
+    {@render link("/shop", "SHOP", shop)}
 </nav>
 
 <style>
@@ -46,40 +60,25 @@
             var(--theme-primary-3),
             var(--theme-primary-1)
         );
-    }
 
-    ul {
-        list-style-type: none;     
-
-        width: 100%;
-        max-width: var(--width-main);
-        margin-inline: auto;
+        height: 4.5rem;
 
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-        column-gap: 3rem;
-        row-gap: 1rem;
-        padding-block: 1rem;
-        padding-inline: 1rem;
+        justify-content: space-between;
+        padding-inline: 2rem;
+        align-items: center;
     }
 
-    li {
-        /* max-width: 100vw;
-        width: 100%; */
-    }
-
-    a { 
-        width: 100%;
-        height: 100%;
+    a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.5rem;   
         color: inherit;
-        font-size: 1.5rem;
-        text-decoration: none;
     }
 
-    a:hover {
-        font-style: italic;
-    }
+
 
     .shop > a {
         border: 3px outset #11429c;
@@ -87,6 +86,17 @@
         color: yellow;
         padding-inline: 2rem;
         padding-block: 0.5rem;
+        position: relative;
+    }
+
+    .shop > a::after {
+        background-image: var(--new-gif);
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
     }
 
     .shop > a.current {

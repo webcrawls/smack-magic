@@ -1,29 +1,51 @@
 <script lang="ts">
-    import Rating from "./Rating.svelte";
     import "$lib/styles/container.css";
+    import star from "$lib/img/star-rainbow.gif";
 
-    let { name, date, content, rating = 5.0 } = $props()
+    let { name, date, content } = $props();
 </script>
 
-<article class="container light">
-    <header>
-        <h1>{name}</h1>
-        <Rating {rating}/>
-    </header>
+<blockquote class="container light">
+    <h1>{name}</h1>
     <p class="content">{@html content}</p>
-    <p class="date">- {@html date}</p>    
-</article>
+    <p class="date">- {@html date}</p>
+    <div class="rating" aria-hidden="true">
+        <img src={star} />
+        <img src={star} />
+        <img src={star} />
+        <img src={star} />
+        <img src={star} />
+    </div>
+</blockquote>
 
 <style>
-    header {
-        gap: 0.5rem;
+    blockquote {
         display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 0.65rem;
+        max-width: var(--width-small);
+        flex-direction: column;
+        position: relative;
     }
 
-    article .date {
+    h1 {
+        text-wrap: nowrap;
+    }
+
+    .date {
         align-self: flex-end;
+        font-style: italic;
+    }
+
+    .rating {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+
+        display: flex;
+        flex-direction: row;
+
+        & img {
+            height: 32px;
+            width: 32px;
+        }
     }
 </style>

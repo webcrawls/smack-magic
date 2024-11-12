@@ -2,7 +2,7 @@
     import CartPopup from "./CartPopup.svelte";
     import Currency from "./Currency.svelte";
 
-    import { subtotal } from '$lib/shop.svelte'
+    import { cart } from '$lib/shop.svelte'
 
     let showCart = false;
     let cartElement;
@@ -12,7 +12,8 @@
     };
 </script>
 
-<a href="#" {onclick}>Cart: <Currency value={subtotal} /></a>
+<a href="#" {onclick}>Cart: <Currency value={cart.subtotal}/>
+</a>
 <div class="dropdown-wrapper" bind:this={cartElement} class:show={showCart}>
     <CartPopup />
 </div>

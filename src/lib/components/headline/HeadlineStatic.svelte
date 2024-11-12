@@ -24,8 +24,6 @@
     }
 
     aside {
-        margin-top: 3rem;
-
         width: 100%;
         background-color: white;
         color: black;

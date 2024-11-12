@@ -1,11 +1,14 @@
-let cartItems = $state([])
+export const cart = (() => {
+    let cartItems = $state([])
 
-export const subtotal = () => {
-    let val = 0
-    for (const item of items) {
-        val += item.price
+    return {
+        get items() { return cartItems },
+        get subtotal() {
+            if (cartItems.length === 0) return 0
+            return cartItems.reduce((sum, val) => (sum + val.price))
+        },
+        add(item) {
+            cartItems = [...cartItems, item]
+        }
     }
-    return val.toFixed(2)
-}
-
-export const add = (item) => items = [...items. item]
+})()

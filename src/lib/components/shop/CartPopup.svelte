@@ -1,7 +1,7 @@
 <script>
     import Currency from "./Currency.svelte";
     import { goto } from "$app/navigation";
-    import { subtotal } from "$lib/shop.svelte"
+    import { cart } from "$lib/shop.svelte"
 
     const checkout = () => goto('/shop/checkout')
 
@@ -26,7 +26,7 @@
     <footer>
         <div class="subtotal">
             <h1>Subtotal</h1>
-            <p><Currency value={subtotal}/></p>    
+            <p><Currency value={cart.subtotal}/></p>    
         </div>
         <button onclick={checkout}>Checkout</button>
     </footer>
