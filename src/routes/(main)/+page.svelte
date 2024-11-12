@@ -1,6 +1,5 @@
 <script>
-    import AvatarImage from "$lib/components/blog/avatar/AvatarImage.svelte";
-import JoeMagic from "$lib/components/landing/JoeMagic.svelte";
+    import JoeMagic from "$lib/components/landing/JoeMagic.svelte";
     import SmackMagic from "$lib/components/landing/SmackMagic.svelte";
     import PageWrapper from "$lib/components/PageWrapper.svelte";
 </script>
@@ -24,7 +23,6 @@ import JoeMagic from "$lib/components/landing/JoeMagic.svelte";
             <div style="display: flex;
                         flex-direction: row;
                         gap: 1rem">
-                <AvatarImage/>
                 <blockquote>
                     <p>“The Smack Magic has changed more than just my life. Hundreds of
                         thousands alike have chopped their way to victory. Don't be a

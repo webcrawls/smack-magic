@@ -1,5 +1,4 @@
 <script lang="ts">
-    import AvatarImage from "./avatar/AvatarImage.svelte";
     import "$lib/styles/container.css";
 
     let {
@@ -14,7 +13,6 @@
 
 <article class="container">
     <header>
-        <AvatarImage />
         <div class="post-info">
             <h1>{title}</h1>
             <h2>posted by {author}</h2>
