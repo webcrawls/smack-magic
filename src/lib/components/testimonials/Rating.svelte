@@ -5,7 +5,7 @@
 
 <div class="rating" aria-hidden="true">
     {#each { length: 5 } as rate}
-        {#if rate <= rating}{:else}
+        {#if rate <= rating}
             <img
                 alt="A star indicating a 1-through-5 star rating."
                 src={star}
