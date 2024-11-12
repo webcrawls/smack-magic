@@ -1,5 +1,4 @@
 <script>
-    import CheckoutError from "$lib/components/shop/checkout/CheckoutError.svelte";
-
+    import CheckoutError from "$lib/components/shop/CheckoutError.svelte";
 </script>
 <CheckoutError/>
