@@ -1,7 +1,6 @@
 <script>
     import "$lib/styles/container.css";
     import Currency from "./Currency.svelte";
-    import { cart } from "./shop.svelte";
 
     let { item } = $props();
     let { name, price, previousPrice } = item;

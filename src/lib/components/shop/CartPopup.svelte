@@ -1,19 +1,21 @@
 <script>
-    import { cart } from "./shop.svelte";
     import Currency from "./Currency.svelte";
     import { goto } from "$app/navigation";
+    import { subtotal } from "$lib/shop.svelte"
 
     const checkout = () => goto('/shop/checkout')
+
+    let items = []
 </script>
 
 <section>
-    <main class:empty={cart.items.length === 0}>
-        {#if cart.items.length === 0}
+    <main class:empty={items.length === 0}>
+        {#if items.length === 0}
             <p>no items :(</p>
             <p>add some ? :)</p>
         {:else}
             <ul class="items">
-                {#each cart.items as item}
+                {#each items as item}
                     <li>
                         <p><a href="#">{item.name}</a> - <b><Currency value={item.price}/></b></p>
                     </li>
@@ -24,7 +26,7 @@
     <footer>
         <div class="subtotal">
             <h1>Subtotal</h1>
-            <p><Currency value={cart.subtotal}/></p>    
+            <p><Currency value={subtotal}/></p>    
         </div>
         <button onclick={checkout}>Checkout</button>
     </footer>

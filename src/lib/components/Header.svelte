@@ -1,11 +1,8 @@
 <script lang="ts">
-    import logo from './logo-outline.png'
-
-    let size: "large" | "small" = $state("small")
+    import logo from '$lib/img/logo.png'
 </script>
 
-<header class:large={size === "large"}
-        class:small={size === "small"}>
+<header>
     <a href="/" aria-hidden="true">
         <img src={logo} alt="the Smack Magic! logo"/>
     </a>

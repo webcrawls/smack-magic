@@ -5,14 +5,13 @@
     import Header from "$lib/components/Header.svelte";
     import HeadlineStatic from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
-    import { current } from "$lib/components/popup/popups.svelte";
     import PopupWrapper from "$lib/components/popup/PopupWrapper.svelte";
     import SalePopup from "$lib/components/popup/sale/SalePopup.svelte";
     import { onMount } from "svelte";
+    
+    import { popups } from "$lib/popups.svelte"
 
     let { children } = $props();
-
-    $effect(() => console.log(current.popups))
 
     onMount(() => {
         if (!browser) return;
@@ -32,7 +31,7 @@
 <Footer/>
 
 <div class="popup-container">    
-    {#each current.popups as {element, destroy}}
+    {#each popups as {element, destroy}}
         <PopupWrapper {destroy} {element}/>
     {/each}
 </div>

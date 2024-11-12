@@ -1,5 +1,5 @@
 <script>
-    import PageWrapper from "$lib/components/pages/PageWrapper.svelte";
+    import PageWrapper from '$lib/components/PageWrapper.svelte';
 </script>
 
 {#snippet title()}

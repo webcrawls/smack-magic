@@ -1,8 +1,8 @@
 <script>
     import faq from "$lib/copy/faq";
-    import PageWrapper from "../PageWrapper.svelte";
-    import FaqEntry from "./FAQEntry.svelte";
-    import FaqWarning from "./FAQWarning.svelte";
+    import PageWrapper from "$lib/components/PageWrapper.svelte";
+    import FaqEntry from "$lib/components/faq/FAQEntry.svelte";
+    import FaqWarning from "$lib/components/faq/FAQWarning.svelte";
 </script>
 
 {#snippet title()}

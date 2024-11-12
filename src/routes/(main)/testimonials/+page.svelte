@@ -1,5 +1,28 @@
 <script>
-    import Testimonials from "$lib/components/pages/testimonials/Testimonials.svelte";
-
+    import testimonials from "$lib/copy/testimonials";
+    import PageWrapper from "$lib/components/PageWrapper.svelte";
+    import Testimonial from "$lib/components/testimonials/Testimonial.svelte";
 </script>
-<Testimonials/>
+
+{#snippet title()}
+<h1>Customer Testimonials</h1>
+{/snippet}
+
+<PageWrapper {title}>
+    <div class="testimonial-wrapper">
+        {#each testimonials as {name, date, content, rating}} 
+            <Testimonial {name} {date} {content} {rating}/>
+        {/each}  
+    </div>
+</PageWrapper>
+
+<style>
+    .testimonial-wrapper {
+        margin-top: 2rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+</style>

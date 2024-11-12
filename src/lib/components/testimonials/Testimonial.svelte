@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Rating from "$lib/components/rating/Rating.svelte";
+    import Rating from "./Rating.svelte";
     import "$lib/styles/container.css";
 
     let { name, date, content, rating = 5.0 } = $props()

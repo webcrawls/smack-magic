@@ -1,6 +1,6 @@
 <script>
     import '$lib/styles/container.css'
-    import pin from './pin.gif'
+    import pin from '$lib/img/pin.gif'
 
     let { question, answer, askedBy, askedWhen } = $props();
 </script>

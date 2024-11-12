@@ -1,6 +1,5 @@
 <script>
     let { title, children } = $props()
-    $effect(() => console.log({title, children}))
 </script>
 
 <main>
