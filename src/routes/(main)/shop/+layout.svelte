@@ -4,14 +4,20 @@
 </script>
 
 {#snippet title()}
-    <h1>Smack Magic Shop</h1>
-    <ShopCartLink/>
+    <div class="header">
+        <h1>Smack Magic Shop</h1>
+        <ShopCartLink />
+    </div>
 {/snippet}
 
 <PageWrapper {title}>
-    <slot/>
+    <slot />
 </PageWrapper>
 
 <style>
-
+    .header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
 </style>

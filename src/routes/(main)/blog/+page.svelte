@@ -4,7 +4,7 @@
     import blog from "$lib/copy/blog";
 </script>
 
-<PageWrapper title="The 'MAGIC' Blog">
+<PageWrapper>
     <div class="wrapper">
         {#each blog as { title, author, date, content, responses }}
              <BlogPost {title} {author} {date} {content} {responses} />

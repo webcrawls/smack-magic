@@ -1,4 +1,6 @@
 <script>
+    import Footer from '$lib/components/Footer.svelte'
+
     let { title, children } = $props()
 </script>
 
@@ -17,35 +19,40 @@
             {@render children?.()}
         {/if}
     </div>
+
+    <Footer/>
 </main>
 
 <style>
     main {
-        margin-inline: 2rem;
+        align-self: center;
+
+        margin-top: 2rem;
+        margin-inline: 3rem;
+        padding: 1rem;
         height: 100%;
         width: 100%;
-        max-width: var(--width-main);
-        margin-inline: auto;
+        max-width: 60ch;
 
         display: flex;
         flex-direction: column;
         align-items: center;
         flex: 1 1;
 
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: rgba(255, 255, 255, 0.7);
+        box-shadow: 32px 32px black;
     }
 
     .children {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        flex: 1 1;
-        margin-inline: 2rem;
-    }
-
-    .container {
         width: 100%;
         height: 100%;
+        align-items: center;
+        flex: 1 1;
+
+        margin-top: 1rem;
+        max-width: 70ch;
     }
 
     main > header {

@@ -28,8 +28,6 @@
 
 {@render children?.()}
 
-<Footer/>
-
 <div class="popup-container">    
     {#each popups as {element, destroy}}
         <PopupWrapper {destroy} {element}/>

@@ -43,9 +43,9 @@
 <nav style="--new-gif: {newGif};">
     {@render link("/", "ABOUT", about)}
     {@render link("/blog", "THE MAGIC BLOG", blogLink)}
+    {@render link("/shop", "SHOP", shop)}
     {@render link("/testimonials", "TESTIMONIALS", testimonials)}
     {@render link("/faq", "FAQ", faq)}
-    {@render link("/shop", "SHOP", shop)}
 </nav>
 
 <style>
@@ -61,24 +61,27 @@
             var(--theme-primary-1)
         );
 
-        height: 4.5rem;
 
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
+        padding-block: 1rem;
         padding-inline: 2rem;
         align-items: center;
     }
 
     a {
+        flex: 1 1;
+        width: 100%;
+
         display: flex;
         flex-direction: row;
+        justify-content: center;
         align-items: center;
         gap: 0.5rem;   
         color: inherit;
+        height: 2rem;
     }
-
-
 
     .shop > a {
         border: 3px outset #11429c;
@@ -114,5 +117,14 @@
 
     :global(.blog img) {
         margin-inline: 1rem;
+    }
+
+    @media screen and (max-width: 640px) {
+        nav {
+            flex-direction: column;
+            align-items: start;
+            gap: 0.5rem;
+            padding-block: 1rem;
+        }
     }
 </style>

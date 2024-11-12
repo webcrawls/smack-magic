@@ -49,4 +49,22 @@
         /* TODO make this responsive */
         font-size: 2rem;
     }
+
+
+    @media screen and (max-width: 768px) {
+        aside.open {
+            height: 10rem;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        aside.open {
+            height: 15rem;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        aside.open {
+            height: 30rem;
+        }
+    }
 </style>
