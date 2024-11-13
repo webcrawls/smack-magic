@@ -1,11 +1,17 @@
 <script lang="ts">
     import logo from '$lib/img/logo.png'
+    import Spinner from './popup/spinner/Spinner.svelte';
 </script>
 
 <header>
     <a href="/" aria-hidden="true">
         <img src={logo} alt="the Smack Magic! logo"/>
     </a>
+    <div class="spinner">
+        <Spinner>
+            <enhanced:img src="$lib/img/smack-magic-transparent.png">
+        </Spinner>
+    </div>
 </header>
 
 <style>

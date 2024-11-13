@@ -11,24 +11,33 @@
 {/snippet}
 
 <PageWrapper {title}>
-    <div class="content">
+    <div class="wrapper">
         <article class="quote">
-            <p>
-                Created by <JoeMagic />, the king of infomercials, The <SmackMagic
-                /> has revolutionized prep in the kitchen, sending it into a future
-                of easy use, less stress, and more fun! The Smack Magic can dice
-                by the smack of the hand, is dishwasher safe, made of durable, long
-                lasting materials, and is an overall blast!
-            </p>
-            <div style="display: flex;
-                        flex-direction: row;
-                        gap: 1rem">
-                <blockquote>
-                    <p>“The Smack Magic has changed more than just my life. Hundreds of
-                        thousands alike have chopped their way to victory. Don't be a
-                        loser. Join the winners. Buy a Smack Magic!”</p>
-                    <p>- <JoeMagic /></p>
-                </blockquote>
+            <enhanced:img
+                height="312"
+                style="margin-right: 12px; margin-bottom: 12px;
+                       zoom: 1.1;
+                       width: min-content; height: 256px; float: left;"
+                src="$lib/img/joe-magic-pose-2.png"
+            />
+            <div class="text">
+                <p>
+                    Created by <JoeMagic />, the king of infomercials, The <SmackMagic/> has revolutionized prep in the kitchen, sending it into a future
+                    of easy use, less stress, and more fun!
+                </p>
+                <br/>
+                <p>The Smack Magic can dice
+                    by the smack of the hand, is dishwasher safe, made of durable, long
+                    lasting materials, and is an overall blast!</p>
+                <br/>
+                <br/>
+                <p style="font-family: monospace; font-style: italic;">
+                    “The Smack Magic has changed more than just my life. Hundreds of
+                    thousands alike have chopped their way to victory. Don't be a
+                    loser. Join the winners. Buy a Smack Magic!”
+                </p>
+                <br/>
+                <p style="text-align: end;">- <JoeMagic />, CEO of Smack Magic Corp              </p>    
             </div>
         </article>
 
@@ -68,7 +77,10 @@
             </h2>
         </article>
         <article class="card">
-            <p>Read what our customers have to say about the <i>Smack Magic</i>!</p>
+            <p>
+                Read what our customers have to say about the <i>Smack Magic</i
+                >!
+            </p>
             <h1><a href="/testimonials">READ NOW</a></h1>
         </article>
         <article class="card" style="align-self: start;">
@@ -92,7 +104,6 @@
     }
 
     .quote {
-        display: flex;
         flex-direction: column;
         gap: 1.5rem;
 
@@ -100,16 +111,19 @@
         margin-left: 1rem;
         border-left: 4px solid white;
 
-        & blockquote {
-            display: flex;
-            flex-direction: column;
-            font-style: italic;
-            font-family: monospace;
-            gap: 1rem;
 
-            & :last-child {
-                align-self: end;
-            }
+        & picture {
+            width: min-content;
+            height: min-content;
+            float: left;
+        }
+
+        & p {
+            float: none;
+        }
+
+        & img {
+            border: 4px solid var(--theme-bg-2);
         }
     }
 
@@ -123,17 +137,10 @@
         background-color: bisque;
     }
 
-    .content {
+    .wrapper {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2rem;
-    }
-
-    .split {
-        display: grid;
-        grid-template-rows: 1fr;
-        grid-template-columns: 1fr 1fr;
         gap: 2rem;
     }
 </style>
