@@ -46,15 +46,21 @@
         top: 0;
         left: 0;
         z-index: 1;
+        display: flex;
     }
 
     .content {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* .content {
         transform: translate(-7.5%, 50%) scale(0.9);
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-    }
+    } */
 
     .offset {
         top: 15px;
