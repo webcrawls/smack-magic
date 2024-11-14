@@ -1,51 +1,87 @@
 <script lang="ts">
-    import "$lib/styles/container.css";
-
+    import DateValue from "$lib/components/DateValue.svelte";
+    import defaultAvatar from "$lib/img/user.png";
     let {
-        title,
         author,
         date,
         content,
-        responses: children,
-        comment,
+        responses = [],
+        deleted = false,
+        edited = false,
+        collapsed = $bindable(deleted),
     } = $props();
 </script>
 
-<article class="container">
-    <header>
-        <div class="post-info">
-            <h1>{title}</h1>
-            <h2>posted by {author}</h2>
-            <p>posted on {@html date}</p>
-            {#if !comment || (comment && !!children?.length)}
-                <p>replies: {children?.length ?? 0}</p>
-            {/if}
-        </div>
-    </header>
-    <p>{@html content}</p>
+<article class="blog-message">
+    <button class="collapse" onclick={() => (collapsed = !collapsed)}>
+        {collapsed ? "+" : "-"}
+    </button>
+    {#if !collapsed}
+        <header>
+            <img src={author?.icon ?? defaultAvatar} />
+            <div class="header-info">
+                <h1 class="title">
+                    {#if deleted}
+                        <span>[ deleted ]</span>
+                    {:else}
+                        <span style="font-weight: normal;">posted by</span>
+                        <span>{author?.name}</span>
+                    {/if}
+                </h1>
+                {#if !deleted}
+                    <p class="date">
+                        posted on <DateValue {date} />
+                        {#if edited}<span>(edited)</span>{/if}
+                    </p>
+                    <p class="replies">replies: {responses.length}</p>
+                {/if}
+            </div>
+        </header>
+        <p class="content">{@html content}</p>
+    {:else}
+        <p class="title">
+            {deleted ? "[ deleted ]" : "posted by " + author?.name}
+        </p>
+    {/if}
 </article>
 
 <style>
+    .blog-message {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        border-left: 4px solid gray;
+        width: 100%;
+        position: relative;
+    }
+
+    .collapse {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 48px;
+        height: 48px;
+
+        color: white;
+        border: none;
+        background-color: black;
+    }
+
     header {
         display: flex;
-        flex-direction: row;
-        gap: 0.5rem;
-        padding: 0.5rem;
-        align-items: flex-end;
+        gap: 1rem;
+        height: min-content;
+        font-family: monospace;
+        padding-bottom: 1rem;
 
-        & h1 {
-            font-size: 1.35rem;
+        & img {
+            width: min-content;
+            height: 128px;
+            aspect-ratio: 1 / 1;
         }
+    }
 
-        & h2 {
-            font-size: 1.1rem;
-        }
-
-        & .post-info {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            padding-bottom: 0.35rem;
-        }
+    .title {
+        font-family: monospace;
     }
 </style>

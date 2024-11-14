@@ -23,7 +23,9 @@
 {#snippet link(path, def, current)}
     {#if $page.url.pathname === path}
         <a href="{path}">
-            {#if typeof current === "function"}
+            {#if current === undefined || current === null}
+                {@html def}
+            {:else if typeof current === "function"}
                 {@render current()}
             {:else}
                 <img src={current}/>
@@ -34,18 +36,12 @@
     {/if}
 {/snippet}
 
-{#snippet blogLink()}
-    <span>THE</span>
-    <img src={magic}/>
-    <span>BLOG</span>
-{/snippet}
-
 <nav style="--new-gif: {newGif};">
-    {@render link("/", "ABOUT", about)}
-    {@render link("/blog", "THE MAGIC BLOG", blogLink)}
-    {@render link("/shop", "SHOP", shop)}
-    {@render link("/testimonials", "TESTIMONIALS", testimonials)}
-    {@render link("/faq", "FAQ", faq)}
+    {@render link("/", "ABOUT")}
+    {@render link("/blog", "THE MAGIC BLOG")}
+    {@render link("/shop", "SHOP")}
+    {@render link("/testimonials", "TESTIMONIALS")}
+    {@render link("/faq", "FAQ")}
 </nav>
 
 <style>

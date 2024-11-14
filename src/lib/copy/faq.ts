@@ -18,7 +18,7 @@ export default [
         `With proper cleaning and care, the Smack Magic can be expected to last for up to 5 years.`),
     faq("Can I purchase individual replacement blades?", 
         `The advanced-technology, stainless steel Smack Magic blades are available 
-        for individual purchase for only $4.95 on the website’s 'Store' section.`),
+        for individual purchase for only $4.95 on the website's 'Store' section.`),
     faq("Will I ever have to use my knife and cutting board again?", 
         `Because of its revolutionary design, dishwasher safe shell and durable quality, 
         the Smack Magic makes the knife and cutting board obsolete. 
