@@ -39,8 +39,8 @@
         </header>
         <p class="content">{@html content}</p>
     {:else}
-        <p class="title">
-            {deleted ? "[ deleted ]" : "posted by " + author?.name}
+        <p class="title" class:deleted>
+            {deleted ? "[ deleted by site administrator ]" : "posted by " + author?.name}
         </p>
     {/if}
 </article>
@@ -53,14 +53,19 @@
         border-left: 4px solid gray;
         width: 100%;
         position: relative;
+        font-size: 0.9rem;
+    }
+
+    :global(.blog-message a) {
+        color: inherit;
     }
 
     .collapse {
         position: absolute;
         top: 0;
         right: 0;
-        width: 48px;
-        height: 48px;
+        width: 24px;
+        height: 24px;
 
         color: white;
         border: none;
@@ -69,6 +74,7 @@
 
     header {
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         height: min-content;
         font-family: monospace;
@@ -79,9 +85,19 @@
             height: 128px;
             aspect-ratio: 1 / 1;
         }
+
+        & h1 {
+            font-size: 1.5rem;
+        }
     }
 
     .title {
         font-family: monospace;
+    }
+
+    .title.deleted {
+        font-style: italic;
+        opacity: 0.7;
+        font-size: 0.65rem;
     }
 </style>
