@@ -14,7 +14,7 @@
 
 <article class="blog-message">
     <button class="collapse" onclick={() => (collapsed = !collapsed)}>
-        {collapsed ? "+" : "-"}
+        {collapsed ? "[+]" : "[-]"}
     </button>
     {#if !collapsed}
         <header>

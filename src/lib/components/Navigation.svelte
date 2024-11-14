@@ -22,7 +22,7 @@
 
 {#snippet link(path, def, current)}
     {#if $page.url.pathname === path}
-        <a href="{path}">
+        <a href="{path}" class="current">
             {#if current === undefined || current === null}
                 {@html def}
             {:else if typeof current === "function"}
@@ -77,6 +77,12 @@
         gap: 0.5rem;   
         color: inherit;
         height: 2rem;
+        text-wrap: nowrap;
+        white-space: nowrap;
+    }
+
+    a.current {
+        font-weight: bold;
     }
 
     .shop > a {
