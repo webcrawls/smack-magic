@@ -99,7 +99,7 @@ export default [
             message(
                 "Smack_Magic_Love",
                 new Date(2009, 1, 1, 2, 37, 58, 0),
-                `<a href='/the-truth'>THE TRUTH</a>`),
+                `<a href='/the-truth' rel='external'>THE TRUTH</a>`),
             null, null, null
         ]
     )
