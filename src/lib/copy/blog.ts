@@ -49,7 +49,8 @@ export default [
         new Date(2009, 1, 20, 21, 30, 0, 0),
         `Magic here. PSA that everyone else is too scared to bring up:
         lady drivers need to chill.
-        Second chick on the highway today to nearly ding the Benz D:<!
+        Second chick on the highway today to nearly ding the Benz D:<
+        <br/>
         Not saying <i>all</i>, but let's be real.
         If you can't drive, don't drive.
         You know who you are.
