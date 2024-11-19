@@ -1,5 +1,10 @@
+interface Item {
+    price: number
+    name: string
+}
+
 export const cart = (() => {
-    let cartItems = $state([])
+    let cartItems: Item[]         crmv,,,xzaxv                                                                                                                                                                                                                                                                              = $state([])
 
     return {
         get items() { return cartItems },

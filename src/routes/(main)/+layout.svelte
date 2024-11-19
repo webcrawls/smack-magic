@@ -6,7 +6,6 @@
     import HeadlineStatic from "$lib/components/headline/HeadlineStatic.svelte";
     import Navigation from "$lib/components/Navigation.svelte";
     import PopupWrapper from "$lib/components/popup/PopupWrapper.svelte";
-    import SalePopup from "$lib/components/popup/sale/SalePopup.svelte";
     import { onMount } from "svelte";
     
     import { popups } from "$lib/popups.svelte"

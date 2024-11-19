@@ -1,12 +1,18 @@
-export const popups = (() => {
-    let _popups = $state([])
+import type { Component } from "svelte"
 
-    const remove = (element) => {
+interface Popup {
+    element?: any
+}
+
+export const popups = (() => {
+    let _popups: Popup[] = $state([])
+
+    const remove = (element: Component) => {
         console.log({ popups, element })
         _popups = _popups.filter(popup => popup.element !== element)
     }
     
-    const add = (element) => {
+    const add = (element: Component) => {
         const popup = {
             element,
             destroy: remove.bind(this, element),

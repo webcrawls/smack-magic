@@ -2,7 +2,13 @@
     import { goto } from "$app/navigation";
     import SpinnerImage from "./SpinnerImage.svelte";
 
-    let { spinning = true, linked = true, link = "/shop" } = $props();
+    let {
+        spinning = true,
+        linked = true,
+        link = "/shop",
+        fill = "#ffcb00",
+        shadowFill = "#000000",
+    } = $props();
 
     const onclick = () => {
         if (linked) goto(link);
@@ -11,10 +17,10 @@
 
 <div class="spinner" class:spinning class:linked {onclick}>
     <div class="background offset">
-        <SpinnerImage fill="#000000" opacity="0.5" />
+        <SpinnerImage fill={shadowFill} opacity="0.5" />
     </div>
     <div class="background">
-        <SpinnerImage fill="#ffcb00" />
+        <SpinnerImage {fill} />
     </div>
     <div class="content-wrapper">
         <div class="content">
