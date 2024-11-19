@@ -1,0 +1,3 @@
+<script>
+    import "$lib/"
+</script>

@@ -1,40 +1,6 @@
 <script>
     import { page } from '$app/stores';
-    import shop from '$lib/img/shop.gif'
-    import about from '$lib/img/about.gif'
-    import testimonials from '$lib/img/testimonials.gif'
-    import faq from '$lib/img/faq.gif'
-    import magic from '$lib/img/magic.gif'
-
-    // import magic from '$lib/img/magic.gif'
-    import newGif from '$lib/img/new.gif'
-
-
-    let images = [ shop, about, testimonials, faq ]
 </script>
-
-<!-- preload navigation images -->
-<svelte:head>
-    {#each images as image}
-        <link rel="preload" as="image" href={image}/>
-    {/each}
-</svelte:head>
-
-{#snippet link(path, def, current)}
-    {#if $page.url.pathname === path}
-        <a href="{path}" class="current">
-            {#if current === undefined || current === null}
-                {@html def}
-            {:else if typeof current === "function"}
-                {@render current()}
-            {:else}
-                <img src={current}/>
-            {/if}
-        </a>
-    {:else}
-        <a href="{path}">{@html def}</a>
-    {/if}
-{/snippet}
 
 <nav style="--new-gif: {newGif};">
     {@render link("/", "ABOUT")}
@@ -64,6 +30,8 @@
         padding-block: 1rem;
         padding-inline: 2rem;
         align-items: center;
+
+        font-size: 1.5rem;
     }
 
     a {

@@ -8,6 +8,7 @@
         link = "/shop",
         fill = "#ffcb00",
         shadowFill = "#000000",
+        style = "",
     } = $props();
 
     const onclick = () => {
@@ -15,9 +16,9 @@
     };
 </script>
 
-<div class="spinner" class:spinning class:linked {onclick}>
+<div class="spinner" class:spinning class:linked {style} {onclick}>
     <div class="background offset">
-        <SpinnerImage fill={shadowFill} opacity="0.5" />
+        <SpinnerImage fill={shadowFill} opacity={0.5} />
     </div>
     <div class="background">
         <SpinnerImage {fill} />
