@@ -9,8 +9,8 @@
 <style>
     p {
         margin-block: 1rem;
-        color: white;
-        opacity: 0.9;
+        opacity: 0.6;
+        font-size: 0.8em;
         text-align: center;
         margin-inline: auto;
         max-width: 70ch;

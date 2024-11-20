@@ -1,5 +1,4 @@
 <script lang="ts">
-    import "$lib/styles/container.css";
     import BlogPost from "./BlogPost.svelte";
     import BlogMessage from "./BlogMessage.svelte";
 
@@ -26,6 +25,9 @@
 <style>
     section {
         width: 100%;
+        background-color: black;
+        color: white;
+        padding-block: 1rem;
     }
 
     .post-replies {

@@ -1,47 +1,62 @@
 <script>
-    import '$lib/styles/container.css'
-    import pin from '$lib/img/pin.gif'
+    import pin from "$lib/img/pin.gif";
 
-    let { question, answer, askedBy, askedWhen } = $props();
+    let { question, answer } = $props();
 </script>
 
 <article class="container light">
-    <header>
-        <img class="pin" src={pin} aria-hidden="true"/>
-        <h1>{question}</h1>
-    </header>
+    <img class="pin" src={pin} alt="A clothespin" aria-hidden="true" />
+    <h1>{question}</h1>
     <p class="content">{@html answer}</p>
-    {#if askedBy}
-        <p class="asker">
-            asked by <span class="askedBy">{@html askedBy}</span>
-            {#if askedWhen}
-                , <span class="askedWhen">{askedWhen}</span>
-            {/if}
-        </p>
-    {/if}
 </article>
 
 <style>
-    header {
-        padding-bottom: 0.5rem;
+    article {
         display: flex;
-        justify-content: flex-start;
-        gap: 0.5rem;
-        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+        position: relative;
+
+        max-width: 60ch;
+        width: 100%;
+
+        & h1 {
+            margin-left: 2rem;
+        }
+
+        & .pin {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 47px;
+            height: 47px;
+        }
+
+        transition: margin-left 0.25s ease-in-out,
+                    margin-right 0.25s ease-in-out;
     }
 
-    .pin {
-        width: 32px;
-        height: 32px;
-        transform: scale(1.25);
+    article:nth-child(even) {
+        margin-left: 6rem;
+        background-color: rgb(240, 210, 111);
+        border: rgb(117, 72, 38) 4px solid;
+        color: rgb(60, 3, 3);
+        transform: rotateZ(2deg);
     }
 
-    h1 {
-        font-size: 1.5rem;
+    article:nth-child(odd) {
+        margin-right: 6rem;
+        background-color: rgb(177, 233, 254);
+        border: rgb(17, 17, 107)4px solid;
+        transform: rotateZ(-2deg);
     }
 
-    .asker {
-        font-style: italic;
-        align-self: end;
+    @media screen and (max-width: 768px) {
+        article {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
     }
 </style>

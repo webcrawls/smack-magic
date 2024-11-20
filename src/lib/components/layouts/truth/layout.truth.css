@@ -1,0 +1,30 @@
+html {
+    background-color: black;
+    color: white;
+
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    height: min-content;
+
+    width: 100%;
+    
+    padding: 1rem;
+}
+
+h1, p {
+    font-size: 1rem;
+}
+
+header, blockquote {
+    border: 3px solid blue;
+    color: blue;
+
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 80ch;
+    margin-inline: auto;
+}
