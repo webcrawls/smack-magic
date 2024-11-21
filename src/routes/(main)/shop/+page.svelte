@@ -43,11 +43,6 @@
         list-style-type: none;
     }
 
-    p {
-        color: white;
-        opacity: 0.9;
-    }
-
     @media screen and (max-width: 768px) {
         ul {
             flex-direction: column;

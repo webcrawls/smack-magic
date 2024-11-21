@@ -4,7 +4,7 @@ interface Item {
 }
 
 export const cart = (() => {
-    let cartItems: Item[]         crmv,,,xzaxv                                                                                                                                                                                                                                                                              = $state([])
+    let cartItems: Item[]                                                                                                                                                                                                                                                                = $state([])
 
     return {
         get items() { return cartItems },

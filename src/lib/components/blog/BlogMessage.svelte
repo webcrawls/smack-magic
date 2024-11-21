@@ -106,6 +106,10 @@
         font-family: monospace;
     }
 
+    button {
+        text-wrap: nowrap;
+    }
+
     .title.deleted {
         font-style: italic;
         opacity: 0.7;

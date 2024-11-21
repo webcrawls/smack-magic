@@ -11,6 +11,7 @@
     }
 
     .name {
+        position: relative;
         font-size: 1.15em;
         font-weight: bold;
         background: linear-gradient(
@@ -36,5 +37,17 @@
         font-family:
             Comic Sans MS,
             "Comic Sans MS WOFF";
+        z-index: 1;
     }
+
+    /* .name::after {
+        position: absolute;
+        content: "";
+        width: calc(100% + 4px);
+        height: 80%;
+        bottom: -4px;
+        left: -4px;
+        background-color: black;
+        z-index: -1;
+    } */
 </style>

@@ -1,33 +1,43 @@
 <script lang="ts">
     import logo from "$lib/img/logo.png";
-    import SmackMagicPopup from "$lib/components/popup/types/SmackMagicSpinner.svelte";
 </script>
 
 <header>
     <a href="/" aria-hidden="true">
         <img class="logo" src={logo} alt="the Smack Magic! logo" />
     </a>
-    <div class="splash">
-        <SmackMagicPopup/>
-    </div>
+    <div class="bg" aria-hidden="true"></div>
 </header>
 
 <style>
     @media screen and (max-width: 1000px) {
-        .splash { visibility: hidden; }
+        .splash { 
+            bottom: 0;
+         }
     }
 
-    header {
-        width: 100%;
-        position: relative;
+    .bg {
         background: linear-gradient(
             to bottom,
             transparent 40%,
             var(--theme-primary-1) 80%
         );
+        position: absolute;
+        width: 100%; height: 100%;
+        top: 0; left: 0;
+        z-index: -1;
+    }
+
+    header {
+        width: 100%;
+        position: relative;
         padding-block: 2rem;
 
         overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
 
     .splash {
@@ -39,6 +49,10 @@
             width: 100%;
             height: 100%;
         }
+    }
+
+    a {
+        margin-inline: auto;
     }
 
     img.logo {
