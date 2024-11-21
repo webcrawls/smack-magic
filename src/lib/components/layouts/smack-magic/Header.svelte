@@ -11,9 +11,9 @@
 
 <style>
     @media screen and (max-width: 1000px) {
-        .splash { 
+        .splash {
             bottom: 0;
-         }
+        }
     }
 
     .bg {
@@ -23,21 +23,37 @@
             var(--theme-primary-1) 80%
         );
         position: absolute;
-        width: 100%; height: 100%;
-        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
         z-index: -1;
     }
 
     header {
         width: 100%;
         position: relative;
-        padding-block: 2rem;
+        padding-block: 0.5rem;
 
         overflow: hidden;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
+        & img.logo {
+            width: 100%;
+            height: 100%;
+            max-height: 150px;
+            object-fit: contain;
+
+            transform: scale(1);
+            transition: transform 0.25s;
+        }
+
+        & img.logo:hover {
+            transform: scale(1.1);
+        }
     }
 
     .splash {
@@ -53,19 +69,5 @@
 
     a {
         margin-inline: auto;
-    }
-
-    img.logo {
-        width: 100%;
-        height: 100%;
-        max-height: 200px;
-        object-fit: contain;
-
-        transform: scale(1);
-        transition: transform 0.25s;
-    }
-
-    img.logo:hover {
-        transform: scale(1.1);
     }
 </style>

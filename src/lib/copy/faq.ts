@@ -11,10 +11,10 @@ export default [
         `You betcha, it is!<br/>
         Just easily disassemble the Smack Magic into its three separate pieces, pop it in the dishwasher, 
         and once clean and dry, put it all back together to get to smacking!`),
-    faq("What all can it chop?", 
+    faq("What can it chop?", 
         `The wide variety of foods the Smack Magic can chop is not limited to vegetables, 
         nuts, fruits, meats and many more.`),
-    faq("How long will it last?", 
+    faq("How long does it last?", 
         `With proper cleaning and care, the Smack Magic can be expected to last for up to 5 years.`),
     faq("Can I purchase individual replacement blades?", 
         `The advanced-technology, stainless steel Smack Magic blades are available 
