@@ -1,140 +1,213 @@
 <script lang="ts">
-    import ChopperEnemy from "./enemy/ChopperEnemy.svelte";
-    import { createEnemyStore, createGameStore } from "./game.svelte";
-    import Chopper from "$lib/components/util/Chopper.svelte";
-    import enemies from "./enemy/enemies";
+    import { onMount } from "svelte";
+    import { createGameStore } from "./game.svelte";
+    import ShopItem from "./ShopItem.svelte";
+    import { browser } from "$app/environment";
+    import playerIcon from "$lib/img/icon/player-face.png";
+    import DamageOverlay from "./enemy/DamageOverlay.svelte";
+    import InventoryItem from "./InventoryItem.svelte";
 
-    let root: HTMLElement = undefined;
-    let started: boolean = $state(false);
+    let game = $state(null);
 
-    const game = createGameStore();
+    onMount(() => {
+        if (browser) {
+            game = createGameStore();
+        }
+    });
 
-    let press = () => {};
-
-    const startGame = () => {
-        if (started) return;
-        press();
-        setTimeout(() => {
-            game.enemy.spawn();
-            started = true;
-        }, 200);
+    const buyItem = (item) => {
+        game.buyItem(item);
     };
-
-    $effect(() => console.log(game.enemy.image));
 </script>
 
-<!-- TODO: aria role? -->
-<section role="application" bind:this={root}>
-    <aside class="shop"></aside>
-    <header>
-        <h1 class="title">
-            <span>Interactive</span>
-            <span>Chopper</span>
-        </h1>
-    </header>
-    <main onclick={startGame}>
-        {#if !started}
-            <Chopper bind:press />
-        {:else}
-            <ChopperEnemy {...game.enemy} />
-        {/if}
-    </main>
-    <footer>
-        <p>JoeCoinz: {game.coins}</p>
-        <p>Area: Kitchen</p>
-    </footer>
-    <aside class="inventory"></aside>
+<!-- TODO: determine proper ARIA role -->
+<section class="game" role="application">
+    {#if game}
+        <header><h1>INTERACTIVE CHOPPER</h1></header>
+        <aside>
+            <h2>SHOP</h2>
+            <ul>
+                {#each game.available as item}
+                    <ShopItem {...item} onclick={buyItem.bind(this, item)} />
+                {/each}
+            </ul>
+        </aside>
+        <main onclick={game.attack}>
+            {#if game.enemy}
+                <h1 class="enemy-name">{game.enemy.name} <span>{game.enemy.tier}</span></h1>
+                <div class="enemy-icon-container">
+                    <DamageOverlay
+                        min={0}
+                        max={game.maxHealth}
+                        current={game.enemyHealth}
+                    />
+                    <img class="enemy-icon" src={game.enemy.image} />
+                </div>
+                <p class="enemy-desciption">{game.enemy.description}</p>
+            {:else}
+                <p>no enemy....:(</p>
+            {/if}
+        </main>
+        <aside>
+            <h2>ITEMS</h2>
+            <ul>
+                {#each game.unlocked as item}
+                    <InventoryItem {...item} />
+                {/each}
+            </ul>
+        </aside>
+        <footer>
+            <section>
+                <h1></h1>
+            </section>
+            <section class="face-container">
+                <img
+                    class="player-face"
+                    src={playerIcon}
+                    alt="the player's face"
+                />
+            </section>
+            <section>
+                <ul>
+                    <li class="large-stat">{game.data.value.coins} JoeCoinz</li>
+                    {#each Object.entries(game.data.value.statistics) as [key, value]}
+                        {#if key === "kills"}{:else if key === "clicks"}{:else}
+                            <li class="small-stat">{key} chopped: {value}</li>
+                        {/if}
+                    {/each}
+                </ul>
+            </section>
+        </footer>
+    {/if}
 </section>
 
 <style>
-    section {
-        --border: 4px ridge black;
-        position: relative;
-        /* cursor: none; */
+    @font-face {
+        font-family: "Garamond";
+        src: url("/font/garamond.woff");
+    }
 
-        background-color: rgb(7, 59, 9);
-        width: 500px;
-        height: 300px;
-        aspect-ratio: 1 / 1;
+    section.game {
+        background-color: gray;
 
         display: grid;
-        grid-template-columns: 150px repeat(3, 1fr) 150px;
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 0px;
-        grid-row-gap: 0px; 
+        grid-row-gap: 0px;
 
         font-family: monospace;
-        font-size: 1rem;
-        color: beige;
+        color: black;
 
-        border: var(--border);
+        flex: 1 1;
+        width: 100%;
+        height: 100%;
+        max-width: 500px;
+        max-height: 300px;
 
-        & .shop {
-            grid-area: 2 / 1 / 6 / 2;
-            border-right: var(--border);
-        }
+        border: 8px outset black;
 
-        & .inventory {
-            grid-area: 2 / 5 / 6 / 6;
-            border-left: var(--border);
-        }
-
-        & header {
-            grid-area: 1 / 1 / 2 / 6;
-            border-bottom: var(--border);
-        }
-
-        & main {
-            grid-area: 2 / 2 / 6 / 5; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-
-            & .food {
-                cursor: pointer;
-            }
-        }
-
-        & footer {
-            border-top: var(--border);
-            grid-area: 6 / 1 / 7 / 6;
+        & * {
+            scrollbar-width: 8px;
         }
     }
 
-    .title {
-        font-family: "Comic Sans";
+    section.game > header {
+        grid-area: 1 / 1 / 2 / 6;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-inline: 1rem;
+        /* border-bottom: 2px solid black; */
+    }
+    section.game > aside:nth-of-type(1) {
+        grid-area: 2 / 1 / 5 / 2;
+    }
+    section.game > main {
+        grid-area: 2 / 2 / 5 / 3;
+    }
+    section.game > aside:nth-of-type(2) {
+        grid-area: 2 / 3 / 5 / 4;
+    }
+    section.game > footer {
+        /* border-top: 2px solid black; */
+        grid-area: 5 / 1 / 6 / 6;
+    }
+
+    main {
         width: 100%;
-        height: 2rem;
-        position: relative;
-        overflow: hidden;
+        height: 100%;
+        background-color: rgb(0, 0, 101);
 
-        & :nth-child(1),
-        :nth-child(2),
-        :nth-child(3) {
-            position: absolute;
+        color: yellow;
+
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        padding: 0.5rem;
+
+        font-family: "Garamond";
+
+        & .enemy-icon-container {
+            width: 64px;
+            height: 64px;
+            position: relative;
         }
 
-        & :nth-child(1) {
-            width: 100%;
-            text-align: center;
-            color: red;
-            transform: translate(-20px, -10px);
+        & .enemy-icon {
+            user-select: none;
+            width: 64px;
+            height: 64px;
+            background-color: black;
         }
+    }
 
-        & :nth-child(2) {
-            width: 100%;
-            text-align: center;
-            color: yellow;
-            transform: translate(40px, 2.5px);
-        }
+    aside {
+        padding: 0.25rem;
+        background-color: rgb(86, 86, 86);
+        overflow-x: scroll;
 
-        /* & :nth-child(3) {
-            width: 100%;
-            text-align: center;
+        & h2 {
             font-size: 1rem;
-            transform: translate(50px, 0px);
-            color: rgb(169, 169, 255);
-        } */
+        }
+    }
+
+    footer {
+        display: flex;
+        justify-content: space-evenly;
+        height: 72px;
+
+        & > section {
+            flex: 1 1;
+            /* border-inline: 2px solid black; */
+            overflow-x: scroll;
+            padding-inline: 0.5rem;
+        }
+
+        & .face-container {
+            flex: unset;
+            overflow: hidden;
+            padding: none;
+        }
+
+        & .player-face {
+            margin-inline: auto;
+            height: 100%;
+            background-color: black;
+            image-rendering: pixelated;
+        }
+
+        & .large-stat {
+            font-size: 0.9rem;
+            list-style-type: none;
+        }
+
+        & .small-stat {
+            list-style-type: none;
+            font-size: 0.75rem;
+        }
     }
 </style>

@@ -1,74 +1,92 @@
-import { updated } from "$app/stores"
-import enemies, { type Enemy } from "./enemy/enemies"
-import { localStore } from "./local.svelte"
+import { enemyTiers, enemies, type Enemy } from "./enemy/enemies"
+import { LocalStore, localStore } from "../util/local.svelte"
+import type { Player } from "./game.types"
+import { pick, randomRange, weightedPick } from "$lib/util/math"
+import type ShopItem from "./ShopItem.svelte"
+import { items } from "./shop"
 
-export interface GameData {
-    coins: number
-}
+export const createGameStore = () => {
+    let data: LocalStore<Player> = localStore("sm:chopgame", {
+        coins: 0,
+        unlockedItems: [],
+        statistics: {
+            kills: {},
+            clicks: 0, /* TODO implement statistics tracking */
+        }
+    })
 
-const pickFood = () => {
-    return enemies[Math.floor(Math.random() * enemies.length)]
-}
+    let currentEnemy: Enemy = $state(null)
+    let maxHealth: number = $state(0)
+    let currentHealth: number = $state(0)
 
-export const createEnemyStore = (onkill) => {
-    let id: number = $state(0)
-    let enemy: Enemy = $state(null)
-    let health: number = $state(0)
+    let damage: number = $derived(0.5 +
+        (data
+            .value
+            .unlockedItems
+            .filter(item => item.startsWith("damage"))
+            .length)
+    )
+    let rewardMult: number = $derived(0.5)
 
-    const setEnemy = (newEnemy: Enemy) => {
-        enemy = newEnemy
-        health = enemy.health
+    const spawnEnemy = () => {
+        const tier = weightedPick(Object.values(enemyTiers), tier => tier.weight)
+
+        currentEnemy = pick(enemies.filter(enemy => enemy.tier === tier.id))
+
+        const health = randomRange(tier.minHealth, tier.maxHealth)
+        currentHealth = health
+        maxHealth = health
     }
 
-    const spawn = () => setEnemy(pickFood())
-
-    const attack = (amount = 1) => {
-        console.log({health})
-        health = health - 1
-
-        if (health <= 0) {
-            onkill(enemy)
-            spawn()
+    const attack = () => {
+        currentHealth -= damage
+        if (currentHealth <= 0) {
+            kill(currentEnemy)
         }
     }
 
-    return {
-        get name() { return enemy?.name },
-        get description() { return enemy?.description },
-        get maxHealth() { return enemy?.health },
-        get health() { return health },
-        get damage() { return enemy?.damage },
-        get spawned() { return !!enemy },
-        get image() { return enemy?.image },
-        attack, spawn
-    }
-}
-
-export const createGameStore = () => {
-    // let coins = $state(0)
-    // let kills = $state(0)
-
-    const gameData = localStore("sm:chopgame", { coins: 0, kills: 0 })
-
-    const updateData = (consumer) => {
-        const data = gameData.value
-        let modified = consumer(data)
-        gameData.value = modified
+    const kill = (enemy: Enemy) => {
+        currentEnemy = null
+        data.value.coins = data.value.coins + (maxHealth * rewardMult)
+        if (enemy.id in data.value.statistics) {
+            data.value.statistics = { ...data.value.statistics, [enemy.id]: data.value.statistics[enemy.id] + 1 }
+        } else {
+            data.value.statistics = { ...data.value.statistics, [enemy.id]: 1 }
+        }
+        spawnEnemy()
     }
 
-    const onkill = (enemy) => {
-        updateData(({kills, coins}) => {
-            return {
-                kills: kills + 1,
-                coins: coins + enemy.health * 0.5
-            }
-        })
+    const unlockItem = (item: ShopItem) => {
+        if (data.value.unlockedItems.indexOf(item.id) !== -1) return
+        data.value.unlockedItems = [...data.value.unlockedItems, item.id]
     }
 
-    const enemy = createEnemyStore(onkill)
+    const buyItem = (item: ShopItem) => {
+        if (data.value.coins >= item.price) {
+            data.value.coins = data.value.coins - item.price
+            unlockItem(item)
+        }
+    }
+
+    spawnEnemy()
 
     return {
-        get coins() { return gameData.value.coins },
-        enemy, updateData
+        get data() { return data },
+        set data(newData: Player) { data = newData },
+        get enemy() { return currentEnemy },
+        get enemyHealth() { return currentHealth },
+        get maxHealth() { return maxHealth },
+        attack,
+        unlockItem,
+        buyItem,
+        get unlocked() {
+            return items
+                .filter(item => data.value.unlockedItems.indexOf(item.id) !== -1)
+        },
+        get available() {
+            return items
+                .filter(item => item.dependsOn.every(dep => data.value.unlockedItems.indexOf(dep) !== -1))
+                .filter(item => data.value.unlockedItems.indexOf(item.id) === -1)
+        }
     }
 }

@@ -6,62 +6,100 @@ import strawberries from "$lib/img/food/strawberries.jpg";
 import chicken from "$lib/img/food/chicken.jpg";
 import beef from "$lib/img/food/beef.jpg";
 
+export interface EnemyTier {
+    id: string,
+    minHealth: number,
+    maxHealth: number,
+    minDamage: number,
+    maxDamage: number,
+    weight: number
+}
+
+const enemyTiers: { [key: string]: EnemyTier } = {
+    common: {
+        id: "common",
+        minHealth: 5,
+        maxHealth: 10,
+        minDamage: 1,
+        maxDamage: 2,
+        weight: 10,
+    },
+    rare: {
+        id: "rare",
+        minHealth: 10,
+        maxHealth: 20,
+        minDamage: 3,
+        maxDamage: 4,
+        weight: 3,
+    },
+    exotic: {
+        id: "exotic",
+        minHealth: 20,
+        maxHealth: 40,
+        minDamage: 5,
+        maxDamage: 6,
+        weight: 1
+    }
+};
+
 export interface Enemy { 
+    id: string,
     name: string,
     image: string,
     description: string,
-    health: number,
-    damage: number
+    tier: string
 }
 
-export default [
+const enemies = [
     {
+        id: "cucumbers",
         name: "Cucumbers",
         image: cucumbers,
         description: "A crisp, refreshing vegetable that boosts hydration.",
-        health: 5,
-        damage: 1
+        tier: enemyTiers.common.id
     },
     {
+        id: "nuts",
         name: "Nuts",
         image: nuts,
         description: "A handful of energy-packed snacks to keep you going.",
-        health: 8,
-        damage: 2
+        tier: enemyTiers.rare.id
     },
     {
+        id: "onions",
         name: "Onions",
         image: onion,
         description: "Sharp and flavorful, these bring tears and strength.",
-        health: 4,
-        damage: 3
+        tier: enemyTiers.common.id
     },
     {
+        id: "tomatoes",
         name: "Tomatoes",
         image: tomatoes,
         description: "Juicy and versatile, they are a hero in any salad.",
-        health: 6,
-        damage: 1
+        tier: enemyTiers.common.id
     },
     {
+        id: "strawberries",
         name: "Strawberries",
         image: strawberries,
         description: "Sweet and vibrant berries packed with antioxidants.",
-        health: 7,
-        damage: 0
+        tier: enemyTiers.rare.id
     },
     {
+        id: "chicken",
         name: "Chicken",
         image: chicken,
         description: "A lean source of protein, perfect for powering up.",
-        health: 10,
-        damage: 4
+        tier: enemyTiers.exotic.id
     },
     {
+        id: "beef",
         name: "Beef",
         image: beef, // Placeholder image
         description: "Rich and hearty, this will restore your energy fast.",
-        health: 12,
-        damage: 5
+        tier: enemyTiers.exotic.id
     }
 ] as Enemy[];
+
+export { enemyTiers, enemies };
