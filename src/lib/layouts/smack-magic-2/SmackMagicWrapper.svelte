@@ -4,12 +4,18 @@
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import Overlay from "./overlay/Overlay.svelte";
+    import Metadata from "$lib/components/util/Metadata.svelte";
 
     let {
         children = undefined as Snippet | undefined,
         popups = [] as Component[],
     } = $props();
 </script>
+
+<svelte:head>
+    <Metadata/>
+</svelte:head>
+
 
 <Header />
 

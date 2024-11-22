@@ -19,7 +19,7 @@
 <style>
     header {
         margin-top: 2.5rem;
-        height: 2rem;
+        min-height: 2rem;
         width: 100%;
         background: linear-gradient(to top, red 45%, rgb(255, 63, 63) 45%);
 
@@ -79,6 +79,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
+            flex: 1 1;
             color: white;
             padding-inline: 1rem;
             border-right: 1px solid rgb(50, 0, 0);

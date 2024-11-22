@@ -1,22 +1,11 @@
 <script>
-    import SmackMagicSpinner from "$lib/components/popup/types/SmackMagicSpinner.svelte";
     import JoeName from "$lib/components/util/JoeName.svelte"
     import SmackName from "../util/SmackName.svelte";
+    import joeImg from "$lib/img/joe/pose-1.png";
 </script>
 
-<article class="quote">
-    <div class="image-wrapper">
-        <enhanced:img
-            height="312"
-            style="margin-right: 12px; margin-bottom: 12px;
-                       zoom: 1.1;
-                       width: min-content; height: 256px; float: left;"
-            src="$lib/img/joe/pose-1.png"
-        />
-        <div class="splash" aria-hidden="true">
-            <SmackMagicSpinner />
-        </div>
-    </div>
+<div class="quote">
+    <img class="joe" src={joeImg}/>
     <p>
         Created by <JoeName />, the king of infomercials, The <SmackName /> Vegetable
         Chopper has revolutionized prep in the kitchen, sending it into a future
@@ -38,4 +27,21 @@
     <p style="text-align: end;">
         - <JoeName />, CEO of Smack Magic Corp
     </p>
-</article>
+</div>
+
+
+<style>
+    .quote {
+        padding: 0.5rem;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .joe {
+        float: left;
+        max-width: 100px;
+        margin: 1rem;
+        margin-bottom: 0px;
+    }
+</style>

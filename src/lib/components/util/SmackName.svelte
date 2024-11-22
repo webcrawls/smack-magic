@@ -1,6 +1,8 @@
-<span class="smack-magic"
-    ><span class="smack">Smack</span> <span class="magic">Magic</span></span
->
+<!-- <span class="smack-magic" -->
+    <!-- ><span class="smack">Smack</span> <span class="magic">Magic</span></span -->
+<!-- > -->
+
+<span>Smack Magic</span>
 
 <style>
     .smack-magic {
