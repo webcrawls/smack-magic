@@ -1,6 +1,4 @@
 <script>
-    import "$lib/styles/container.css";
-    
     import imgError from "$lib/img/icon/error.gif"
     import imgLoading from "$lib/img/loading/loading.gif"
 
