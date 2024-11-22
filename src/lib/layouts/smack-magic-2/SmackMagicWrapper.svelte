@@ -32,6 +32,16 @@
         font-family: "Comic Sans";
     }
 
+    @font-face {
+        src: url("/font/impact.woff") format('woff');
+        font-family: "Impact";
+    }
+
+    @font-face {
+        src: url("/font/impact.woff") format('woff');
+        font-family: "Comic Sans";
+    }
+
     :global(:root) {
         --theme-bg-1: #3b4064;
         --theme-bg-2: #8090f1;
@@ -61,6 +71,7 @@
         
         display: flex;
         flex-direction: column;
+        align-items: center;
         margin-inline: auto;
 
         max-width: 80ch;

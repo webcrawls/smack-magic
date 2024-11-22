@@ -4,27 +4,28 @@
     import Chopper from "$lib/components/util/Chopper.svelte";
     import enemies from "./enemy/enemies";
 
-    let root: HTMLElement = undefined
-    let started: boolean = $state(false)
+    let root: HTMLElement = undefined;
+    let started: boolean = $state(true);
 
-    const game = createGameStore()
+    const game = createGameStore();
 
-    let press = () => {}
+    let press = () => {};
 
     const startGame = () => {
-        if (started) return
-        press()
+        if (started) return;
+        press();
         setTimeout(() => {
-            game.enemy.spawn()
-           started = true
-        }, 200)
-    }
+            game.enemy.spawn();
+            started = true;
+        }, 200);
+    };
 
-    $effect(() => console.log(game.enemy.image))
+    $effect(() => console.log(game.enemy.image));
 </script>
 
 <!-- TODO: aria role? -->
 <section role="application" bind:this={root}>
+    <aside class="shop"></aside>
     <header>
         <h1 class="title">
             <span>Interactive</span>
@@ -33,14 +34,16 @@
     </header>
     <main onclick={startGame}>
         {#if !started}
-            <Chopper bind:press/>
+            <Chopper bind:press />
         {:else}
-            <ChopperEnemy {...game.enemy}/>
+            <ChopperEnemy {...game.enemy} />
         {/if}
     </main>
     <footer>
         <p>JoeCoinz: {game.coins}</p>
+        <p>Area: Kitchen</p>
     </footer>
+    <aside class="inventory"></aside>
 </section>
 
 <style>
@@ -53,8 +56,11 @@
         width: 250px;
         aspect-ratio: 1 / 1;
 
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
 
         font-family: monospace;
         font-size: 1rem;
@@ -62,13 +68,22 @@
 
         border: var(--border);
 
+        & .shop {
+            grid-area: 2 / 1 / 6 / 2;
+            border-right: var(--border);
+        }
+
+        & .inventory {
+            grid-area: 2 / 5 / 6 / 6;
+            border-left: var(--border);
+        }
+
         & header {
+            grid-area: 1 / 1 / 2 / 6;
             border-bottom: var(--border);
         }
 
         & main {
-            flex: 1 1;
-            
             display: flex;
             justify-content: center;
             align-items: center;
@@ -90,7 +105,9 @@
         position: relative;
         overflow: hidden;
 
-        & :nth-child(1), :nth-child(2), :nth-child(3) {
+        & :nth-child(1),
+        :nth-child(2),
+        :nth-child(3) {
             position: absolute;
         }
 

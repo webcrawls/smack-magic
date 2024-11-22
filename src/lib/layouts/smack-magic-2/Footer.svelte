@@ -17,6 +17,7 @@
 
 <style>
     footer {
+        width: 100%;
         padding-block: 1rem;
         font-size: 10px;
         background-color: black;
