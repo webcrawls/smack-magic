@@ -6,11 +6,13 @@ export interface ShopItem {
     name: string,
     description: string,
     id: string,
+    price: number,
     dependsOn: string | string[]
 }
 
 const createUpgradeTree = (
     name: string,
+    description: string,
     first: number,
     last: number,
     options: { collapse: boolean } = { collapse: true },
@@ -32,14 +34,18 @@ const createUpgradeTree = (
         name: name + " " + romanize(index),
         id: name.toLocaleLowerCase() + "-" + index,
         price: 10,
-        dependsOn
+        dependsOn,
+        description
     }
 
-    return createUpgradeTree(name, first, last, options, [...currentItems, upgrade], run + 1)
+    return createUpgradeTree(name, description, first, last, options, [...currentItems, upgrade], run + 1)
 }
 
 const upgrades: ShopItem[] = [
-    ...createUpgradeTree("Damage", 1, 10)
+    ...createUpgradeTree("Sharpened Blade", "Increases damage", 1, 10),
+    ...createUpgradeTree("Smack Power", "Increases damage", 1, 10),
+    ...createUpgradeTree("Chef's Blessings", "Increases chance to find rarer things", 1, 5),
+    { name: "Joe's Swag", id: "joes-swag", description: "Give Joe some much needed swag", price: 100, dependsOn: []}
 ]
 
 export const items = [ ...upgrades ]
