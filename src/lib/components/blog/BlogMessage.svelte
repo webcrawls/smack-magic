@@ -1,6 +1,6 @@
 <script lang="ts">
-    import DateValue from "$lib/components/DateValue.svelte";
-    import defaultAvatar from "$lib/img/user.png";
+    import defaultAvatar from "$lib/img/user/default.png";
+    import DateValue from "../util/DateValue.svelte";
     let {
         author,
         date,
@@ -24,13 +24,13 @@
                     {#if deleted}
                         <span>[ deleted ]</span>
                     {:else}
-                        <span style="font-weight: normal;">posted by</span>
+                        <span style="font-weight: normal; font-size: 0.6em;">posted by</span>
                         <span>{author?.name}</span>
+                        <span style="font-weight: normal; font-size: 0.6em;">on <DateValue {date} /></span>
                     {/if}
                 </h1>
                 {#if !deleted}
                     <p class="date">
-                        posted on <DateValue {date} />
                         {#if edited}<span>(edited)</span>{/if}
                     </p>
                     <p class="replies">replies: {responses.length}</p>
@@ -60,16 +60,27 @@
         color: inherit;
     }
 
+    .title.deleted {
+        color: rgb(255, 166, 166);
+    }
+
     .collapse {
         position: absolute;
         top: 0;
-        right: 0;
-        width: 24px;
-        height: 24px;
+        right: 16px;
+        width: 1em;
+        height: 1em;
+        font-family: monospace;
+        cursor: pointer;
 
         color: white;
         border: none;
         background-color: black;
+    }
+
+    .content {
+        max-width: 60ch;
+
     }
 
     header {
@@ -82,7 +93,7 @@
 
         & img {
             width: min-content;
-            height: 128px;
+            height: 64px;
             aspect-ratio: 1 / 1;
         }
 
@@ -93,6 +104,10 @@
 
     .title {
         font-family: monospace;
+    }
+
+    button {
+        text-wrap: nowrap;
     }
 
     .title.deleted {

@@ -1,31 +1,64 @@
 <script>
     import faq from "$lib/copy/faq";
-    import PageWrapper from "$lib/components/PageWrapper.svelte";
-    import FaqEntry from "$lib/components/faq/FAQEntry.svelte";
-    import FaqWarning from "$lib/components/faq/FAQWarning.svelte";
+    import pin from "$lib/img/icon/pin.gif"
 </script>
 
-{#snippet title()}
-    <h1>Frequently Asked Questions</h1>
-{/snippet}
-
-<PageWrapper {title}>
-    <div class="entries">
-        {#each faq as { question, answer, askedBy, askedWhen }}
-            <FaqEntry {question} {answer} {askedBy} {askedWhen}/>
-        {/each}
-    </div>
-    <FaqWarning/>
-</PageWrapper>
+{#each faq as { question, answer }}
+    <article class="container light">
+        <img class="pin" src={pin} alt="A clothespin" aria-hidden="true" />
+        <h1>{question}</h1>
+        <p class="content">{@html answer}</p>
+    </article>
+{/each}
 
 <style>
-    .entries {
+    article {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        margin-inline: auto;
+        gap: 1rem;
+
+        padding: 1rem;
+        position: relative;
+
+        max-width: 60ch;
         width: 100%;
-        gap: 2rem;
-        margin-top: 2rem;
+
+        & h1 {
+            margin-left: 2rem;
+        }
+
+        & .pin {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 47px;
+            height: 47px;
+        }
+
+        transition:
+            margin-left 0.25s ease-in-out,
+            margin-right 0.25s ease-in-out;
+    }
+
+    article:nth-child(even) {
+        margin-left: 6rem;
+        background-color: rgb(240, 210, 111);
+        border: rgb(117, 72, 38) 4px solid;
+        color: rgb(60, 3, 3);
+        transform: rotateZ(2deg);
+    }
+
+    article:nth-child(odd) {
+        margin-right: 6rem;
+        background-color: rgb(177, 233, 254);
+        border: rgb(17, 17, 107) 4px solid;
+        transform: rotateZ(-2deg);
+    }
+
+    @media screen and (max-width: 768px) {
+        article {
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+        }
     }
 </style>

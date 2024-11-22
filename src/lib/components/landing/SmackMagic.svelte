@@ -1,1 +1,0 @@
-<span>Smack Magic Vegetable Chopper</span>

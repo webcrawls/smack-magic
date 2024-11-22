@@ -1,4 +1,4 @@
-import userIcon from '$lib/img/user.png'
+import userIcon from '$lib/img/user/default.png'
 
 interface Message {
     author: string

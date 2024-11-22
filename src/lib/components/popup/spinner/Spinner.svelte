@@ -8,12 +8,9 @@
         link = "/shop",
         fill = "#ffcb00",
         shadowFill = "#000000",
+        onclick = () => {if (linked) goto(link)},
         style = "",
     } = $props();
-
-    const onclick = () => {
-        if (linked) goto(link);
-    };
 </script>
 
 <div class="spinner" class:spinning class:linked {style} {onclick}>

@@ -1,66 +1,41 @@
 <script>
     import testimonials from "$lib/copy/testimonials";
-    import Testimonial from "$lib/components/testimonials/Testimonial.svelte";
-    import SmackMagicWrapper from "$lib/components/layouts/SmackMagicWrapper.svelte";
+    import avatar from "$lib/img/user/default.png";
+    import star from "$lib/img/icon/star-rainbow.gif";
 </script>
 
-{#snippet title()}
-<h1>Customer Testimonials</h1>
-{/snippet}
-
-<script lang="ts">
-    import "$lib/styles/container.css";
-    import star from "$lib/img/star-rainbow.gif";
-    import avatar from "$lib/img/user.png"
-
-    let { name, date, content } = $props();
-</script>
-
-{#snippet testimonial()}
-<article class="container light">
-    <header>
-        <img src={avatar}/>
-        <div class="header-content">
-            <h1>{name}</h1>
-            <div class="rating" aria-hidden="true">
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
+{#each testimonials as { name, content, date }}
+    <article class="container light">
+        <header>
+            <img src={avatar} />
+            <div class="header-content">
+                <h1>{name}</h1>
+                <div class="rating" aria-hidden="true">
+                    <img src={star} />
+                    <img src={star} />
+                    <img src={star} />
+                    <img src={star} />
+                    <img src={star} />
+                </div>
             </div>
-        </div>
-    </header>
-    <blockquote>
-        <p class="content">{@html content}</p>
-    </blockquote> 
-    <p class="date">- {@html date}</p>
-</article>
-{/snippet}
-
-<SmackMagicWrapper {title}>
-    <div class="testimonial-wrapper">
-        {#each testimonials as {name, date, content, rating}} 
-            <Testimonial {name} {date} {content} {rating}/>
-        {/each}  
-    </div>
-</SmackMagicWrapper>
+        </header>
+        <blockquote>
+            <p class="content">{@html content}</p>
+        </blockquote>
+        <p class="date">- {@html date}</p>
+    </article>
+{/each}
 
 <style>
-    .testimonial-wrapper {
-        margin-top: 2rem;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-    }
-
     article {
         max-width: 60ch;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+
+        background-color: aliceblue;
+        padding: 0.5rem;
+        border: 3px solid gray;
 
         & header {
             display: flex;
@@ -77,7 +52,7 @@
                 width: 96px;
                 height: 96px;
             }
-            
+
             & .header-content {
                 display: flex;
                 flex-direction: column;

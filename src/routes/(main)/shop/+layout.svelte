@@ -1,5 +1,4 @@
 <script>
-    import PageWrapper from "$lib/components/PageWrapper.svelte";
     import ShopCartLink from "$lib/components/shop/CartLink.svelte";
 </script>
 
@@ -10,9 +9,7 @@
     </div>
 {/snippet}
 
-<PageWrapper {title}>
-    <slot />
-</PageWrapper>
+<slot/>
 
 <style>
     .header {
