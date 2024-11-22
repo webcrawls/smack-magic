@@ -1,8 +1,8 @@
 <script>
     import "$lib/styles/container.css";
     
-    import imgError from "$lib/img/error.gif"
-    import imgLoading from "$lib/img/loading.gif"
+    import imgError from "$lib/img/icon/error.gif"
+    import imgLoading from "$lib/img/loading/loading.gif"
 
     import { onMount } from "svelte";
     import { browser } from "$app/environment";
