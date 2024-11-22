@@ -5,7 +5,7 @@
     import enemies from "./enemy/enemies";
 
     let root: HTMLElement = undefined;
-    let started: boolean = $state(true);
+    let started: boolean = $state(false);
 
     const game = createGameStore();
 
@@ -53,14 +53,15 @@
         /* cursor: none; */
 
         background-color: rgb(7, 59, 9);
-        width: 250px;
+        width: 500px;
+        height: 300px;
         aspect-ratio: 1 / 1;
 
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: 150px repeat(3, 1fr) 150px;
+        grid-template-rows: repeat(6, 1fr);
         grid-column-gap: 0px;
-        grid-row-gap: 0px;
+        grid-row-gap: 0px; 
 
         font-family: monospace;
         font-size: 1rem;
@@ -84,9 +85,11 @@
         }
 
         & main {
+            grid-area: 2 / 2 / 6 / 5; 
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
 
             & .food {
                 cursor: pointer;
@@ -95,6 +98,7 @@
 
         & footer {
             border-top: var(--border);
+            grid-area: 6 / 1 / 7 / 6;
         }
     }
 
