@@ -7,12 +7,14 @@ export interface ShopItem {
     description: string,
     id: string,
     price: number,
-    dependsOn: string | string[]
+    dependsOn: string | string[],
+    data: { damage: number }
 }
 
 const createUpgradeTree = (
     name: string,
     description: string,
+    data: { damage: number },
     first: number,
     last: number,
     options: { collapse: boolean } = { collapse: true },
@@ -38,14 +40,18 @@ const createUpgradeTree = (
         description
     }
 
-    return createUpgradeTree(name, description, first, last, options, [...currentItems, upgrade], run + 1)
+    return createUpgradeTree(name, description, data, first, last, options, [...currentItems, upgrade], run + 1)
 }
 
 const upgrades: ShopItem[] = [
-    ...createUpgradeTree("Sharpened Blade", "Increases damage", 1, 10),
-    ...createUpgradeTree("Smack Power", "Increases damage", 1, 10),
-    ...createUpgradeTree("Chef's Blessings", "Increases chance to find rarer things", 1, 5),
-    { name: "Joe's Swag", id: "joes-swag", description: "Give Joe some much needed swag", price: 100, dependsOn: []}
+    ...createUpgradeTree("Sharpened Blade", "Increases damage", { damage: 1 }, 1, 10),
+    ...createUpgradeTree("Smack Power", "Increases damage", { damage: 1 }, 1, 10),
+    ...createUpgradeTree("Chef's Blessings", "Increases chance to find rarer things", { damage: 1 }, 1, 5),
+    { name: "Joe's Swag", id: "joes-swag", description: "Give Joe some much needed swag", data: {}, price: 100, dependsOn: [] }
 ]
 
-export const items = [ ...upgrades ]
+export const getItem = (id: string): ShopItem | undefined => {
+    return upgrades.find(item => item.id === id)
+}
+
+export const items = [...upgrades]

@@ -3,7 +3,7 @@ import { LocalStore, localStore } from "../util/local.svelte"
 import type { Player } from "./game.types"
 import { pick, randomRange, weightedPick } from "$lib/util/math"
 import type ShopItem from "./ShopItem.svelte"
-import { items } from "./shop"
+import { getItem, items } from "./shop"
 
 export const createGameStore = () => {
     let data: LocalStore<Player> = localStore("sm:chopgame", {
@@ -39,7 +39,7 @@ export const createGameStore = () => {
     }
 
     const attack = () => {
-        currentHealth -= damage
+        currentHealth -= getDamage(data.value)
         if (currentHealth <= 0) {
             kill(currentEnemy)
         }
@@ -68,6 +68,13 @@ export const createGameStore = () => {
         }
     }
 
+    const getDamage = (data: Player) => {
+        return data
+            .unlockedItems
+            .flatMap((item, val) => val + (getItem(item)?.data?.damage ?? 1)).length    
+    }
+
+
     spawnEnemy()
 
     return {
@@ -76,6 +83,9 @@ export const createGameStore = () => {
         get enemy() { return currentEnemy },
         get enemyHealth() { return currentHealth },
         get maxHealth() { return maxHealth },
+        get playerDamage() {
+            return getDamage(data.value)
+        },
         attack,
         unlockItem,
         buyItem,

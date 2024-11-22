@@ -5,7 +5,6 @@
     import { browser } from "$app/environment";
     import playerIcon from "$lib/img/icon/player-face.png";
     import DamageOverlay from "./enemy/DamageOverlay.svelte";
-    import InventoryItem from "./InventoryItem.svelte";
     import mlgGlass from "$lib/img/mlg-glasses.png";
 
     let game = $state(null);
@@ -32,7 +31,7 @@
 <section class="game" role="application">
     {#if game}
         <header><h1>SMACK DIGITAL</h1></header>
-        <aside>
+        <aside class="links">
             <a
                 href="#"
                 class:current={page === "attack"}
@@ -90,7 +89,7 @@
                 <h2>ITEMS</h2>
                 <ul>
                     {#each game.unlocked as item}
-                        <InventoryItem {...item} />
+                        <ShopItem {...item} purchased={true} />
                     {/each}
                 </ul>
             </main>
@@ -99,7 +98,7 @@
         </aside> -->
         <footer>
             <section>
-                <p>Damage per Chop: TODO</p>
+                <p>Damage per Chop: {game.playerDamage}</p>
                 <p>Reward Mult.: 1.0x</p>
                 <p>Joe Swag Level: TODO</p>
             </section>
@@ -142,7 +141,7 @@
         color: yellow;
 
         display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: min-content 3fr 1fr;
         grid-template-rows: repeat(5, 1fr);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
@@ -152,8 +151,6 @@
         flex: 1 1;
         width: 100%;
         height: 100%;
-        max-width: 500px;
-        max-height: 300px;
 
         border: 8px solid black;
 
@@ -220,6 +217,13 @@
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    aside.links {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
     }
 
     aside {

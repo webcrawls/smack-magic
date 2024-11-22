@@ -29,7 +29,7 @@
         display: grid;
         /* grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); */
         grid-template-columns: minmax(200px, 250px) 1fr;
-        grid-template-rows: min-content 300px min-content min-content;
+        grid-template-rows: min-content 100px 300px min-content min-content;
         /* grid-column-gap: 0px; */
         /* grid-row-gap: 0px; */
         gap: 1rem;
@@ -39,14 +39,14 @@
         grid-row: 1;
         grid-column: 1 / -1;
         width: 100%;
+        color: white;
     }
 
     #testimonials {
         width: 100%; height: 100%;
-        grid-row: 2 / 3;
+        grid-row: 2 / 4;
         grid-column: 1;
         overflow-x: scroll;
-        margin-top: 2rem;
         border: 2px solid black;
         background-color: gray;
     }

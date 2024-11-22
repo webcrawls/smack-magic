@@ -1,10 +1,10 @@
 <script>
-    let { name, description, price, onclick } = $props()
+    let { name, description, price, onclick, purchased = false } = $props()
 </script>
 
 <li {onclick}>
-    <p>- {name}</p>
-    <button>{price} JoeCoinz</button>
+    <p>{name}</p>
+    <button class:purchased>{price} JoeCoinz</button>
 </li>
 
 <style>
@@ -15,7 +15,9 @@
         color: white;
         display: flex;
         flex-direction: column;
-        padding-top: 7px;
+        padding-block: 7px;
+        padding-inline: 1rem;
+        margin-block: 5px;
     }
 
     li:hover {
@@ -24,6 +26,11 @@
 
     p {
         font-weight: bold;
+    }
+
+    button.purchased {
+        text-decoration: line-through;
+        opacity: 0.9;
     }
 
     button { 
