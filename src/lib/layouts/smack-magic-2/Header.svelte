@@ -41,14 +41,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: transform 0.1s;
+            transform: translateY(7px);
+        }
+
+        & a.logo-link:hover {
+            transform: scale(1.1) translateX(-10px) translateY(7px);
         }
 
         & img.logo {
             height: 100px;
             object-fit: contain;
-            transition:
-                transform 0.1s,
-                filter 0.1s;
+            transition: filter 0.1s;
             animation: logo-tilt 1s infinite;
 
             -webkit-filter: drop-shadow(5px 5px 0 #222);
@@ -56,7 +60,6 @@
         }
 
         & img.logo:hover {
-            transform: translateX(10px) scale(1.1);
             -webkit-filter: drop-shadow(10px 10px 0 #222);
             filter: drop-shadow(10px 10px 0 #222);
         }
