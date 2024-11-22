@@ -68,10 +68,20 @@
     nav {
         display: flex;
 
+        & a:first-child {
+            border-left: 1px solid rgb(50, 0, 0);
+        }
+
         & a {
             color: white;
             padding-inline: 1rem;
-            border-inline: 2px solid black;
+            border-right: 1px solid rgb(50, 0, 0);
+            text-decoration: none;
+            text-align: center;
+        }
+
+        & a:hover {
+            background-color: rgb(255,255,255,0.25);
         }
     }
 
@@ -104,27 +114,50 @@
         :global(header > :nth-child(3)) {
             grid-area: 2 / 2 / 3 / 3;
         }
+
+        #site-navigation {
+            width: 100%;
+
+            & a {
+                width: 100%;
+            }
+        }
+
+        #shop-navigation {
+            width: 100%;
+
+            border-top: 1px solid rgb(50, 0, 0);
+
+            & a {
+                width: 100%;
+            }
+        }
     }
 
     @media screen and (max-width: 560px) {
         header {
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: repeat(3, 1fr);
+            grid-template-rows: repeat(3, min-content);
             grid-column-gap: 0px;
             grid-row-gap: 0px;
+            gap: 0;
             background: linear-gradient(to top, red 75%, rgb(255, 63, 63) 75%);
         }
 
         :global(header > :nth-child(1)) {
             grid-area: 1 / 1 / 2 / 2;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
         }
         :global(header > :nth-child(2)) {
             grid-area: 2 / 1 / 3 / 2;
         }
         :global(header > :nth-child(3)) {
             grid-area: 3 / 1 / 4 / 2;
+        }
+
+        #site-navigation {
+            border-top: 1px solid rgb(50, 0, 0);
         }
     }
 </style>
