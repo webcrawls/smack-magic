@@ -1,9 +1,9 @@
 <footer>
     <nav>
         <a href="/">home</a>
-        <a href="/">testimonials</a>
-        <a href="/">faq</a>
-        <a href="/">shop</a>
+        <a href="/faq">faq</a>
+        <a href="/blog">blog</a>
+        <a href="/shop">shop</a>
     </nav>
     <p>Copyright © 2009 Smack Magic Corp - <a href="#">Privacy Policy</a> - <a href="#">Terms of Service</a></p>
     <p class="warning">
