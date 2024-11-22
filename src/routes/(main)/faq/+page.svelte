@@ -1,12 +1,7 @@
 <script>
     import faq from "$lib/copy/faq";
     import pin from "$lib/img/icon/pin.gif"
-    import SmackMagicWrapper from "$lib/components/layouts/smack-magic/SmackMagicWrapper.svelte";
 </script>
-
-{#snippet title()}
-    <h1>Frequently Asked Questions</h1>
-{/snippet}
 
 {#each faq as { question, answer }}
     <article class="container light">

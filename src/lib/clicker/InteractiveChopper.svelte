@@ -1,0 +1,119 @@
+<script lang="ts">
+    import ChopperEnemy from "./enemy/ChopperEnemy.svelte";
+    import { createEnemyStore, createGameStore } from "./game.svelte";
+    import Chopper from "$lib/components/util/Chopper.svelte";
+    import enemies from "./enemy/enemies";
+
+    let root: HTMLElement = undefined
+    let started: boolean = $state(false)
+
+    const game = createGameStore()
+
+    let press = () => {}
+
+    const startGame = () => {
+        if (started) return
+        press()
+        setTimeout(() => {
+            game.enemy.spawn()
+           started = true
+        }, 200)
+    }
+
+    $effect(() => console.log(game.enemy.image))
+</script>
+
+<!-- TODO: aria role? -->
+<section role="application" bind:this={root}>
+    <header>
+        <h1 class="title">
+            <span>Interactive</span>
+            <span>Chopper</span>
+        </h1>
+    </header>
+    <main onclick={startGame}>
+        {#if !started}
+            <Chopper bind:press/>
+        {:else}
+            <ChopperEnemy {...game.enemy}/>
+        {/if}
+    </main>
+    <footer>
+        <p>JoeCoinz: {game.coins}</p>
+    </footer>
+</section>
+
+<style>
+    section {
+        --border: 4px ridge black;
+        position: relative;
+        /* cursor: none; */
+
+        background-color: rgb(7, 59, 9);
+        width: 250px;
+        aspect-ratio: 1 / 1;
+
+        display: flex;
+        flex-direction: column;
+
+        font-family: monospace;
+        font-size: 1rem;
+        color: beige;
+
+        border: var(--border);
+
+        & header {
+            border-bottom: var(--border);
+        }
+
+        & main {
+            flex: 1 1;
+            
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & .food {
+                cursor: pointer;
+            }
+        }
+
+        & footer {
+            border-top: var(--border);
+        }
+    }
+
+    .title {
+        font-family: "Comic Sans";
+        width: 100%;
+        height: 2rem;
+        position: relative;
+        overflow: hidden;
+
+        & :nth-child(1), :nth-child(2), :nth-child(3) {
+            position: absolute;
+        }
+
+        & :nth-child(1) {
+            width: 100%;
+            text-align: center;
+            color: red;
+            transform: translate(-20px, -10px);
+        }
+
+        & :nth-child(2) {
+            width: 100%;
+            text-align: center;
+            color: yellow;
+            transform: translate(40px, 2.5px);
+        }
+
+        /* & :nth-child(3) {
+            width: 100%;
+            text-align: center;
+            font-size: 1rem;
+            transform: translate(50px, 0px);
+            color: rgb(169, 169, 255);
+        } */
+    }
+</style>

@@ -1,7 +1,9 @@
 <script>
-    import SmackMagicWrapper from "$lib/components/layouts/smack-magic-2/SmackMagicWrapper.svelte";
+    import SmackMagicWrapper from "$lib/layouts/smack-magic-2/SmackMagicWrapper.svelte";
+
+    let { children } = $props()
 </script>
 
 <SmackMagicWrapper>
-    <slot/>
+    {@render children?.()}
 </SmackMagicWrapper>

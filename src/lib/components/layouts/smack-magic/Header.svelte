@@ -1,5 +1,6 @@
 <script lang="ts">
     import logo from "$lib/img/logo.png";
+    
 </script>
 
 <header>
@@ -49,12 +50,14 @@
 
             transform: scale(1);
             transition: transform 0.25s;
+
         }
 
         & img.logo:hover {
             transform: scale(1.1);
         }
     }
+    
 
     .splash {
         position: absolute;

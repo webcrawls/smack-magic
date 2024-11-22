@@ -44,25 +44,6 @@
     --width-main: 130ch;
 }
 
-html {
-    background: linear-gradient(
-        to bottom,
-        var(--theme-bg-1),
-        var(--theme-bg-2)
-    );
-    background-attachment: fixed;
-    color: var(--theme-text-1);
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    margin-inline: auto;
-
-    font-family: sans-serif;
-    /* font-family: "Windows Tahoma", sans-serif; */
-    font-size: 1rem;
-}
 
 main.wrapper-default {
     max-width: 80ch;   
