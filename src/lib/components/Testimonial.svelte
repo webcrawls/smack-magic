@@ -1,41 +1,39 @@
 <script>
-    import testimonials from "$lib/copy/testimonials";
+    export let testimonial;
     import avatar from "$lib/img/user/default.png";
     import star from "$lib/img/icon/star-rainbow.gif";
 </script>
 
-{#each testimonials as { name, content, date }}
-    <article class="container light">
-        <header>
-            <img src={avatar} />
-            <div class="header-content">
-                <h1>{name}</h1>
-                <div class="rating" aria-hidden="true">
-                    <img src={star} />
-                    <img src={star} />
-                    <img src={star} />
-                    <img src={star} />
-                    <img src={star} />
-                </div>
+<article class="container light">
+    <header>
+        <img src={avatar} />
+        <div class="header-content">
+            <h1>{testimonial.name}</h1>
+            <div class="rating" aria-hidden="true">
+                <img src={star} />
+                <img src={star} />
+                <img src={star} />
+                <img src={star} />
+                <img src={star} />
             </div>
-        </header>
-        <blockquote>
-            <p class="content">{@html content}</p>
-        </blockquote>
-        <p class="date">- {@html date}</p>
-    </article>
-{/each}
+        </div>
+    </header>
+    <blockquote>
+        <p class="content">{@html testimonial.content}</p>
+    </blockquote>
+    <p class="date">- {@html testimonial.date}</p>
+</article>
 
 <style>
     article {
-        max-width: 60ch;
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
 
+        font-size: 0.75rem;
+
         background-color: aliceblue;
         padding: 0.5rem;
-        border: 3px solid gray;
 
         & header {
             display: flex;
@@ -45,12 +43,12 @@
             gap: 1rem;
 
             & h1 {
-                font-size: clamp(2rem, 5.9vw, 3.5rem);
+                /* font-size: clamp(2rem, 5.9vw, 3.5rem); */
             }
 
             & img {
-                width: 96px;
-                height: 96px;
+                width: 32px;
+                height: 32px;
             }
 
             & .header-content {

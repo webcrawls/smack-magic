@@ -43,8 +43,8 @@
     }
 
     :global(:root) {
-        --theme-bg-1: #3b4064;
-        --theme-bg-2: #8090f1;
+        --theme-bg-1: #05137c;
+        --theme-bg-2: rgb(91, 148, 255);
         --theme-bg-3: #7788d9;
 
         --theme-primary-1: #87b5ff;
