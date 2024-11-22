@@ -1,5 +1,5 @@
 <script>
-    import Currency from "./Currency.svelte";
+    import Currency from "../util/Currency.svelte";
     import { goto } from "$app/navigation";
     import { cart } from "$lib/shop.svelte"
 

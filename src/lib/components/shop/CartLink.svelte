@@ -1,6 +1,6 @@
 <script>
     import CartPopup from "./CartPopup.svelte";
-    import Currency from "./Currency.svelte";
+    import Currency from "../util/Currency.svelte";
 
     import { cart } from '$lib/shop.svelte'
     import { popups } from "$lib/popups.svelte";

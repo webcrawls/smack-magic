@@ -1,21 +1,22 @@
 <script>
     import shop from "$lib/copy/shop";
     import ShopItemCard from "$lib/components/shop/ShopItemCard.svelte";
-
-    const perPage = 9;
-
-    let page = $state(0);
-
-    let itemStart = $derived(page * perPage);
-    let itemEnd = $derived((page + 1) * perPage);
 </script>
 
 <ul id="items">
-    {#each shop.categories[0].items as item}
+    {#each shop.categories as category}
+        <h2>{category.name}</h2>
+        {#each category.items as item}
+            <li>
+                <ShopItemCard {item} />
+            </li>
+        {/each}
+    {/each}
+    <!-- {#each shop.categories[0].items as item}
         <li>
             <ShopItemCard {item} />
         </li>
-    {/each}
+    {/each} -->
 </ul>
 
 <!-- <p>Showing items {itemStart + 1} to {itemEnd + 1}...</p> -->
