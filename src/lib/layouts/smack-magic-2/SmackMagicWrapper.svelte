@@ -68,6 +68,8 @@
         background-attachment: fixed;
         border-inline: 1px solid white;
         color: var(--theme-text-1);
+
+        box-shadow: 0 0 12px gray;
         
         display: flex;
         flex-direction: column;
