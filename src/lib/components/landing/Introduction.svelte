@@ -4,7 +4,7 @@
     import joeImg from "$lib/img/joe/pose-1.png";
 </script>
 
-<div class="quote">
+<article class="quote">
     <img class="joe" src={joeImg}/>
     <p>
         Created by <JoeName />, the king of infomercials, The <SmackName /> Vegetable
@@ -27,7 +27,7 @@
     <p style="text-align: end;">
         - <JoeName />, CEO of Smack Magic Corp
     </p>
-</div>
+</article>
 
 
 <style>
@@ -36,6 +36,9 @@
         position: relative;
         width: 100%;
         height: 100%;
+
+        background: linear-gradient(to top, white, gray);
+        border: 3px solid black;
     }
 
     .joe {

@@ -14,7 +14,7 @@
 
 </script>
 
-<section>
+<section role="application">
     <div class="product-wrapper">
         <SmackMagic clickable={true} {onclick}/>
     </div>

@@ -1,14 +1,15 @@
 <script>
-    export let testimonial;
     import avatar from "$lib/img/user/default.png";
     import star from "$lib/img/icon/star-rainbow.gif";
+
+    let { name, content, date } = $props();
 </script>
 
 <article class="container light">
     <header>
         <img src={avatar} />
         <div class="header-content">
-            <h1>{testimonial.name}</h1>
+            <h1>{name}</h1>
             <div class="rating" aria-hidden="true">
                 <img src={star} />
                 <img src={star} />
@@ -19,9 +20,9 @@
         </div>
     </header>
     <blockquote>
-        <p class="content">{@html testimonial.content}</p>
+        <p class="content">{@html content}</p>
     </blockquote>
-    <p class="date">- {@html testimonial.date}</p>
+    <p class="date">- {@html date}</p>
 </article>
 
 <style>
