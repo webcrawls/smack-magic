@@ -1,5 +1,5 @@
 <script>
-    import BlogPost from "$lib/components/blog/BlogPost.svelte";
+    import BlogPost from "$lib/layouts/smack-magic/blog/BlogPost.svelte";
     import blog from "$lib/ui/copy/blog"
 </script>
 

@@ -2,7 +2,7 @@
     import ClickerGame from "$lib/clicker/ClickerGame.svelte";
     import Introduction from "$lib/components/landing/Introduction.svelte";
     import Showcase from "$lib/components/showcase/Showcase.svelte";
-    import Testimonial from "$lib/components/Testimonial.svelte";
+    import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
     import testimonials from "$lib/ui/copy/testimonials";
     import positiveSsl from "$lib/img/icon/PositiveSSL_tl_trans.png";
     import warranty from "$lib/img/icon/3year.png";
@@ -12,7 +12,7 @@
     // let hideAll = $derived(!!user?.settings?.value ? (user?.settings?.value['hide-all'] === true) : false)
     </script>
 
-<div class="landing-wrapper" class:game-only={hideAll}>
+<!-- <div class="landing-wrapper" class:game-only={hideAll}>
     {#if hideAll !== true}
         <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
 
@@ -42,7 +42,7 @@
     <div id="game">
         <ClickerGame />
     </div>
-</div>
+</div> -->
 
 <style>
     .landing-wrapper {
