@@ -4,8 +4,16 @@
         <a href="/faq">faq</a>
         <a href="/blog">blog</a>
         <a href="/shop">shop</a>
+        <a href="#">accessibility statement</a>
+        <a href="#">customer service</a>
+        <a href="#">site map</a>
+        <a href="#">limited warranty</a>
+        <a href="/shop">order now</a>
     </nav>
-    <p>Copyright © 2009 Smack Magic Corp - <a href="#">Privacy Policy</a> - <a href="#">Terms of Service</a></p>
+    <p>
+        Copyright © 2009 Smack Magic Corp - <a href="#">Privacy Policy</a> -
+        <a href="#">Terms of Service</a>
+    </p>
     <p class="warning">
         PLEASE NOTE - the five year lifespan for the Smack Magic Vegetable
         Chopper is only a hypothetical estimate, and depending on the individual
@@ -31,12 +39,18 @@
     nav {
         display: flex;
         gap: 0.5rem;
+        max-width: 60ch;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        padding-bottom: 1rem;
     }
 
     a {
-            color: white;
-            font-weight: bold;
-        }
+        color: white;
+        font-weight: bold;
+    }
 
     p {
         position: relative;

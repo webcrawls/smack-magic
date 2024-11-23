@@ -5,13 +5,14 @@
 
     let item
 
-    let { rumble, x, y } = rumbler()
+    let rumblr = rumbler()
 
     const onclick = () => {
         item.next()
-        rumble()
+        rumblr.rumble()
     }
 
+    $effect(() => console.log({x, y}))
 </script>
 
 <section role="application">
@@ -19,8 +20,7 @@
         <SmackMagic clickable={true} {onclick}/>
     </div>
     <h1 class="smack-text">SMACK THE COMPETITION AWAY!</h1>
-    <div class="item-wrapper"
-    style="--offset-x: {x}px; --offset-y: {y}px;">
+    <div class="item-wrapper" style="--offset-x: {rumblr.x}px; --offset-y: {rumblr.y}px;">
         <ShowcaseItem bind:this={item}/>
     </div>
 </section>
@@ -63,21 +63,21 @@
     .item-wrapper {
         position: absolute;
         bottom: 15%;
-        right: 50%;
-        transform: translateX(calc(50% + var(--offset-x, 0px))) translateY(var(--offset-y, 0px));
+        right: 30%;
+        transform: translateX(var(--offset-x)) translateY(var(--offset-y, 0px));
         width: 160px;
         height: 160px;
     }
 
     @container showcase (max-width: 360px) {
         .product-wrapper {
-            transform: scale(1) translateX(-20px) translateY(100px)
+            transform: scale(1) translateX(-20px) translateY(40px)
                 rotate(20deg);
         }
 
         .item-wrapper {
             top: 20%;
-            right: 30%;
+            right: 10%;
         }
 
         .smack-text {

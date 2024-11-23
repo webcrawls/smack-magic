@@ -5,6 +5,9 @@ export const rumbler = () => {
     let range = 20
     let frame = 0
 
+    let offsetX: number = $state(0)
+    let offsetY: number = $state(0)
+
     const tick = () => {
         if (rumbleTick >= rumbleTime) {
             cancelAnimationFrame(frame)
@@ -19,9 +22,6 @@ export const rumbler = () => {
 
         frame = requestAnimationFrame(tick)
     }
-
-    let offsetX: number = $state(0)
-    let offsetY: number = $state(0)
 
     const rumble = () => {
         rumbleTick = 0

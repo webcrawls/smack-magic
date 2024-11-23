@@ -44,7 +44,7 @@
     .landing-wrapper {
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: min-content repeat(auto-fit, 1fr);
+        grid-template-rows: min-content 1fr 200px;
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         gap: 1rem;
@@ -109,17 +109,81 @@
 
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .image-wrapper {
         width: 100%;
+        height: 100%;
         display: flex;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
         gap: 0.5rem;
         padding-inline: 1rem;
 
         & img {
             transform: scale(0.7);
         }
+    }
+
+    @media screen and (max-width: 640px) {
+        #introduction {
+            grid-row: 2;
+            grid-column: 1 / -1;
+        }
+
+        #showcase {
+            grid-column: 1 / 3;
+            grid-row: 3;
+        }
+
+        #testimonial-1 {
+            grid-column: 3 / -1;
+            grid-row: 3;
+        }
+
+        #testimonial-2 {
+            grid-row: 4;
+            grid-column: 3;
+        }
+
+        #game {
+            grid-row: 4;
+            grid-column: 1 / 3;
+        }
+
+        #testimonial-3 { 
+            grid-row: 5;
+            grid-column: 1 / -1;
+        }
+    }
+
+    @media screen and (max-width: 450px) {
+        #showcase {
+            grid-row: 3;
+            grid-column: 1 / -1;
+        }
+
+        #game  {
+            grid-row: 4;
+            grid-column: 1 / -1;
+        }
+
+        #testimonial-1 {
+            grid-row: 5;
+            grid-column: 1 / -1;
+        }
+
+        #testimonial-2 {
+            grid-row: 6;
+            grid-column: 1 / -1;
+        }
+
+        #testimonial-3 {
+            grid-row: 5;
+            grid-column: 1 / -1;
+        }
+
     }
 </style>

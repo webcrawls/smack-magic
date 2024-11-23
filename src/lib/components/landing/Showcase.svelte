@@ -54,7 +54,7 @@
         position: relative;
         overflow: hidden;
         background: linear-gradient(to right, red, orange);
-        container-type: inline-size;
+        container-type: size;
         container-name: showcase;
     }
 
@@ -88,6 +88,12 @@
         transform: translateX(50%);
         width: 160px;
         height: 160px;
+    }
+
+    @container (height > 350px) {
+        .product-wrapper {
+            transform: scale(1) translateX(10px) translateY(-60px) rotate(20deg);
+        }
     }
 
     @container showcase (max-width: 360px) {
