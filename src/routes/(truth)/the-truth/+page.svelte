@@ -1,6 +1,5 @@
 <script>
     import TruthWrapper from "$lib/layouts/truth/TruthWrapper.svelte";
-    import "$lib/styles/resets.css";
 </script>
 
 <TruthWrapper>

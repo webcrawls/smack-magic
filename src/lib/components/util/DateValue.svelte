@@ -1,6 +1,6 @@
 <script>
     import { formatDate } from "date-fns";
-    import { BLOG_FORMAT } from "$lib/consts";
+    import { BLOG_FORMAT } from "$lib/util/consts";
     let { date, format = BLOG_FORMAT } = $props();
 </script>
 

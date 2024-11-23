@@ -4,5 +4,4 @@
 
 <GameWindow>
     <h1>Leaderboard</h1>
-    <!-- ...existing code... -->
 </GameWindow>

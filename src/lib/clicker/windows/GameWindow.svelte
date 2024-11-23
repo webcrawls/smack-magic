@@ -3,8 +3,8 @@
 
     let {
         title = "Window",
-        children = undefined,
-    }: { title: string | Component } = $props();
+        children,
+    } = $props();
 </script>
 
 <section>
@@ -16,5 +16,15 @@
     section {
         background-color: darkblue;
         color: yellow;
+        padding: 0.5rem;
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        & h1 {
+            font-stretch: condensed;
+            font-size: 0.75rem;
+            font-style: italic;
+        }
     }
 </style>

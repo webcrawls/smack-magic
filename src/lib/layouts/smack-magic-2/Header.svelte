@@ -30,15 +30,11 @@
         width: 100%;
 
         box-shadow: 3px 3px 2px black;
-        background: linear-gradient(
-            0deg,
-            #f4c6c6 0%,
-            #f17373 20%,
-            #d2131b 51%,
-            #ff6d68 57%,
-            #ff9e9e 80%,
-            #faadad 100%
-        );
+        --base-color: #ff0000;
+        background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 40%, transparent 50%),
+                    linear-gradient(to top, transparent 0%, transparent 50%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.5) 100%),
+                    linear-gradient(to top, transparent 0%, transparent 65%, rgba(255,255,255,0.7) 100%),
+                    var(--base-color);
 
         display: flex;
 
@@ -120,16 +116,11 @@
             align-items: flex-end;
             color: white;
             text-decoration: none;
-            background: linear-gradient(
-            0deg,
-            #f4c6c6 0%,
-            #f17373 20%,
-            #d2131b 51%,
-            #ff6d68 57%,
-            #ff9e9e 80%,
-            #faadad 100%
-        );
-        }
+            background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 40%, transparent 50%),
+                    linear-gradient(to top, transparent 0%, transparent 50%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.5) 100%),
+                    linear-gradient(to top, transparent 0%, transparent 65%, rgba(255,255,255,0.7) 100%),
+                    var(--base-color);
+            }
         & a.inactive-tab {
             height: 80%;
             transform: translateY(-100%);
@@ -141,8 +132,11 @@
             align-items: flex-end;
             color: black;
             text-decoration: none;
-            background: linear-gradient(0deg, white 0%, #AAD3FF 35%, #96C8FE 50%, white 100%);
-        }
+            --base-color: #c0c0c0;
+    background: linear-gradient(to top, transparent 0%, rgba(0,0,0,0.3) 40%, transparent 50%),
+                linear-gradient(to top, transparent 0%, transparent 50%, rgba(255,255,255,0.3) 55%, rgba(255,255,255,0.5) 100%),
+                linear-gradient(to top, transparent 0%, transparent 65%, rgba(255,255,255,0.7) 100%),
+                var(--base-color);        }
 
         & a:hover {
             font-style: italic;

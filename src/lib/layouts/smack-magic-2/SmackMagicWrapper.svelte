@@ -1,15 +1,20 @@
 <script lang="ts">
-    import { type Component, type Snippet } from "svelte";
+    import { onMount, setContext, type Component, type Snippet } from "svelte";
     import logo from "$lib/img/logo/logo.png";
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import Overlay from "./overlay/Overlay.svelte";
     import Metadata from "$lib/components/util/Metadata.svelte";
+    import { createUserStore } from "$lib/user/user.svelte";
 
     let {
         children = undefined as Snippet | undefined,
         popups = [] as Component[],
     } = $props();
+
+    onMount(() => {
+        setContext("user", createUserStore())
+    })
 </script>
 
 <svelte:head>

@@ -11,8 +11,6 @@
         item.next()
         rumblr.rumble()
     }
-
-    $effect(() => console.log({x, y}))
 </script>
 
 <section role="application">
@@ -42,7 +40,7 @@
         top: 0;
         left: 0;
         transition: transform 0.2s;
-        transform: scale(1.5) translateX(34px) translateY(10px) rotate(45deg);
+        transform: scale(1) translateX(34px) translateY(10px) rotate(20deg);
     }
 
     .smack-text {

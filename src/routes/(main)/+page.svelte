@@ -44,7 +44,7 @@
     .landing-wrapper {
         display: grid;
         grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: min-content 1fr 200px;
+        grid-template-rows: min-content minmax(0, 1fr) minmax(0, 200px);
         grid-column-gap: 0px;
         grid-row-gap: 0px;
         gap: 1rem;
@@ -93,6 +93,11 @@
         grid-column: 2 / 4;
         width: 100%;
         height: 100%;
+        min-width: 0;
+        min-height: 0;;
+
+        display: flex;
+        flex-direction: column;
     }
 
     #testimonial-3 {

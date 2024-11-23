@@ -6,15 +6,6 @@ import type ShopItem from "./ShopItem.svelte"
 import { getItem, items } from "./shop"
 
 export const createGameStore = () => {
-    let data: LocalStore<Player> = localStore("sm:chopgame", {
-        coins: 0,
-        unlockedItems: [],
-        statistics: {
-            kills: {},
-            clicks: 0, /* TODO implement statistics tracking */
-        }
-    })
-
     let currentEnemy: Enemy = $state(null)
     let maxHealth: number = $state(0)
     let currentHealth: number = $state(0)
