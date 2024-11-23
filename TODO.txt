@@ -1,0 +1,2 @@
+* explicit adapter static & adapter cloud-flare vs. auto
+* cheeky: include latest git commit hash as build id in smack magic digital or somewhere else
