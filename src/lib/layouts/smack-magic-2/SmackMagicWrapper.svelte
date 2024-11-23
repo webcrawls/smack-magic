@@ -59,34 +59,14 @@
         --theme-primary-4: #ffe502;
 
         --theme-text-1: #001071;
+
+        --body-width: 90ch;
     }
 
     :global(html) {
         background-color: black;
-    }
-
-    :global(body) {
-        background: linear-gradient(
-            to bottom,
-            var(--theme-bg-1),
-            var(--theme-bg-2)
-        );
-        background-attachment: fixed;
-        border-inline: 1px solid white;
-        color: var(--theme-text-1);
-
-        box-shadow: 0 0 12px gray;
-        
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-inline: auto;
-
-        max-width: 80ch;
-        width: 100%;
-
-        font-family: "Verdana", Arial, Helvetica, sans-serif;
-        font-size: 1rem;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding-top: 3rem;
     }
 
     main {
@@ -98,5 +78,10 @@
 
         padding-block: 5rem;
         padding-inline: 1rem;
+    
+        background: linear-gradient(180deg, #3726F1 0%, #030715 100%);
+        max-width: var(--body-width);
+        width: 100%;
+        margin-inline: auto;
     }
 </style>

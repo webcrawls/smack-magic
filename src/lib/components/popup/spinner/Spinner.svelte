@@ -4,11 +4,13 @@
 
     let {
         spinning = true,
-        linked = true,
+        linked = false,
         link = "/shop",
         fill = "#ffcb00",
         shadowFill = "#000000",
-        onclick = () => {if (linked) goto(link)},
+        onclick = () => {
+            if (linked) goto(link);
+        },
         style = "",
     } = $props();
 </script>
@@ -21,16 +23,15 @@
         <SpinnerImage {fill} />
     </div>
     <div class="content-wrapper">
-        <div class="content">
-            <slot />
-        </div>
+        <slot />
     </div>
 </div>
 
 <style>
     .spinner {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
         position: relative;
     }
 
@@ -51,20 +52,9 @@
         left: 0;
         z-index: 1;
         display: flex;
+        padding: 1.5rem;
+        transform: scale(0.9);
     }
-
-    .content {
-        width: 100%;
-        height: 100%;
-    }
-
-    /* .content {
-        transform: translate(-7.5%, 50%) scale(0.9);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    } */
 
     .offset {
         top: 15px;
@@ -85,5 +75,4 @@
     .spinner.linked > * {
         cursor: pointer;
     }
-
 </style>

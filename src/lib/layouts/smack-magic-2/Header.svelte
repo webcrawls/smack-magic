@@ -1,41 +1,60 @@
 <script>
     import logo from "$lib/img/logo/logo.png";
+    import { page } from "$app/stores";
 </script>
 
+{#snippet link(href, text)}
+            <a class:active-tab={$page.url.pathname === href}
+               class:inactive-tab={$page.url.pathname !== href} {href}>{text}</a>
+{/snippet}
+
 <header>
-    <a href="/" class="logo-link">
-        <img src={logo} class="logo" alt="the Smack Magic logo" />
-    </a>
-    <nav id="site-navigation">
-        <a href="/">ABOUT</a>
-        <a href="/blog">BLOG</a>
-        <a href="/faq">FAQ</a>
-    </nav>
-    <nav id="shop-navigation">
-        <a href="/shop">SHOP</a>
-    </nav>
+    <div class="header-wrapper">
+        <a href="/" class="logo-link">
+            <img src={logo} class="logo" alt="the Smack Magic logo" />
+        </a>
+        <nav id="site-navigation">
+            {@render link("/", "ABOUT")}
+            {@render link("/blog", "BLOG")}
+            {@render link("/faq", "FAQ")}
+            {@render link("/shop", "SHOP")}
+        </nav>
+        <p>THE UNIVERSAL KITCHEN CHOPPER!</p>
+    </div>
 </header>
 
 <style>
     header {
-        margin-top: 2.5rem;
         min-height: 2rem;
+        height: 100%;
         width: 100%;
-        background: linear-gradient(to top, red 45%, rgb(255, 63, 63) 45%);
+
+        box-shadow: 3px 3px 2px black;
+        background: linear-gradient(
+            0deg,
+            #f4c6c6 0%,
+            #f17373 20%,
+            #d2131b 51%,
+            #ff6d68 57%,
+            #ff9e9e 80%,
+            #faadad 100%
+        );
 
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-start;
 
-        gap: 2rem;
+        & .header-wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            gap: 2rem;
+            width: 100%;
+            max-width: var(--body-width);
+            min-height: 100%;
+            margin-inline: auto;
+        }
 
         position: relative;
-
-        /* margin-inline: 1rem; */
-        padding-inline: 1rem;
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
 
         & a.logo-link {
             height: 1rem;
@@ -69,13 +88,16 @@
     nav {
         height: 100%;
         display: flex;
+        gap: 0.5rem;
 
         & a:first-child {
             border-left: 1px solid rgb(50, 0, 0);
         }
 
         & a {
-            display: flex;
+            height: 100%;
+            font-weight: bold;
+            /* display: flex;
             justify-content: center;
             align-items: center;
             height: 100%;
@@ -84,12 +106,47 @@
             padding-inline: 1rem;
             border-right: 1px solid rgb(50, 0, 0);
             text-decoration: none;
-            text-align: center;
+            text-align: center; */
+        }
+
+        & a.active-tab {
+            height: 100%;
+            transform: translateY(-100%);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            padding-inline: 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            color: white;
+            text-decoration: none;
+            background: linear-gradient(
+            0deg,
+            #f4c6c6 0%,
+            #f17373 20%,
+            #d2131b 51%,
+            #ff6d68 57%,
+            #ff9e9e 80%,
+            #faadad 100%
+        );
+        }
+        & a.inactive-tab {
+            height: 80%;
+            transform: translateY(-100%);
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            padding-inline: 0.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            color: black;
+            text-decoration: none;
+            background: linear-gradient(0deg, white 0%, #AAD3FF 35%, #96C8FE 50%, white 100%);
         }
 
         & a:hover {
             font-style: italic;
-            background-color: rgb(255,255,255,0.25);
+            background-color: rgb(255, 255, 255, 0.25);
         }
     }
 

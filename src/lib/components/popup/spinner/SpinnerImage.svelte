@@ -4,8 +4,6 @@
 
 <svg
     class:spinning
-    width="248"
-    height="245"
     viewBox="0 0 248 245"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -16,6 +14,3 @@
         fill-opacity="{opacity}"
     />
 </svg>
-
-<style>
-</style>

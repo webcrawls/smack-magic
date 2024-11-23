@@ -32,26 +32,10 @@
     {#if game}
         <header><h1>SMACK DIGITAL</h1></header>
         <aside class="links">
-            <a
-                href="#"
-                class:current={page === "attack"}
-                onclick={nav.bind(this, "attack")}>ATTACK</a
-            >
-            <a
-                href="#"
-                class:current={page === "shop"}
-                onclick={nav.bind(this, "shop")}>SHOP</a
-            >
-            <a
-                href="#"
-                class:current={page === "inventory"}
-                onclick={nav.bind(this, "inventory")}>INVENTORY</a
-            >
-            <a
-                href="#"
-                class:current={page === "info"}
-                onclick={nav.bind(this, "info")}>INFO</a
-            >
+            <a href="#" class:current={page === "attack"} onclick={nav.bind(this, "attack")}>ATTACK</a>
+            <a href="#" class:current={page === "shop"} onclick={nav.bind(this, "shop")}>SHOP</a>
+            <a href="#" class:current={page === "inventory"} onclick={nav.bind(this, "inventory")}>INVENTORY</a>
+            <a href="#" class:current={page === "info"} onclick={nav.bind(this, "info")}>INFO</a>
         </aside>
         {#if page === "attack"}
             <main onclick={game.attack}>
@@ -140,160 +124,10 @@
         background-color: rgb(0, 0, 101);
         color: yellow;
 
-        display: grid;
-        grid-template-columns: min-content 3fr 1fr;
-        grid-template-rows: repeat(5, 1fr);
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-
-        font-family: monospace;
-
-        flex: 1 1;
-        width: 100%;
-        height: 100%;
-
         border: 8px solid black;
 
         & * {
             scrollbar-width: 8px;
-        }
-    }
-
-    section.game > header {
-        grid-area: 1 / 1 / 2 / 6;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding-inline: 1rem;
-        border-bottom: 2px solid yellow;
-        /* border-bottom: 2px solid black; */
-    }
-    section.game > aside:nth-of-type(1) {
-        grid-area: 2 / 1 / 5 / 2;
-    }
-    section.game > main {
-        grid-area: 2 / 2 / 5 / -1;
-    }
-    section.game > aside:nth-of-type(2) {
-        grid-area: 2 / 3 / 5 / 4;
-    }
-    section.game > footer {
-        border-top: 2px solid yellow;
-        /* border-top: 2px solid black; */
-        grid-area: 5 / 1 / 6 / 6;
-    }
-
-    main {
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-        justify-content: center;
-        align-items: center;
-        padding: 0.5rem;
-
-        font-family: "Garamond";
-
-        & .enemy-icon-container {
-            width: 64px;
-            height: 64px;
-            position: relative;
-        }
-
-        & .enemy-icon {
-            user-select: none;
-            width: 64px;
-            height: 64px;
-            background-color: black;
-        }
-    }
-
-    main.shop-view {
-        overflow-x: scroll;
-        display: flex;
-        align-items: flex-start;
-        justify-content: flex-start;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    aside.links {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    aside {
-        padding: 0.25rem;
-        background-color: rgb(86, 86, 86);
-        overflow-x: scroll;
-
-        & a {
-            color: white;
-        }
-
-        & a.current::before {
-            content: ">>";
-        }
-
-        & h2 {
-            font-size: 1rem;
-        }
-    }
-
-    footer {
-        display: flex;
-        justify-content: space-evenly;
-        height: 72px;
-
-        & > section {
-            flex: 1 1;
-            /* border-inline: 2px solid black; */
-            overflow-x: scroll;
-            padding-inline: 0.5rem;
-            padding-block: 1rem;
-        }
-
-        & .face-container {
-            position: relative;
-            flex: unset;
-            overflow: hidden;
-            padding: 0;
-            pointer-events: all;
-
-            & .swag-glasses {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                top: 0;
-                left: 0;
-                transition: transform 0.1s;
-                transform: translate(-10px, 7px) scale(0.9) rotate(-8deg);
-            }
-
-            & .swag-glasses:hover {
-                transform: translate(-10px, -10px) scale(0.9) rotate(0deg);
-            }
-        }
-
-        & .player-face {
-            margin-inline: auto;
-            height: 100%;
-            background-color: black;
-            image-rendering: pixelated;
-        }
-
-        & .large-stat {
-            font-size: 0.9rem;
-            list-style-type: none;
-        }
-
-        & .small-stat {
-            list-style-type: none;
-            font-size: 0.75rem;
         }
     }
 </style>
