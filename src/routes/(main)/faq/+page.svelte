@@ -17,6 +17,9 @@
         flex-direction: column;
         gap: 1rem;
 
+        margin-inline: auto;
+        margin-block: 0.5rem;
+
         padding: 1rem;
         position: relative;
 
