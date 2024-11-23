@@ -2,10 +2,9 @@
     import smackTop from "$lib/img/smack-magic/top-150px.png";
     import smackBottom from "$lib/img/smack-magic/bottom-150px.png";
 
-    let { clickable = false, onclick } = $props();
+    let { clickable = false, onclick, pressed = $bindable(false) } = $props();
 
     let hover = $derived(clickable)
-    let pressed = $state(false)
 
     const handleClick = () => {
         if (!clickable) return

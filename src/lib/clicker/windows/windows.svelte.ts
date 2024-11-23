@@ -18,8 +18,8 @@ export const windowMap: { [key: string]: WindowData } = {
     "chop": { render: GameChop, route: "chop", isLocked: false, name: "Chop!"},
     "shop": { render: GameShop, route: "shop", isLocked: hasUnlocked("shop"), name: "Shop" },
     "factory": { render: GameFactory, route: "factory", isLocked: hasUnlocked("factory"), name: "Factory" },
-    "settings": { render: GameSettings, route: "settings", isLocked: hasUnlocked("settings"), name: "settings" },
-    // "statistics": { render: GameStatistics, route: "statistics", isLocked: false, name: "Statistics" },
+    "settings": { render: GameSettings, route: "settings", isLocked: hasUnlocked("settings"), name: "Settings" },
+    "statistics": { render: GameStatistics, route: "statistics", isLocked: false, name: "Statistics" },
     // "leaderboard": { render: GameStatistics, route: "leaderboard", isLocked: hasUnlocked("leaderboard"), name: "leaderboard" },
     // "garden": { render: GameStatistics, route: "garden", isLocked: hasUnlocked("garden"), name: "garden" },
 }

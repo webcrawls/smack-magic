@@ -1,13 +1,23 @@
 <script>
     import GameWindow from "$lib/clicker/windows/GameWindow.svelte";
     import { items } from "../shop";
+    import GameInfoContainer from "./GameInfoContainer.svelte";
+    import GameInfoIcon from "./GameInfoIcon.svelte";
 
     let { user, game } = $props();
-    let { buy, canAfford, shouldShow } = game.inventory
-
+    let { buy, canAfford, shouldShow } = game.inventory;
 </script>
 
-<GameWindow title="Shop">
+{#snippet title()}
+    <h1>Shop</h1>
+    <GameInfoIcon>
+        <GameInfoContainer>
+            <p>Purchase upgrades and new equipment for Joe.</p>
+        </GameInfoContainer>
+    </GameInfoIcon>
+{/snippet}
+
+<GameWindow {title}>
     <div class="container">
         <ul>
             {#each items as item}
@@ -29,9 +39,11 @@
 
 <style>
     .container {
-        width: 100%;height: 100%;
+        width: 100%;
+        height: 100%;
         overflow-y: auto;
     }
+
     ul {
         padding-block: 0.35rem;
         width: 100%;
@@ -39,11 +51,14 @@
         overflow-y: scroll;
         display: flex;
         flex-direction: column;
+        align-items: center;
         gap: 0.5rem;
     }
 
     li {
         width: 100%;
+        height: 100%;
+        flex: 1 1;
         cursor: default;
         user-select: none;
         list-style-type: none;

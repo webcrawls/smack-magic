@@ -23,6 +23,7 @@
         if (!browser) return;
         tick();
     });
+    
     onDestroy(() => {
         if (!browser) return;
         cancelAnimationFrame(frameInterval);
@@ -35,7 +36,10 @@
         <div class="enemy-view" onclick={() => game.enemy.attack(game.playerDamage)}>
             <!-- <h1>{game.enemy.name}</h1> -->
             <div class="enemy">
-                <DamageOverlay current={game?.enemy.health} max={game?.enemy.maxHealth}
+                <DamageOverlay
+                    current={game?.enemy.health}
+                    max={game?.enemy.maxHealth}
+                    rainbow={true}
                 />
                 <img src={game?.enemy?.image} alt="Onion" />
             </div>

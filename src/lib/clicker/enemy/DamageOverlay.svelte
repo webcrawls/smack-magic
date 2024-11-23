@@ -11,7 +11,7 @@
     import stage8 from "./overlay/destroy_stage_8.png";
     import stage9 from "./overlay/destroy_stage_9.png";
 
-    let { min = 0, max = 100, current = 500, target = undefined } = $props();
+    let { min = 0, max = 100, current = 500, target = undefined, rainbow = false } = $props();
 
     const stages = [
         empty,
@@ -47,7 +47,7 @@
     let stage = $derived(stages[Math.round(map(max - current, min, max, 0, stages.length - 1))]);
 </script>
 
-<div class="overlay" style="--overlay-image: url('{stage}')"></div>
+<div class="overlay" class:rainbow style="--overlay-image: url('{stage}')"></div>
 
 <style>
     .overlay {
@@ -57,5 +57,9 @@
         height: 100%;
         background-image: var(--overlay-image);
         background-size: 100% 100%;
+    }
+
+    .overlay.rainbow {
+        filter: drop-shadow(0 0 4px blue);
     }
 </style>

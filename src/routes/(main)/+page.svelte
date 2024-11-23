@@ -10,7 +10,7 @@
 
     let hideAll = false
     // let hideAll = $derived(!!user?.settings?.value ? (user?.settings?.value['hide-all'] === true) : false)
-</script>
+    </script>
 
 <div class="landing-wrapper" class:game-only={hideAll}>
     {#if hideAll !== true}

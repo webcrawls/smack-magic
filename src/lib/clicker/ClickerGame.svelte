@@ -93,6 +93,9 @@
         min-width: 0;
         max-height: 100%;
 
+        border-radius: 16px;
+        overflow: hidden;
+
         /* display: flex;
         flex-direction: column; */
 
@@ -115,13 +118,12 @@
         & aside {
             display: flex;
             flex-direction: column;
-            overflow: scroll;
+            overflow-y: scroll;
 
             flex: 1;
 
             width: 100%;
             height: 100%;
-            max-height: 100px;
             min-width: 10ch;
 
             background-color: rgb(0, 0, 0, 0.5);
@@ -161,8 +163,14 @@
                     font-weight: bold;
                 }
 
-                & a:hover::before:not(.locked) {
+                & a.current::before {
+                    font-family: monospace;
+                    content: "> ";
+                }
+
+                & a:not(.locked):hover::before {
                     content: "* ";
+                    font-family: monospace;
                 }
 
                 & a:hover {
@@ -179,10 +187,8 @@
         }
 
         & .window-wrapper {
-            flex: 4;
             width: 100%;
             height: 100%;
-            max-height: 100px;
             display: flex;
         }
     }

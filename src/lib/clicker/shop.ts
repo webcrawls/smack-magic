@@ -52,6 +52,7 @@ const features: ShopItem[] = [
 
 const cosmetics: ShopItem[] = [
     { name: "Epic Glasses", id: "epic-glasses", description: "Give Joe some much needed swag", price: 100, dependsOn: "wardrobe" },
+    { name: "Rainbow Break", id: "enchanted-break", description: "Give Joe some much needed swag", price: 100, dependsOn: "wardrobe" },
 ]
 
 const upgrades: ShopItem[] = [

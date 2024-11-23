@@ -60,7 +60,6 @@ const createInventory = (user) => {
 
     const buy = (item) =>
         ifAfford(item.price, () => {
-            user.coins -= item.price;
             user.unlock(item.id);
         });
 
