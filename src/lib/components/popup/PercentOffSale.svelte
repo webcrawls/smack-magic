@@ -14,5 +14,6 @@
         background-color: gray;
         border: 2px ridge gray;
         text-align: center;
+        transform: scale(0.9);
     }
 </style>

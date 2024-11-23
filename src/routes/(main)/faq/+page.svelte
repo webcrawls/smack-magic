@@ -1,5 +1,5 @@
 <script>
-    import faq from "$lib/copy/faq";
+    import faq from "$lib/ui/copy/faq";
     import pin from "$lib/img/icon/pin.gif"
 </script>
 

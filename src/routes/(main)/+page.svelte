@@ -1,7 +1,7 @@
 <script>
     import InteractiveChopper from "$lib/clicker/InteractiveChopper.svelte";
     import Introduction from "$lib/components/landing/Introduction.svelte";
-    import testimonials from "$lib/copy/testimonials";
+    import testimonials from "$lib/ui/copy/testimonials";
     import Testimonial from "$lib/components/Testimonial.svelte";
     import ClickerGame from "$lib/clicker/ClickerGame.svelte";
     import Showcase from "$lib/components/showcase/Showcase.svelte";
@@ -100,5 +100,9 @@
             margin: 0;
             grid-column: 1;
         }
+    }
+
+    @media screen and (max-width: 500px) {
+        /* fold interactive gadget into new line */
     }
 </style>

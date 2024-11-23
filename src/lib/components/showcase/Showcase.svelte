@@ -1,47 +1,15 @@
 <script lang="ts">
+    import { rumbler } from "$lib/ui/rumble.svelte";
     import SmackMagic from "../util/SmackMagic.svelte";
     import ShowcaseItem from "./ShowcaseItem.svelte";
 
-    let item: ShowcaseItem = undefined
+    let item
 
-
-    let offsetX: number = 0
-    let offsetY: number = 0
-    
-    const rumbler = () => {
-        const rumbleTime = 100
-
-        let rumbleTick = 0
-        let range = 20
-        let frame = 0
-
-        const tick = () => {
-            if (rumbleTick >= rumbleTime) {
-                cancelAnimationFrame(frame)
-                return
-            }
-
-            rumbleTick += 1
-
-            const currentRange = range * (1 * (rumbleTime - rumbleTick) / rumbleTime);
-            offsetX = Math.random() * currentRange - currentRange / 2
-            offsetY = Math.random() * currentRange - currentRange / 2
-
-            frame = requestAnimationFrame(tick)
-        }
-
-        const rumble = () => {
-            rumbleTick = 0
-            tick()
-        }
-
-
-        return { rumble }
-    }
+    let { rumble, x, y } = rumbler()
 
     const onclick = () => {
         item.next()
-        rumbler().rumble()
+        rumble()
     }
 
 </script>
@@ -52,7 +20,7 @@
     </div>
     <h1 class="smack-text">SMACK THE COMPETITION AWAY!</h1>
     <div class="item-wrapper"
-    style="--offset-x: {offsetX}px; --offset-y: {offsetY}px;">
+    style="--offset-x: {x}px; --offset-y: {y}px;">
         <ShowcaseItem bind:this={item}/>
     </div>
 </section>
@@ -66,6 +34,7 @@
         background: linear-gradient(to right, red, orange);
         container-type: inline-size;
         container-name: showcase;
+        border: 3px solid black;
     }
 
     .product-wrapper {

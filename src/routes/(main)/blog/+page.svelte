@@ -1,6 +1,6 @@
 <script>
     import BlogPost from "$lib/components/blog/BlogPost.svelte";
-    import blog from "$lib/copy/blog"
+    import blog from "$lib/ui/copy/blog"
 </script>
 
 {#each blog as {author, edited, date, content, responses}}

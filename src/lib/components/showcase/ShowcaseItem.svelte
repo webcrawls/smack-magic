@@ -16,6 +16,7 @@
         image(onion, 1),
         image(playerFace, 1),
         component(PercentOffSale, { percent: 50 }, 1),
+        component(FreeJoeCoinz, {}, 1),
     ];
 
     // UI States
@@ -54,9 +55,10 @@
 
 <script lang="ts">
     import Spinner from "../popup/spinner/Spinner.svelte";
-    import { weightedPick } from "$lib/util/math";
+    import { randomRange, weightedPick } from "$lib/util/math";
     import ShowcaseImage from "./ShowcaseImage.svelte";
     import { browser } from "$app/environment";
+    import FreeJoeCoinz from "../popup/FreeJoeCoinz.svelte";
 
     let item = $state(0);
     let { name, ...data } = $derived(items[item]);
