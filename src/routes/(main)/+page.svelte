@@ -6,37 +6,41 @@
     import testimonials from "$lib/ui/copy/testimonials";
     import positiveSsl from "$lib/img/icon/PositiveSSL_tl_trans.png";
     import warranty from "$lib/img/icon/3year.png";
+    import { getContext, onMount } from "svelte";
+
+    let hideAll = false
+    // let hideAll = $derived(!!user?.settings?.value ? (user?.settings?.value['hide-all'] === true) : false)
 </script>
 
-<div class="landing-wrapper">
-    <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
+<div class="landing-wrapper" class:game-only={hideAll}>
+    {#if hideAll !== true}
+        <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
 
-    <div id="introduction">
-        <Introduction />
-    </div>
-
-    <div id="testimonial-1">
-        <Testimonial {...testimonials[0]} />
-        <div class="image-wrapper">
-            <img src={positiveSsl} alt="secure 100% no lie" />
-            <img src={warranty} alt="3 year warranty" />
+        <div id="introduction">
+            <Introduction />
         </div>
-    </div>
 
-    <div id="testimonial-2">
-        <Testimonial {...testimonials[1]} />
-    </div>
+        <div id="testimonial-1">
+            <Testimonial {...testimonials[0]} />
+            <div class="image-wrapper">
+                <img src={positiveSsl} alt="secure 100% no lie" />
+                <img src={warranty} alt="3 year warranty" />
+            </div>
+        </div>
 
-    <div id="showcase">
-        <Showcase />
-    </div>
+        <div id="testimonial-2">
+            <Testimonial {...testimonials[1]} />
+        </div>
 
+        <div id="showcase">
+            <Showcase />
+        </div>
+        <div id="testimonial-3">
+            <Testimonial {...testimonials[2]} />
+        </div>
+    {/if}
     <div id="game">
         <ClickerGame />
-    </div>
-
-    <div id="testimonial-3">
-        <Testimonial {...testimonials[2]} />
     </div>
 </div>
 
@@ -51,6 +55,16 @@
 
         width: 100%;
         height: 100%;
+    }
+
+    .landing-wrapper.game-only {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & #game {
+            max-width: 640px;
+        }
     }
 
     #title {
@@ -94,7 +108,7 @@
         width: 100%;
         height: 100%;
         min-width: 0;
-        min-height: 0;;
+        min-height: 0;
 
         display: flex;
         flex-direction: column;
@@ -158,7 +172,7 @@
             grid-column: 1 / 3;
         }
 
-        #testimonial-3 { 
+        #testimonial-3 {
             grid-row: 5;
             grid-column: 1 / -1;
         }
@@ -170,7 +184,7 @@
             grid-column: 1 / -1;
         }
 
-        #game  {
+        #game {
             grid-row: 4;
             grid-column: 1 / -1;
         }
@@ -189,6 +203,5 @@
             grid-row: 5;
             grid-column: 1 / -1;
         }
-
     }
 </style>

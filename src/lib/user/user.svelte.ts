@@ -3,24 +3,32 @@ import { localStore } from "$lib/util/local.svelte"
 export interface UserData {
     firstVisit: Date,
     latestVisit: Date,
-    currency: {
-        coins: number,
-    },
-    chop: {
-        startDate: Date,
-    }
+    coins: number,
+    autochoppers: number,
+    unlocks: string[]
 }
 
+
 export const createUserStore = (): UserData => {
-    let _user: UserData = localStore("sm:user", {
+    let data = localStore<UserData>("sm:user", {
         firstVisit: new Date(),
         latestVisit: new Date(),
-        currency: {
-            coins: 0,
-        }
+        coins: 0,
+        autochoppers: 0,
+        unlocks: []
     })
 
+    let settings = localStore("sm:settings", {})
+
     return {
-        get currency() { return { get coins() { return _user.currency.coins } } },
+        get coins() { return data.value.coins },
+        set coins(value) { data.value.coins = value },
+        
+        get unlocks() { return data.value.unlocks },
+        unlocked: (id) => data.value.unlocks.includes(id),
+        unlock: (id) => data.value.unlocks = [...data.value.unlocks, id],
+
+        get autochoppers() { return data.value.autochoppers },
+        set autochoppers(value) { data.value.autochoppers = value },
     }
 }

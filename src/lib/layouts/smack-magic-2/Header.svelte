@@ -204,14 +204,14 @@
             background: linear-gradient(to top, red 75%, rgb(255, 63, 63) 75%);
         }
 
-        :global(header > :nth-child(1)) {
+        :global(body > header > :nth-child(1)) {
             grid-area: 1 / 1 / 2 / 2;
             margin-bottom: 4rem;
         }
-        :global(header > :nth-child(2)) {
+        :global(body > header > :nth-child(2)) {
             grid-area: 2 / 1 / 3 / 2;
         }
-        :global(header > :nth-child(3)) {
+        :global(body > header > :nth-child(3)) {
             grid-area: 3 / 1 / 4 / 2;
         }
 

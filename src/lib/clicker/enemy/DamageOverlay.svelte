@@ -11,7 +11,7 @@
     import stage8 from "./overlay/destroy_stage_8.png";
     import stage9 from "./overlay/destroy_stage_9.png";
 
-    let { min = 0, max = 100, current = 500 } = $props();
+    let { min = 0, max = 100, current = 500, target = undefined } = $props();
 
     const stages = [
         empty,

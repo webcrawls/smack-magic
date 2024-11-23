@@ -10,11 +10,10 @@
     let {
         children = undefined as Snippet | undefined,
         popups = [] as Component[],
+        user,
     } = $props();
 
-    onMount(() => {
-        setContext("user", createUserStore())
-    })
+    setContext("user", user)
 </script>
 
 <svelte:head>

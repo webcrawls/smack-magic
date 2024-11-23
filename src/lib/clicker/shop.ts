@@ -1,14 +1,12 @@
-import type { LocalStore } from '$lib/util/local.svelte'
 import { romanize } from '../util/math'
-import type { Player } from './game.types'
 
 export interface ShopItem {
     name: string,
     description: string,
     id: string,
     price: number,
-    dependsOn: string | string[],
-    data: { damage: number }
+    dependsOn?: string | string[],
+    data?: { damage: number, [key: string]: any }
 }
 
 const createUpgradeTree = (
@@ -36,6 +34,7 @@ const createUpgradeTree = (
         name: name + " " + romanize(index),
         id: name.toLocaleLowerCase() + "-" + index,
         price: 10,
+        data,
         dependsOn,
         description
     }
@@ -43,11 +42,25 @@ const createUpgradeTree = (
     return createUpgradeTree(name, description, data, first, last, options, [...currentItems, upgrade], run + 1)
 }
 
+// upgrades that unlock a feature
+const features: ShopItem[] = [
+    { name: "Monkey Wrench", id: "settings", description: "Unlocks the settings menu", price: 100 },
+    { name: "Factory", id: "factory", description: "Unlocks the Magic Factory", price: 100 },
+    { name: "Joe's Journal", id: "statistics", description: "Unlocks the statistics page", price: 100 },
+    { name: "The Wardrobe", id: "wardrobe", description: "Unlocks the wardrobe", price: 100 },
+]
+
+const cosmetics: ShopItem[] = [
+    { name: "Epic Glasses", id: "epic-glasses", description: "Give Joe some much needed swag", price: 100, dependsOn: "wardrobe" },
+]
+
 const upgrades: ShopItem[] = [
+    ...features,
+    ...cosmetics,
     ...createUpgradeTree("Sharpened Blade", "Increases damage", { damage: 1 }, 1, 10),
-    ...createUpgradeTree("Smack Power", "Increases damage", { damage: 1 }, 1, 10),
-    ...createUpgradeTree("Chef's Blessings", "Increases chance to find rarer things", { damage: 1 }, 1, 5),
-    { name: "Joe's Swag", id: "joes-swag", description: "Give Joe some much needed swag", data: {}, price: 100, dependsOn: [] }
+    ...createUpgradeTree("Training Day", "Boost your autochopper frequency", { autochopperSpeed: 100 }, 1, 10),
+    // ...createUpgradeTree("Smack Power", "Increases damage", { damage: 1 }, 1, 10),
+    // ...createUpgradeTree("Chef's Blessings", "Increases chance to find rarer things", { damage: 1 }, 1, 5),
 ]
 
 export const getItem = (id: string): ShopItem | undefined => {

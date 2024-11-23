@@ -1,93 +1,102 @@
-import { enemyTiers, enemies, type Enemy } from "./enemy/enemies"
-import { LocalStore, localStore } from "../util/local.svelte"
-import type { Player } from "./game.types"
+import { enemyTiers, enemies, type Enemy, type EnemyTier } from "./enemy/enemies"
 import { pick, randomRange, weightedPick } from "$lib/util/math"
-import type ShopItem from "./ShopItem.svelte"
-import { getItem, items } from "./shop"
+import type { UserData } from "$lib/user/user.svelte"
+import { getItem } from "./shop"
 
-export const createGameStore = () => {
-    let currentEnemy: Enemy = $state(null)
+const createEnemy = (ondeath, onattack) => {
+    let currentType: Enemy = $state(null)
+    let health: number = $state(0)
     let maxHealth: number = $state(0)
-    let currentHealth: number = $state(0)
 
-    let damage: number = $derived(0.5 +
-        (data
-            .value
-            .unlockedItems
-            .filter(item => item.startsWith("damage"))
-            .length)
-    )
-    let rewardMult: number = $derived(0.5)
-
-    const spawnEnemy = () => {
-        const tier = weightedPick(Object.values(enemyTiers), tier => tier.weight)
-
-        currentEnemy = pick(enemies.filter(enemy => enemy.tier === tier.id))
-
-        const health = randomRange(tier.minHealth, tier.maxHealth)
-        currentHealth = health
-        maxHealth = health
+    const spawn = () => {
+        const tier = weightedPick(Object.values(enemyTiers), (tier) => tier.weight)
+        const enemy = pick(enemies.filter(enemy => enemy.tier === tier.id))
+        currentType = enemy
+        maxHealth = randomRange(tier.minHealth, tier.maxHealth)
+        health = maxHealth
     }
 
-    const attack = () => {
-        currentHealth -= getDamage(data.value)
-        if (currentHealth <= 0) {
-            kill(currentEnemy)
+    const attack = (damage = 1) => {
+        console.log("attacking", damage)
+        const newHealth = health - damage
+        health = newHealth
+        if (newHealth <= 0) {
+            die()
         }
+        onattack?.(damage)
     }
 
-    const kill = (enemy: Enemy) => {
-        currentEnemy = null
-        data.value.coins = data.value.coins + (maxHealth * rewardMult)
-        if (enemy.id in data.value.statistics) {
-            data.value.statistics = { ...data.value.statistics, [enemy.id]: data.value.statistics[enemy.id] + 1 }
-        } else {
-            data.value.statistics = { ...data.value.statistics, [enemy.id]: 1 }
-        }
-        spawnEnemy()
+    const die = () => {
+        ondeath(maxHealth)
+        spawn()
     }
-
-    const unlockItem = (item: ShopItem) => {
-        if (data.value.unlockedItems.indexOf(item.id) !== -1) return
-        data.value.unlockedItems = [...data.value.unlockedItems, item.id]
-    }
-
-    const buyItem = (item: ShopItem) => {
-        if (data.value.coins >= item.price) {
-            data.value.coins = data.value.coins - item.price
-            unlockItem(item)
-        }
-    }
-
-    const getDamage = (data: Player) => {
-        return data
-            .unlockedItems
-            .flatMap((item, val) => val + (getItem(item)?.data?.damage ?? 1)).length    
-    }
-
-
-    spawnEnemy()
 
     return {
-        get data() { return data },
-        set data(newData: Player) { data = newData },
-        get enemy() { return currentEnemy },
-        get enemyHealth() { return currentHealth },
         get maxHealth() { return maxHealth },
-        get playerDamage() {
-            return getDamage(data.value)
-        },
-        attack,
-        unlockItem,
-        buyItem,
-        get unlocked() {
-            return items
-                .filter(item => data.value.unlockedItems.indexOf(item.id) !== -1)
-        },
-        get available() {
-            return items
-                .filter(item => item.dependsOn.every(dep => data.value.unlockedItems.indexOf(dep) !== -1))
-                .filter(item => data.value.unlockedItems.indexOf(item.id) === -1)
+        get health() { return health },
+        get name() { return currentType?.name },
+        get image() { return currentType?.image },
+        get description() { return currentType?.description },
+        spawn, attack
+    }
+}
+
+const createInventory = (user) => {
+    let unlocked = $state([])
+
+    const canAfford = (price) => user.coins >= price;
+    const ifAfford = (price, callback) => {
+        if (canAfford(price)) {
+            callback()
+            user.coins -= price
+        }
+    }
+    const shouldShow = (item) => {
+        if (!item.dependsOn) return true
+        if (typeof item.dependsOn === "string" && user.unlocked(item.dependsOn)) return true
+        if (Array.isArray(item.dependsOn) && item.dependsOn.every((id) => user.unlocked(id))) return true
+        return false
+    }
+
+    const buy = (item) =>
+        ifAfford(item.price, () => {
+            user.coins -= item.price;
+            user.unlock(item.id);
+        });
+
+
+    return {
+        get unlocked() { return unlocked },
+        unlocked: (id) => unlocked.includes(id),
+        canAfford, ifAfford, shouldShow, buy
+    }
+}
+
+export const createGameStore = (user: UserData) => {
+    const damageReward = (damage: number, rewardModifier: number = 0.5) => user.coins += (damage * rewardModifier)
+
+
+    const checkUnlocks = () => {
+        // unlock shop @ 10 coins
+        if (!user.unlocked("shop") && user.coins >= 10) {
+            user.unlock("shop")
+        }
+    }
+
+    const enemy = createEnemy((damage) => { damageReward(damage); checkUnlocks() })
+    const inventory = createInventory(user)
+    let started: boolean = $state(false)
+
+
+    return {
+        get enemy() { return enemy },
+        get inventory() { return inventory },
+        get started() { return started },
+        get playerDamage() { return 1 + user.unlocks.map(id => getItem(id)?.data?.damage ?? 0).reduce((a, b) => a + b, 0) },
+        start: () => {
+            started = true
+            enemy.spawn()
+            checkUnlocks()
         }
     }
 }
