@@ -1,3 +1,8 @@
+<script>
+    import { popups } from "$lib/common/popup/index.svelte";
+    import { tos } from "$lib/common/popup/types"
+</script>
+
 <footer>
     <nav>
         <a href="/">home</a>
@@ -8,11 +13,12 @@
         <a href="#">customer service</a>
         <a href="#">site map</a>
         <a href="#">limited warranty</a>
+        <a href="#">Privacy Policy</a> -
+        <a href="#" onclick={popups.add.bind(this, tos)}>Terms of Service</a>
         <a href="/shop">order now</a>
     </nav>
     <p>
-        Copyright © 2009 Smack Magic Corp - <a href="#">Privacy Policy</a> -
-        <a href="#">Terms of Service</a>
+        Copyright © 2009 Smack Magic Corp - All Rights Reserved
     </p>
     <p class="warning">
         PLEASE NOTE - the five year lifespan for the Smack Magic Vegetable
