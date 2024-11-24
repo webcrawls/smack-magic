@@ -1,16 +1,15 @@
 <script>
-    import ClickerGame from "$lib/clicker/ClickerGame.svelte";
-    import Introduction from "$lib/components/landing/Introduction.svelte";
-    import Showcase from "$lib/components/showcase/Showcase.svelte";
-    import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
-    import testimonials from "$lib/ui/copy/testimonials";
-    import positiveSsl from "$lib/img/icon/PositiveSSL_tl_trans.png";
-    import warranty from "$lib/img/icon/3year.png";
-    import { getContext, onMount } from "svelte";
+    import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
 
-    let hideAll = false
-    // let hideAll = $derived(!!user?.settings?.value ? (user?.settings?.value['hide-all'] === true) : false)
-    </script>
+    let { data } = $props()
+    let { testimonials } = data
+</script>
+
+<div class="landing-wrapper">
+    <div id="game">
+        <ClickerGame />
+    </div>
+</div>
 
 <!-- <div class="landing-wrapper" class:game-only={hideAll}>
     {#if hideAll !== true}
@@ -107,8 +106,6 @@
         grid-column: 2 / 4;
         width: 100%;
         height: 100%;
-        min-width: 0;
-        min-height: 0;
 
         display: flex;
         flex-direction: column;

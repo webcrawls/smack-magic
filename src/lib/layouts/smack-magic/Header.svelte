@@ -1,150 +1,118 @@
 <script>
+    import "./styles.css";
+    import "$lib/assets/styles/text-squish.css";
+
     import { page } from "$app/stores";
-    import Logo from "$lib/ui/product/logo/Logo.svelte";
+    import Logo from "$lib/common/logo/Logo.svelte";
 </script>
 
 {#snippet link(href, text)}
     <a
-        class="tab"
+        class="tab glossy gradient gray"
         class:active={$page.url.pathname === href}
+        class:shadow={$page.url.pathname === href}
+        class:box={$page.url.pathname === href}
         class:inactive={$page.url.pathname !== href}
-        {href}>{text}</a
+        {href}
     >
+        <span class="squish">{text}</span>
+    </a>
 {/snippet}
 
-<header>
-    <div class="tab-wrapper">
+<header class="glossy gradient red shadow box">
+    <nav id="page-navigation">
+        <Logo />
+    </nav>
+    <nav id="site-navigation">
+        {@render link("/", "ABOUT")}
+        {@render link("/blog", "BLOG")}
+        {@render link("/faq", "FAQ")}
+        {@render link("/shop", "SHOP")}
+    </nav>
+    <!-- <div class="tab-wrapper">
         <nav id="site-navigation">
             {@render link("/", "ABOUT")}
             {@render link("/blog", "BLOG")}
             {@render link("/faq", "FAQ")}
             {@render link("/shop", "SHOP")}
         </nav>
-    </div>
-    <div class="header-wrapper">
-        <Logo />
-    </div>
+    </div> -->
+    <!-- <div class="header-wrapper"> -->
+    <!-- <Logo /> -->
+    <!-- </div> -->
 </header>
 
 <style>
-    header {
-        height: 2rem;
-        width: 100%;
-        position: relative;
-
-        box-shadow: 3px 3px 2px black;
-        --base-color: #ff0000;
-        background: linear-gradient(
-                to top,
-                transparent 0%,
-                rgba(0, 0, 0, 0.3) 40%,
-                transparent 50%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.3) 55%,
-                rgba(255, 255, 255, 0.5) 100%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 65%,
-                rgba(255, 255, 255, 0.7) 100%
-            ),
-            var(--base-color);
+    @property --scale {
+        syntax: "<number>";
+        initial-value: 1;
+        inherits: true;
     }
 
-    .header-wrapper {
+    header {
         height: 100%;
         width: 100%;
+
         display: flex;
-        justify-content: center;
-        align-items: center;
-
-
-        max-width: 60ch;
-        margin-inline: auto;
+        flex-direction: column;
     }
 
-    .tab-wrapper {
-        position: absolute;
+    #site-navigation,
+    #page-navigation {
+        max-width: var(--body-width);
+        margin-inline: auto;
+        width: 100%;
+        height: 100%;
+    }
+
+    #page-navigation {
         display: flex;
         flex-direction: row;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
+        justify-content: flex-start;
+        --scale: 2.5;
+    }
+
+    #site-navigation {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        position: absolute;
+        right: 50%;
+        transform: translateX(50%);
+        top: -100%;
+        z-index: -1;
+    }
+
+    .tab {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        margin-top: 1rem;
+        padding-inline: 1.25rem;
+        padding-block: 0.3rem;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
+        font-weight: bold;
+        color: white;
+        overflow: hidden;
     }
 
     .tab.active {
-        height: 100%;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        padding-inline: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        color: white;
-        text-decoration: none;
-        background: linear-gradient(
-                to top,
-                transparent 0%,
-                rgba(0, 0, 0, 0.3) 40%,
-                transparent 50%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.3) 55%,
-                rgba(255, 255, 255, 0.5) 100%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 65%,
-                rgba(255, 255, 255, 0.7) 100%
-            ),
-            var(--base-color);
+        margin-top: 0.5rem;
     }
 
-    .tab.inactive {
-        height: 80%;
-        border-top-left-radius: 4px;
-        border-top-right-radius: 4px;
-        padding-inline: 0.5rem;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        color: black;
-        text-decoration: none;
-        --base-color: #c0c0c0;
-        background: linear-gradient(
-                to top,
-                transparent 0%,
-                rgba(0, 0, 0, 0.3) 40%,
-                transparent 50%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 50%,
-                rgba(255, 255, 255, 0.3) 55%,
-                rgba(255, 255, 255, 0.5) 100%
-            ),
-            linear-gradient(
-                to top,
-                transparent 0%,
-                transparent 65%,
-                rgba(255, 255, 255, 0.7) 100%
-            ),
-            var(--base-color);
+    @media screen and (max-width: 600px) {
+        #page-navigation {
+            /* justify-content: center; */
+            --scale: 2.2;
+        }
     }
 
-    .tab:hover {
-        font-style: italic;
-        background-color: rgb(255, 255, 255, 0.25);
+    @media screen and (max-width: 400px) {
+        #page-navigation {
+            transform: translateY(20px);
+            --scale: 1.8;
+            justify-content: center;
+        }
     }
 </style>

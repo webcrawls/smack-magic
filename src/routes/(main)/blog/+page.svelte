@@ -1,6 +1,6 @@
 <script>
     import BlogPost from "$lib/layouts/smack-magic/blog/BlogPost.svelte";
-    import blog from "$lib/ui/copy/blog"
+    import blog from "$lib/assets/copy/blog"
 </script>
 
 {#each blog as {author, edited, date, content, responses}}
