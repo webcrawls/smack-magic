@@ -1,0 +1,4 @@
+* explicit adapter static & adapter cloud-flare vs. auto
+* cheeky: include latest git commit hash as build id in smack magic digital or somewhere else
+* on page visit: random chance of "5-1 left, buy now!"
+    * only one left mega discount

@@ -1,11 +1,11 @@
 <script>
+	import { createUserStore } from "$lib/services/user/user.svelte";
+	import { setContext } from "svelte";
 	let { children } = $props();
-	import Metadata from '$lib/components/util/Metadata.svelte';
-</script>
 
-<svelte:head>
-	<Metadata/>
-</svelte:head>
+	const user = createUserStore();
+	setContext("user", user);
+</script>
 
 {@render children?.()}
 
@@ -20,5 +20,6 @@
 
 	:global(html, body) {
 		min-height: 100vh;
+		height: 100%;
 	}
 </style>

@@ -1,5 +1,5 @@
 <script>
-    import SmackMagicWrapper from "$lib/layouts/smack-magic-2/SmackMagicWrapper.svelte";
+    import SmackMagicWrapper from "$lib/layouts/smack-magic/SmackMagicWrapper.svelte";
 
 </script>
 <SmackMagicWrapper>
