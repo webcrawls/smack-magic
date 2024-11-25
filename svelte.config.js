@@ -9,7 +9,7 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: process.env.CF_PAGES === '1'
+		adapter: process.env.CF_PAGES
 			? adapterCloudflare()
 			: adapterStatic({fallback: 'index.html'}),
 	},
