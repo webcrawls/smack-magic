@@ -23,6 +23,7 @@
 	"dependencies": {
 		"@sveltejs/adapter-cloudflare": "^4.7.4",
 		"@sveltejs/adapter-static": "^3.0.6",
+		"7.css": "^0.17.0",
 		"date-fns": "^4.1.0",
 		"dotenv": "^16.4.5"
 	}

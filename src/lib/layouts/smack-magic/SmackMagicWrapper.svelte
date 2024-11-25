@@ -1,12 +1,14 @@
 <script lang="ts">
-    import { type Component, type Snippet } from "svelte";
+    import { onMount, type Component, type Snippet } from "svelte";
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import PopupWrapper from "$lib/common/popup/PopupWrapper.svelte";
+    import { browser } from "$app/environment";
+    import { popups } from "$lib/common/popup/index.svelte";
+    import { randomRange } from "$lib/utils/math";
 
     let {
         children = undefined as Snippet | undefined,
-        popups = [] as Component[],
         user,
     } = $props();
 </script>
@@ -19,7 +21,7 @@
 
 <Footer/>
 
-<PopupWrapper/>
+<PopupWrapper { user }/>
 
 <style>
     @font-face {

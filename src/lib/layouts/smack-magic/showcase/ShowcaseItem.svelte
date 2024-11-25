@@ -1,7 +1,6 @@
 <script lang="ts" module>
-    import onion from "$lib/img/food/icon/onion-icon.png";
-    import playerFace from "$lib/img/icon/player-face.png";
-    import PercentOffSale from "$lib/components/popup/PercentOffSale.svelte";
+    import onion from "$lib/assets/food/onion-icon.png";
+    import playerFace from "$lib/assets/icon/player-face.png";
 
     const component = (component, props, weight) => ({
         name: "unnamed",
@@ -15,8 +14,8 @@
     export const items = [
         image(onion, 1),
         image(playerFace, 1),
-        component(PercentOffSale, { percent: 50 }, 1),
-        component(FreeJoeCoinz, {}, 1),
+        // component(PercentOffSale, { percent: 50 }, 1),
+        // component(FreeJoeCoinz, {}, 1),
     ];
 
     // UI States
@@ -55,10 +54,8 @@
 
 <script lang="ts">
     import Spinner from "../../../common/spinner/Spinner.svelte";
-    import { randomRange, weightedPick } from "$lib/utils/math";
+    import { weightedPick } from "$lib/utils/math";
     import ShowcaseImage from "./ShowcaseImage.svelte";
-    import { browser } from "$app/environment";
-    import FreeJoeCoinz from "../popup/FreeJoeCoinz.svelte";
 
     let item = $state(0);
     let { name, ...data } = $derived(items[item]);

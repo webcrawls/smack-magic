@@ -1,43 +1,42 @@
 <script>
     import shop from "$lib/assets/copy/shop";
-    import ShopItemCard from "$lib/components/shop/ShopItemCard.svelte";
+    import ShopItemCard from "$lib/layouts/smack-magic/shop/ShopItemCard.svelte";
+
+    let allItems = $derived(
+        Object.values(shop.categories).map(cat => cat.items).reduce((prev, val) => val.forEach(item => item.push(prev)))
+    );
 </script>
 
-<ul id="items">
-    {#each shop.categories as category}
-        <h2>{category.name}</h2>
-        {#each category.items as item}
+<div class="shop-wrapper">
+    <ul id="items">
+        {#each allItems as item}
             <li>
                 <ShopItemCard {item} />
             </li>
         {/each}
-    {/each}
-    <!-- {#each shop.categories[0].items as item}
+        <!-- {#each shop.categories[0].items as item}
         <li>
             <ShopItemCard {item} />
         </li>
     {/each} -->
-</ul>
-
-<!-- <p>Showing items {itemStart + 1} to {itemEnd + 1}...</p> -->
+    </ul>
+</div>
 
 <style>
     ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(0, 200px));
+        grid-template-rows: repeat(auto-fill, minmax(0, 200px));
 
         list-style-type: none;
         flex-wrap: wrap;
-        margin: 2rem;
+        padding: 0.5rem;
 
         gap: 2rem;
-        padding-top: 0;
-        padding-inline: 3rem;
 
         width: 100%;
         height: 100%;
-    }
+        }
 
     li {
         flex: 0 0 30%;

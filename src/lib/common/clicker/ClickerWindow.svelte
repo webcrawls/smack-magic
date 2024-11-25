@@ -8,10 +8,22 @@
 
     let asideOpen = $state(false);
     let root: HTMLElement = undefined;
-    let Window = $derived(windowMap[route].render)
+    let Window = $derived(windowMap[route].render);
 
-    let available = $derived(Object.entries(windows).filter(([id, window]) => typeof window.isLocked === "boolean" ? !window.isLocked : !window.isLocked(user)))
-    let locked = $derived(Object.entries(windows).filter(([id, window]) => typeof window.isLocked === "boolean" ? window.isLocked : window.isLocked(user)))
+    let available = $derived(
+        Object.entries(windows).filter(([id, window]) =>
+            typeof window.isLocked === "boolean"
+                ? !window.isLocked
+                : !window.isLocked(user),
+        ),
+    );
+    let locked = $derived(
+        Object.entries(windows).filter(([id, window]) =>
+            typeof window.isLocked === "boolean"
+                ? window.isLocked
+                : window.isLocked(user),
+        ),
+    );
 
     $effect(() => {
         if (x < 400) asideOpen = false;
@@ -20,13 +32,19 @@
     onDestroy(() => stop());
 
     const nav = (id: string, locked) => {
-        if (locked) return
+        if (locked) return;
         route = id;
     };
 </script>
 
 {#snippet link(id, text, locked)}
-    <a class="nav-link" href="#" class:current={route === id} class:locked onclick={nav.bind(this, id, locked)}>{text}</a>
+    <a
+        class="nav-link"
+        href="#"
+        class:current={route === id}
+        class:locked
+        onclick={nav.bind(this, id, locked)}>{text}</a
+    >
 {/snippet}
 
 {#snippet toggleButton()}
@@ -36,28 +54,34 @@
 {/snippet}
 
 <main bind:this={root}>
-    <aside class:closed={!asideOpen} class:open={asideOpen}>
-        {#if asideOpen}
-            <header>
+    {#if game.started}
+        <aside class:closed={!asideOpen} class:open={asideOpen}>
+            {#if asideOpen}
+                <header>
+                    {@render toggleButton()}
+                    <h2>pages</h2>
+                </header>
+                <ul>
+                    {#each available as [id, data]}
+                        {@render link(id, data.name, false)}
+                    {/each}
+                    {#each locked as [id, data]}
+                        {@render link(id, data.name, true)}
+                    {/each}
+                </ul>
+            {:else}
                 {@render toggleButton()}
                 <h2>pages</h2>
-            </header>
-            <ul>
-                {#each available as [id, data]}
-                    {@render link(id, data.name, false)}
-                {/each}
-                {#each locked as [id, data]}
-                    {@render link(id, data.name, true)}
-                {/each}
-            </ul>
-        {:else}
-            {@render toggleButton()}
-            <h2>pages</h2>
-        {/if}
-    </aside>
-    <section>
-        <Window {game} {user} />
-    </section>
+            {/if}
+        </aside>
+        <section>
+            <Window {game} {user} />
+        </section>
+    {:else}
+        <p style="position: absolute; top: 50%; left: 50%;  text-align: center; transform: translate(-50%, 0%); width: 100%; height: 100%;">
+            SMACK DIGITAL: CLICKER GAME <br /> <i>COMING SOON?</i>
+        </p>
+    {/if}
 </main>
 
 <style>
@@ -70,6 +94,8 @@
         display: grid;
         grid-template-columns: 1fr 3fr;
         grid-template-rows: 1fr;
+
+        position: relative;
     }
 
     aside {
@@ -126,7 +152,7 @@
         overflow-y: scroll;
         overflow-x: hidden;
         padding-inline: 0.15rem;
-        
+
         & a {
             color: yellow;
             text-decoration: none;
@@ -137,12 +163,14 @@
             cursor: not-allowed;
         }
 
-        & a:hover, a.current {
+        & a:hover,
+        a.current {
             color: white;
         }
 
-        & a:hover::before, a.current::before {
-            content: "* "
+        & a:hover::before,
+        a.current::before {
+            content: "* ";
         }
     }
 

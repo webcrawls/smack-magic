@@ -3,8 +3,6 @@ import testimonials from "$lib/assets/copy/testimonials";
 
 export const load = (): ServerLoad => {
     return {
-        data: {
-            testimonials: [...testimonials]
-        }
+        testimonials: [...testimonials]
     }
 }

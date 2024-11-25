@@ -1,6 +1,6 @@
 <script lang="ts">
+    import SmackMagic from "$lib/common/smack-magic/SmackMagic.svelte";
     import { rumbler } from "$lib/ui/rumble.svelte";
-    import SmackMagic from "../../ui/product/smack-magic/SmackMagic.svelte";
     import ShowcaseItem from "./ShowcaseItem.svelte";
 
     let item

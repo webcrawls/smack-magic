@@ -29,17 +29,6 @@
         {@render link("/faq", "FAQ")}
         {@render link("/shop", "SHOP")}
     </nav>
-    <!-- <div class="tab-wrapper">
-        <nav id="site-navigation">
-            {@render link("/", "ABOUT")}
-            {@render link("/blog", "BLOG")}
-            {@render link("/faq", "FAQ")}
-            {@render link("/shop", "SHOP")}
-        </nav>
-    </div> -->
-    <!-- <div class="header-wrapper"> -->
-    <!-- <Logo /> -->
-    <!-- </div> -->
 </header>
 
 <style>
