@@ -7,10 +7,12 @@ const gitHash = await (async () => {
         return process.env.CF_PAGES_COMMIT_SHA
     } else 
     {
-        return (await import("child_process"))
-        .execSync('git rev-parse HEAD')
-            .toString().trim().slice(0, 7)
+        // return (await import("child_process"))
+        // .execSync('git rev-parse HEAD')
+        //     .toString().trim().slice(0, 7)
+        return "" // :(
     }
+    
 })()
 
 export const load: LayoutServerLoad = async () => {
