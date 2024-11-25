@@ -1,7 +1,7 @@
 <script>
-    import JoeName from "$lib/components/util/JoeName.svelte"
     import SmackName from "../util/SmackName.svelte";
-    import joeImg from "$lib/img/joe/pose-1.png";
+    import joeImg from "$lib/assets/joe/pose-1.png";
+    import JoeName from "../util/JoeName.svelte";
 </script>
 
 <article class="quote">

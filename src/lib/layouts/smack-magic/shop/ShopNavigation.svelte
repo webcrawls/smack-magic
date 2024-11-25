@@ -1,30 +1,36 @@
 <script>
+    import "$lib/layouts/smack-magic/styles.css";
     import CartLink from "./CartLink.svelte";
 </script>
+
 <nav>
-    <p></p>
-    <div class="announcement">
-        <p mq-speed-x="0.25">DON'T MISS OUT ON OUR SALES!!</p>
+    <div class="nav-bg glossy" aria-hidden="true" />
+    <div class="nav-contents">
+        <CartLink />
     </div>
-    <CartLink/>
 </nav>
 
 <style>
     nav {
         display: flex;
         justify-content: space-between;
-        background: linear-gradient(to right, black 70%, purple);
+        position: relative;
+        background-image: linear-gradient(to right, black, purple);
     }
 
-    .announcement {
-        background: linear-gradient(to right, transparent, rgb(255, 237, 167) 15%, rgb(255, 237, 167) 85%, transparent);
-        color: black;
-        padding-inline: 3rem;
-        font-family: monospace;
-    }
-
-    .announcement > p {
+    .nav-bg {
+        z-index: 1;
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        opacity: 0.5;
+    }
+
+    .nav-contents {
+        z-index: 2;
+        width: 100%;
     }
 </style>

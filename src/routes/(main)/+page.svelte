@@ -1,47 +1,61 @@
 <script>
     import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
+    import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
+    import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
+    import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
 
-    let { data } = $props()
-    let { testimonials } = data
+    let { data } = $props();
+    let { testimonials } = data;
+    $effect(() => console.log({ data }));
 </script>
 
 <div class="landing-wrapper">
+    <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
+
+    <div id="introduction">
+        <Introduction />
+    </div>
+
+    <div id="testimonial-1">
+        <Testimonial {...testimonials[0]} />
+        <!-- <div class="image-wrapper"> -->
+        <!-- <img src={positiveSsl} alt="secure 100% no lie" /> -->
+        <!-- <img src={warranty} alt="3 year warranty" /> -->
+        <!-- </div> -->
+    </div>
+
+    <div id="testimonial-2">
+        <Testimonial {...testimonials[1]} />
+    </div>
+
+    <div id="showcase">
+        <Showcase />
+    </div>
+
+    <div id="testimonial-3">
+        <Testimonial {...testimonials[2]} />
+    </div>
+
+    <div id="ideal-choice">
+        <article class="banner">
+            <h2>The Ideal Cutting Choice</h2>
+            <ul>
+                <li>Nuts</li>
+                <li>Onions</li>
+                <li>Vegetables</li>
+                <li>Fruits</li>
+                <li>Chicken</li>
+                <li>Beef</li>
+                <li>Eggs</li>
+                <li>And many, many more</li>                
+            </ul>
+        </article>
+    </div>
+
     <div id="game">
         <ClickerGame />
     </div>
 </div>
-
-<!-- <div class="landing-wrapper" class:game-only={hideAll}>
-    {#if hideAll !== true}
-        <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
-
-        <div id="introduction">
-            <Introduction />
-        </div>
-
-        <div id="testimonial-1">
-            <Testimonial {...testimonials[0]} />
-            <div class="image-wrapper">
-                <img src={positiveSsl} alt="secure 100% no lie" />
-                <img src={warranty} alt="3 year warranty" />
-            </div>
-        </div>
-
-        <div id="testimonial-2">
-            <Testimonial {...testimonials[1]} />
-        </div>
-
-        <div id="showcase">
-            <Showcase />
-        </div>
-        <div id="testimonial-3">
-            <Testimonial {...testimonials[2]} />
-        </div>
-    {/if}
-    <div id="game">
-        <ClickerGame />
-    </div>
-</div> -->
 
 <style>
     .landing-wrapper {
@@ -102,7 +116,7 @@
     }
 
     #game {
-        grid-row: 4;
+        grid-row: 5;
         grid-column: 2 / 4;
         width: 100%;
         height: 100%;
@@ -112,7 +126,7 @@
     }
 
     #testimonial-3 {
-        grid-row: 4;
+        grid-row: 5;
         grid-column: 1;
 
         width: 100%;
@@ -127,6 +141,43 @@
         height: 100%;
         display: flex;
         flex-direction: column;
+    }
+
+    #ideal-choice {
+        grid-row: 4;
+        grid-column: 1 / -1;
+        width: 100%;
+        height: 100%;
+        display: flex;   
+    }
+
+    .banner {
+        width: 100%;
+        height: 1.65rem;
+        overflow: hidden;
+
+        border-block: 1px solid white;
+        background: linear-gradient(to right, blue, green);
+        color: white;
+        font-size: 1rem;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        & h2 {
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        & ul {
+            display: flex;
+            list-style-type: none;
+            font-size: 0.85rem;
+            font-style: italic;
+            gap: 1rem;
+            padding-inline: 0.5rem;
+        }
     }
 
     .image-wrapper {

@@ -1,6 +1,6 @@
 <script>
-    import avatar from "$lib/img/user/default.png";
-    import star from "$lib/img/icon/star-rainbow.gif";
+    import avatar from "$lib/assets/icon/default.png";
+    import star from "$lib/assets/icon/star-rainbow.gif";
 
     let { name, content, date } = $props();
 </script>

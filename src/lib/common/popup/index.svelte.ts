@@ -10,6 +10,7 @@ export interface PopupData {
         captureScroll: boolean,
         closeOnClickOut: boolean
     },
+    position?: { x: number, y: number } | "center" | "followmouse",
     transition?: {
         in?: {
             type: string,
@@ -27,6 +28,7 @@ export interface ActivePopup {
     data: PopupData;
     id: string;
     visible: boolean;
+    open: boolean;
 }
 
 const makeOverlayStore = () => {
@@ -36,17 +38,26 @@ const makeOverlayStore = () => {
         const id = newId("popup", Object.keys(children))
         children = {
             ...children,
-            [id]: { data, id, visible: true }
+            [id]: { data, id, visible: true, open: false }
         }
+        return id
     }
 
     const remove = (popup: ActivePopup) => {
         children = Object.fromEntries(Object.entries(popup).filter(([id, child]) => id === popup.id))
     }
 
+    const opened = (popup: ActivePopup) => {
+        children = Object.fromEntries(Object.entries(popup).map(([id, child]) => {
+            if (child.id === popup.id) {
+                return {...child, open: true}
+            } else { return child }
+        }))
+    }
+
     return {
         get popups(): ActivePopup[] { return Object.values(children) },
-        add, remove
+        add, remove, opened
     }
 }
 
@@ -55,6 +66,7 @@ export const popups = makeOverlayStore()
 const tos: PopupData = {
     render: TermsOfService,
     focus: true,
+    position: "center",
     transition: {
         in: {
             type: "fader",
@@ -69,6 +81,7 @@ const tos: PopupData = {
 
 const privacyPolicy: PopupData = {
     render: PrivacyPolicy,
+    position: "center",
     focus: true,
 }
 

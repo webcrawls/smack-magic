@@ -87,7 +87,6 @@ export const createGameStore = (user: UserData) => {
     let started: boolean = $state(false)
 
     $effect(() => {
-        console.log({coins: user.coins})
         checkUnlocks()
     })
 

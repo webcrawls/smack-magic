@@ -7,6 +7,7 @@ export interface UserData {
     autochoppers: number,
     unlocks: string[],
     equipped: string[],
+    cart: string[],
     statistics: { [key: string]: any }
 }
 
@@ -18,6 +19,14 @@ export const createUserStore = (): UserData => {
         autochoppers: 0,
         unlocks: [],
         equipped: [],
+        statistics: { },
+        cart: [],
+    })
+
+    $effect(() => {
+        if (!data.value.cart) data.value.cart = []
+        if (!data.value.statistics) data.value.statistics = {}
+        if (!data.value.unlocks) data.value.unlocks = []
     })
 
     let settings = localStore("sm:settings", {})

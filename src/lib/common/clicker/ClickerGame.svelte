@@ -8,7 +8,9 @@
     import ClickerFooter from "./ClickerFooter.svelte";
     import ClickerWindow from "./ClickerWindow.svelte";
 
-    import "$lib/layouts/smack-magic/styles.css"
+    import "$lib/layouts/smack-magic/styles.css";
+
+    let { shouldStart } = $props();
 
     const user = createUserStore();
     const game = createGameStore(user);
@@ -16,15 +18,17 @@
 
     onMount(() => {
         if (!browser) return;
-        game.start();
+        if (shouldStart) {
+            game.start();
+        }
     });
 </script>
 
 <section role="presentation">
     <div class="game-ui">
-        <ClickerHeader/>
-        <ClickerWindow {user} {game} {windows} {route}/>
-        <ClickerFooter {user} {game}/>    
+        <ClickerHeader />
+        <ClickerWindow {user} {game} {windows} {route} />
+        <ClickerFooter {user} {game} />
     </div>
 </section>
 
@@ -37,12 +41,12 @@
         margin-inline: auto;
 
         flex: 1 1;
-        
+
         background-color: gray;
         border-radius: 10px;
         overflow: hidden;
     }
-    
+
     .game-ui {
         width: 100%;
         height: 100%;

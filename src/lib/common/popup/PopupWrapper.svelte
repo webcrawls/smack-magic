@@ -1,6 +1,8 @@
 <script lang="ts">
     import { popups } from "./index.svelte";
 
+    let { user } = $props()
+
     let root: HTMLElement;
 
     let killBodyScroll = $derived(
@@ -18,10 +20,21 @@
     };
 
     const closePopup = (popup, event) => {
-        if (!(popup.data.focus ?? popup.data.focus?.closeOnClickOut)) return
-        if (!event.target.classList.contains("popup-wrapper")) return
+        const closeIf = (popup) => {
+            if (!popup.open) return
+            if (!popup.data) return;
+            if (typeof popup.data.focus === "object" && popup.data.focus.closeOnClickOut) {
+                popups.remove(popup)
+            }
+            // if (typeof popup.data.focus === "boolean" && !!popup.data.focus
+            // 
+            // ) return
+            // if (!((typeof popup.data.focus === "boolean" && popup.data.focus) ?? popup.data.focus?.closeOnClickOut)) return
+            // if (!event.target.classList.contains("popup-wrapper")) return
+            popups.remove(popup);
+        }
 
-        popups.remove(popup);
+        if (popup === undefined || popup.target) { popups.popups.forEach(closeIf) } else { closeIf(popup) }
     };
 
     $effect(() => console.log(killBodyScroll));
@@ -56,11 +69,10 @@
     // };
 </script>
 
-<svelte:window
+<!-- <svelte:window
     onscroll={cancelScroll}
     onwheel={cancelScroll}
-    onmousewheel={cancelScroll}
-/>
+    onmousewheel={cancelScroll}/> -->
 
 <div class="popup-container" aria-hidden="true" bind:this={root}>
     {#each popups.popups as popup, index (popup.id)}
@@ -68,10 +80,15 @@
         <div
             class="popup-wrapper"
             class:darken={popup.data.focus ?? popup.data.focus?.darken ?? false}
+            style={popup.data.position.x
+                ? `--position-x: ${popup.data.position.x}px; --position-y: ${popup.data.position.y}px;`
+                : ``}
+            class:fit={popup.data.position.x || popup.data.position.y}
             onclick={closePopup.bind(this, popup)}
         >
             <popup.data.render
                 id={popup.id}
+                onopen={() => popups.opened(popup)}
                 removeSelf={popups.remove.bind(this, popup)}
             />
         </div>
@@ -92,11 +109,16 @@
 
     .popup-wrapper {
         position: absolute;
-        top: 0;
-        left: 0;
+        top: var(--position-y, 0);
+        left: var(--position-x, 0);
         width: 100%;
         height: 100%;
         pointer-events: all;
+    }
+
+    .popup-wrapper.fit {
+        width: min-content;
+        height: min-content;
     }
 
     .popup-wrapper.darken {

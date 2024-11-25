@@ -12,7 +12,7 @@
 <footer class="glossy gradient gray">
     {#if !game.started}
         <div class="loading">
-            <p style="font-style: italic;">loading<Ellipses /></p>
+            <p style="font-style: italic; font-size: 0.75rem; font-weight: bold;">loading<Ellipses /></p>
             <img src={loadingGif} alt="loading" />
         </div>
     {:else}

@@ -1,6 +1,6 @@
 <script lang="ts">
-    import defaultAvatar from "$lib/img/user/default.png";
-    import DateValue from "../../../components/util/DateValue.svelte";
+    import defaultAvatar from "$lib/assets/icon/default.png";
+    import DateValue from "../util/DateValue.svelte";
     let {
         author,
         date,
