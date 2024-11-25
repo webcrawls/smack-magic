@@ -1,6 +1,4 @@
 import type { LayoutServerLoad } from "./$types";
-import dotenv from "dotenv"
-dotenv.config()
 
 const gitHash = await (async () => {
     if (process.env.CF_PAGES === '1') {
