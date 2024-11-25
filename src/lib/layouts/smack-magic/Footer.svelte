@@ -1,6 +1,5 @@
 <script>
-    import { popups } from "$lib/common/popup/index.svelte";
-    import { tos } from "$lib/common/popup/types"
+    import { popups, types } from "$lib/common/popup/index.svelte";
 </script>
 
 <footer>
@@ -12,15 +11,15 @@
         <a href="#">accessibility statement</a>
         <a href="#">customer service</a>
         <a href="#">site map</a>
-        <a href="#">limited warranty</a>
-        <a href="#">Privacy Policy</a> -
-        <a href="#" onclick={popups.add.bind(this, tos)}>Terms of Service</a>
+        <a href="#warranty">limited warranty</a>
+        <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.privacyPolicy)} }>Privacy Policy</a> -
+        <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.tos)} }>Terms of Service</a>
         <a href="/shop">order now</a>
     </nav>
     <p>
         Copyright © 2009 Smack Magic Corp - All Rights Reserved
     </p>
-    <p class="warning">
+    <p class="warning" id="warranty">
         PLEASE NOTE - the five year lifespan for the Smack Magic Vegetable
         Chopper is only a hypothetical estimate, and depending on the individual
         customer's use, can vary. The Smack Magic Vegetable Chopper assumes no

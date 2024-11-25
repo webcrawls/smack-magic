@@ -46,8 +46,12 @@
     }
 
     .logo.hover:hover {
-        --offset-x: -5px;
+        & img {
+            --offset-x: 3px;
+            --offset-y: 2px;
+        }
+
+        --offset-x: -10px;
         --offset-y: -5px;
-        --scale: calc(var(--scale) * 1.1);
     }
 </style>
