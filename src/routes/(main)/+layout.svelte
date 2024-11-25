@@ -1,14 +1,17 @@
 <script>
-    import SmackMagicWrapper from "$lib/layouts/smack-magic-2/SmackMagicWrapper.svelte";
-    import { createUserStore } from "$lib/user/user.svelte";
-    import { setContext } from "svelte";
+    import Metadata from "$lib/common/Metadata.svelte";
+    import { wrapper as Wrapper, meta } from "$lib/layouts/smack-magic";
+    import { createUserStore } from "$lib/services/user/user.svelte";
+    import { getContext, setContext } from "svelte";
 
-    let { children } = $props()
-
-    let user = createUserStore()
-    setContext("user", user)
+    let { children } = $props();
+    const user = getContext("user")
 </script>
 
-<SmackMagicWrapper {user}>
-{@render children?.(user)}
-</SmackMagicWrapper>
+<svelte:head>
+    <Metadata ...meta />
+</svelte:head>
+
+<Wrapper {user}>
+    {@render children?.(user)}
+</Wrapper>

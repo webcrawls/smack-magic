@@ -1,5 +1,5 @@
 <script>
-    import shop from "$lib/ui/copy/shop";
+    import shop from "$lib/assets/copy/shop";
     import ShopItemCard from "$lib/components/shop/ShopItemCard.svelte";
 </script>
 

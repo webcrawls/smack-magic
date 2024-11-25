@@ -1,6 +1,6 @@
 <script>
-    import faq from "$lib/ui/copy/faq";
-    import pin from "$lib/img/icon/pin.gif"
+    import faq from "$lib/assets/copy/faq";
+    import pin from "$lib/assets/icon/pin.gif"
 </script>
 
 {#each faq as { question, answer }}

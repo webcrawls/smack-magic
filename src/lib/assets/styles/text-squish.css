@@ -1,0 +1,5 @@
+.squish {
+    width: min-content;
+    text-wrap: nowrap;
+    transform: scaleX(0.8) scaleY(1.2) translateX(-10%);
+}

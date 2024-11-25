@@ -21,6 +21,9 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"date-fns": "^4.1.0"
+		"@sveltejs/adapter-cloudflare": "^4.7.4",
+		"@sveltejs/adapter-static": "^3.0.6",
+		"date-fns": "^4.1.0",
+		"dotenv": "^16.4.5"
 	}
 }
