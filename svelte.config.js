@@ -1,9 +1,6 @@
 // adapted from https://www.ryanfiller.com/blog/tips/conditional-sveltekit-adapters
 
-import dotenv from 'dotenv'
-dotenv.config()
-
-import adapterStatc from '@sveltejs/adapter-static'
+import adapterStatic from '@sveltejs/adapter-static'
 import adapterCloudflare from '@sveltejs/adapter-cloudflare'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
@@ -12,9 +9,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		adapter: process.env.ADAPTER === 'static'
-			? adapterStatic({ fallback: 'index.html' })
-			: adapterCloudflare(),
+		adapter: process.env.CF_PAGES === '1'
+			? adapterCloudflare()
+			: adapterStatic({fallback: 'index.html'}),
 	},
 };
 
