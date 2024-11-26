@@ -1,16 +1,7 @@
 import type { LayoutServerLoad } from "./$types";
 
 const gitHash = await (async () => {
-    if (process.env.CF_PAGES === '1') {
-        return process.env.CF_PAGES_COMMIT_SHA
-    } else 
-    {
-        // return (await import("child_process"))
-        // .execSync('git rev-parse HEAD')
-        //     .toString().trim().slice(0, 7)
-        return "" // :(
-    }
-    
+    return "a73bc3d"    
 })()
 
 export const load: LayoutServerLoad = async () => {
