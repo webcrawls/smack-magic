@@ -1,16 +1,23 @@
 <script lang="ts">
-    import { onMount, type Component, type Snippet } from "svelte";
+    import { onMount, setContext, type Component, type Snippet } from "svelte";
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import PopupWrapper from "$lib/common/popup/PopupWrapper.svelte";
     import { browser } from "$app/environment";
     import { popups } from "$lib/common/popup/index.svelte";
     import { randomRange } from "$lib/utils/math";
+    import { userAgent } from "$lib/utils/agent.svelte";
+    $effect(() => console.log({userAgent}))
 
     let {
         children = undefined as Snippet | undefined,
         user,
     } = $props();
+
+    onMount(() => {
+        if (!browser) return
+        if (navigator.userAgent.indexOf('Safari') != -1) userAgent.agent = "safari"
+    })
 </script>
 
 <Header />
@@ -19,28 +26,28 @@
     {@render children?.()}
 </main>
 
-<Footer/>
+<Footer />
 
-<PopupWrapper { user }/>
+<PopupWrapper {user} />
 
 <style>
     @font-face {
-        src: url("/font/verdana.woff") format('woff');
+        src: url("/font/verdana.woff") format("woff");
         font-family: "Verdana";
     }
 
     @font-face {
-        src: url("/font/comic-sans.woff") format('woff');
+        src: url("/font/comic-sans.woff") format("woff");
         font-family: "Comic Sans";
     }
 
     @font-face {
-        src: url("/font/impact.woff") format('woff');
+        src: url("/font/impact.woff") format("woff");
         font-family: "Impact";
     }
 
     @font-face {
-        src: url("/font/impact.woff") format('woff');
+        src: url("/font/impact.woff") format("woff");
         font-family: "Comic Sans";
     }
 
@@ -79,8 +86,13 @@
 
         padding-block: 5rem;
         padding-inline: 1rem;
-    
-        background: linear-gradient(180deg, #3726F1 0%, #030715 95%, black 100%);
+
+        background: linear-gradient(
+            180deg,
+            #3726f1 0%,
+            #030715 95%,
+            black 100%
+        );
         max-width: var(--body-width);
         width: 100%;
         margin-inline: auto;

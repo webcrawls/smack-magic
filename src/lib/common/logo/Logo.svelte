@@ -1,5 +1,6 @@
 <script>
     import "$lib/layouts/smack-magic/styles.css";
+    import { userAgent } from "$lib/utils/agent.svelte";
     import logo from "./logo.png";
 
     let { growOnHover = true } = $props();
@@ -7,7 +8,12 @@
     let imageStyle = $derived(`transform: scale(var(--scale))`);
 </script>
 
-<a href="/" class="logo" class:hover={growOnHover}>
+<a
+    href="/"
+    class="logo"
+    class:hover={growOnHover}
+    class:safari={userAgent.agent === "safari"}
+>
     <img
         class="shadow filter"
         class:shift={growOnHover}
@@ -28,9 +34,8 @@
         justify-content: center;
         align-items: center;
         transition: transform 0.2s;
-        transform: translateX(var(--offset-x))
-                   translateY(var(--offset-y))
-                   scale(var(--scale));
+        transform: translateX(var(--offset-x, 0)) translateY(var(--offset-y, 0))
+            scale(var(--scale));
         --offset-x: 0px;
         --offset-y: 0px;
         user-select: none;
@@ -42,6 +47,14 @@
             object-fit: contain;
             pointer-events: none;
             user-select: none;
+        }
+    }
+
+    .logo.safari {
+        transform: none;
+        opacity: 0;
+        & img {
+            height: 50px;
         }
     }
 
