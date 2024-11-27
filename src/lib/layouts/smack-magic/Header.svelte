@@ -25,6 +25,7 @@
     </nav>
     <nav id="site-navigation">
         {@render link("/", "ABOUT")}
+        {@render link("/testimonials", "TESTIMONIALS")}
         {@render link("/blog", "BLOG")}
         {@render link("/faq", "FAQ")}
         {@render link("/shop", "SHOP")}
