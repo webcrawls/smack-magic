@@ -10,16 +10,11 @@
     let wrapper: HTMLElement | undefined = $state(undefined)
     let aside: HTMLElement | undefined = $state(undefined)
 
-    let height: number = $state(0)
-    let open: boolean = $state(false)
+    let height: number = $state(1)
+    let open: boolean = $state(height !== 0)
 
     onMount(() => {
         if (!browser) return;
-
-        let asideRect = aside?.getBoundingClientRect()
-        height = asideRect?.height ?? 0
-
-        open = true
     })
 </script>
 
@@ -45,6 +40,8 @@
     .headline-wrapper {
         min-height: 300px;
         height: 100%;
+        transform: scale(1.0);
+        transition: transform 0.5s;
     }
 
     /* .headline-wrapper {
@@ -105,6 +102,7 @@
     @media screen and (max-width: 768px) {
         .headline-wrapper {
             display: none;
+            /* transform: scale(0); */
         }
     }
 </style>
