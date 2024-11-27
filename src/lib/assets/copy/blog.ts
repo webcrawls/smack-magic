@@ -57,16 +57,18 @@ export default [
         Not everything is as easy to operate as the
         <i>Smack Magic</i>, babe.`,
         [
-            null,
+            null, null, null, null, null,
             message("The_Joe_Magic", new Date(2009, 1, 20, 22, 30, 0, 0),
                 `Not all, but come on. If you can't keep up, please slow down.
                 The rest of us have cheques to cash at the bank. Oh wait, just me?
                 XD XD XD.
                 Magic out.`
             ),
-            null,
+            null, null, null, null,
             message("wahlburger_grout", new Date(2009, 1, 21, 2, 41, 5, 0), `You said it! LOL`),
+            null, null, null,
             message("ar1zonap1t", new Date(2009, 1, 21, 4, 32, 39, 0), `dumb h0es`),
+            null, null, null,
             message("lucyinthesky_71", new Date(2009, 1, 21, 7, 51, 20, 0), `How much money are we talking Joe? Hahaha`),
         ],
         true

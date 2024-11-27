@@ -22,6 +22,7 @@
 
 <Header />
 
+
 <main>
     {@render children?.()}
 </main>
@@ -60,14 +61,13 @@
         --theme-primary-2: #ff0701;
         --theme-primary-3: #ffee63;
         --theme-primary-4: #ffe502;
-
         --theme-text-1: #001071;
 
         --body-width: 90ch;
     }
 
     :global(html) {
-        background-color: black;
+        background-color: white;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         padding-top: 3rem;
     }
