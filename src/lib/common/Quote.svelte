@@ -6,17 +6,29 @@
     <blockquote>
         {@render children?.()}
         <footer>
-            <cite>{cite}</cite>
+            <cite>&nbsp;{cite}</cite>
         </footer>
     </blockquote>
 </div>
 
 <style>
+    div {
+        width: 100%;
+        height: 100%;
+        flex: 1 1;
+
+        display: flex;
+    }
+
     blockquote {
+        width: 100%;
+        height: 100%;
         position: relative;
         margin: 0.5em;
         padding: 0.5em 1em 0.5em 2em;
         width: fit-content;
+
+        flex: 1 1;
     }
     /* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
     blockquote:before {

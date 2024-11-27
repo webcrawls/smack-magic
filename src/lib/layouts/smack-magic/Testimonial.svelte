@@ -1,11 +1,13 @@
 <script>
     import avatar from "$lib/assets/icon/default.png";
     import star from "$lib/assets/icon/star-rainbow.gif";
+    import Quote from "$lib/common/Quote.svelte";
+    import TestimonialContainer from "./TestimonialContainer.svelte";
 
     let { name, content, date } = $props();
 </script>
 
-<article class="container light">
+{#snippet header()}
     <header>
         <img src={avatar} />
         <div class="header-content">
@@ -19,60 +21,28 @@
             </div>
         </div>
     </header>
-    <blockquote>
+{/snippet}
+
+<TestimonialContainer {header}>
+    <Quote cite={date}>
         <p class="content">{@html content}</p>
-    </blockquote>
-    <p class="date">- {@html date}</p>
-</article>
+    </Quote>
+</TestimonialContainer>
 
 <style>
-    article {
+    header {
         display: flex;
-        flex-direction: column;
         gap: 0.5rem;
+        max-height: 2rem;
 
-        font-size: 0.75rem;
-
-        background-color: aliceblue;
-        padding: 0.5rem;
-
-        & header {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-
-            gap: 1rem;
-
-            & h1 {
-                /* font-size: clamp(2rem, 5.9vw, 3.5rem); */
-            }
-
-            & img {
-                width: 32px;
-                height: 32px;
-            }
-
-            & .header-content {
-                display: flex;
-                flex-direction: column;
-                height: 100%;
-                justify-content: space-between;
-            }
-        }
-
-        & .date {
-            align-self: flex-end;
-            font-style: italic;
-        }
-    }
-
-    .rating {
-        display: flex;
-        flex-direction: row;
+        width: 100%;
+        height: 100%;
 
         & img {
-            height: 32px;
-            width: 32px;
+            width: 100%;
+            height: 100%;
+            width: min-content;
+            aspect-ratio: 1 / 1;
         }
     }
 </style>

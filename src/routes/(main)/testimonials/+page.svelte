@@ -1,12 +1,21 @@
-<script>
+<script lang="ts">
     import testimonials from "$lib/assets/copy/testimonials";
     import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
+    import TestimonialCreation from "$lib/layouts/smack-magic/TestimonialCreation.svelte";
+    import { getContext } from "svelte";
+
+    let user = getContext("user");
 </script>
 
 <div class="testimonials-container">
     {#each testimonials as testimonial}
         <Testimonial {...testimonial} />
     {/each}
+
+    {#each user.testimonials as testimonial}
+        <Testimonial {...testimonial} />
+    {/each}
+    <TestimonialCreation {user} />
 </div>
 
 <style>
