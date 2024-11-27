@@ -1,5 +1,5 @@
 <script>
-    import testimonials from "$lib/assets/copy/testimonials.ts";
+    import testimonials from "$lib/assets/copy/testimonials";
     import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
 </script>
 
