@@ -4,21 +4,15 @@
     import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
     import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
     import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
+    import Headline from "$lib/layouts/smack-magic/Headline.svelte";
+    import IdealChoice from "$lib/layouts/smack-magic/IdealChoice.svelte";
 
     let { data } = $props();
     let { testimonials } = data;
     $effect(() => console.log({ data }));
 </script>
 
-<aside>
-    <div class="aside-inner">
-    <div class="smack-magic-wrapper">
-        <SmackMagic/>
-    </div>
-
-    <h1>AMERICA'S FAVOURITE <i>SALES-JERK</i> HITS ONE MILLION SMACK MAGICS SOLD</h1>
-</div>
-</aside>    
+<Headline />
 
 <div class="landing-wrapper">
 
@@ -49,19 +43,7 @@
     </div>
 
     <div id="ideal-choice">
-        <article class="banner">
-            <h2>The Ideal Cutting Choice</h2>
-            <ul>
-                <li>Nuts</li>
-                <li>Onions</li>
-                <li>Vegetables</li>
-                <li>Fruits</li>
-                <li>Chicken</li>
-                <li>Beef</li>
-                <li>Eggs</li>
-                <li>And many, many more</li>                
-            </ul>
-        </article>
+        <IdealChoice/>
     </div>
 
     <div id="game">
@@ -186,35 +168,6 @@
         width: 100%;
         height: 100%;
         display: flex;   
-    }
-
-    .banner {
-        width: 100%;
-        height: 1.65rem;
-        overflow: hidden;
-
-        border-block: 1px solid white;
-        background: linear-gradient(to right, blue, green);
-        color: white;
-        font-size: 1rem;
-
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        & h2 {
-            font-size: 1rem;
-            font-style: italic;
-        }
-
-        & ul {
-            display: flex;
-            list-style-type: none;
-            font-size: 0.85rem;
-            font-style: italic;
-            gap: 1rem;
-            padding-inline: 0.5rem;
-        }
     }
 
     .image-wrapper {
