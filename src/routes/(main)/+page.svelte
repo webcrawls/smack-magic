@@ -1,5 +1,6 @@
 <script>
     import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
+    import SmackMagic from "$lib/common/smack-magic/SmackMagic.svelte";
     import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
     import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
     import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
@@ -9,7 +10,18 @@
     $effect(() => console.log({ data }));
 </script>
 
+<aside>
+    <div class="aside-inner">
+    <div class="smack-magic-wrapper">
+        <SmackMagic/>
+    </div>
+
+    <h1>AMERICA'S FAVOURITE <i>SALES-JERK</i> HITS ONE MILLION SMACK MAGICS SOLD</h1>
+</div>
+</aside>    
+
 <div class="landing-wrapper">
+
     <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
 
     <div id="introduction">
@@ -69,6 +81,31 @@
         width: 100%;
         height: 100%;
     }
+
+
+    aside {
+        width: 100%;
+        height: min-content;
+        font-style: italic;
+        font-size: 1.75rem;
+        color: black;
+        background-image: url("/Star 1.svg");
+        padding: 1rem;
+        background-position: center;
+        background-size: 100% 100%;
+        
+        & .smack-magic-wrapper {
+            margin-right: 5rem;
+        }
+
+        & .aside-inner {
+            display: flex;
+        gap: 1rem;
+            margin-inline: 5rem;
+            transform: scale(0.7);
+        }
+    }
+
 
     .landing-wrapper.game-only {
         display: flex;
