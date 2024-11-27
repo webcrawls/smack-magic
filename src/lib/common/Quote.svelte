@@ -12,25 +12,22 @@
 </div>
 
 <style>
-    div {
-        width: 100%;
-        height: 100%;
-        flex: 1 1;
-
-        display: flex;
-    }
-
     blockquote {
         width: 100%;
         height: 100%;
+
         position: relative;
         margin: 0.5em;
         padding: 0.5em 1em 0.5em 2em;
         width: fit-content;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
         flex: 1 1;
     }
-    /* Thanks: http://callmenick.com/post/styling-blockquotes-with-css-pseudo-classes */
     blockquote:before {
         position: absolute;
         font-size: 3em;
@@ -52,6 +49,7 @@
     blockquote footer {
         padding: 0 2em 0 0;
         text-align: right;
+        align-self: flex-end;
     }
     blockquote cite:before {
         content: "\2013";
