@@ -75,4 +75,12 @@
         grid-template-columns: minmax(0, 1fr) 2fr;
         gap: var(--page-gap);    
     }
+
+    @media screen and (max-width: 768px) {
+        .introduction-grid {
+            display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        }
+    }
 </style>

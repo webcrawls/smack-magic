@@ -8,7 +8,6 @@
     import { randomRange } from "$lib/utils/math";
     import { userAgent } from "$lib/utils/agent.svelte";
     import Notepad from "./Notepad.svelte";
-    $effect(() => console.log({userAgent}))
 
     let {
         children = undefined as Snippet | undefined,
@@ -18,7 +17,7 @@
     onMount(() => {
         if (!browser) return
         if (navigator.userAgent.indexOf('Safari') != -1) userAgent.agent = "safari"
-        if (true) popups.add( { render: Notepad, position: "center" })
+        // if (true) popups.add( { render: Notepad, position: "center" })
     })
 </script>
 
