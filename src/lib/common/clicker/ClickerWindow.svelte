@@ -49,8 +49,7 @@
 
 {#snippet toggleButton()}
     <button class="aside-toggle" onclick={() => (asideOpen = !asideOpen)}
-        >{asideOpen ? "-" : "+"}</button
-    >
+        >{asideOpen ? "-" : "+"}</button>
 {/snippet}
 
 <main bind:this={root}>

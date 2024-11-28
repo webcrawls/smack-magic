@@ -1,10 +1,8 @@
 <script>
     import "$lib/layouts/smack-magic/styles.css";
     import "$lib/assets/styles/text-squish.css";
-    import { page } from "$app/stores";
     import Ellipses from "../Ellipses.svelte";
     import loadingGif from "$lib/assets/icon/loading.gif";
-    import ClickerFace from "./hotbar/ClickerFace.svelte";
 
     let { game, user } = $props();
 </script>
@@ -16,15 +14,14 @@
             <img src={loadingGif} alt="loading" />
         </div>
     {:else}
-        <section>
+        <!-- <section>
             <p>JoeCoinz: {user.coins}</p>
         </section>
         <section>
             <ClickerFace {user}/>
         </section>
         <section>
-            <p>JoeCoinz: {user.coins}</p>
-        </section>
+        </section> -->
     {/if}
 </footer>
 
@@ -33,6 +30,7 @@
         padding-inline: 0.5rem;
         display: flex;
         gap: 0.5rem;
+        justify-content: space-between;
     }
 
     .loading {

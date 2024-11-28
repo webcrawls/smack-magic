@@ -16,7 +16,15 @@
 
 <style>
     .face-wrapper {
+        width: min-content;
         background-color: black;
         position: relative;
+        display: flex;
+    }
+
+    .face {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>
