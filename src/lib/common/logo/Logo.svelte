@@ -12,7 +12,6 @@
     href="/"
     class="logo"
     class:hover={growOnHover}
-    class:safari={userAgent.agent === "safari"}
 >
     <img
         class="shadow filter"
