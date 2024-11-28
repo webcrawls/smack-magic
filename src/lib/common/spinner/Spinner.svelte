@@ -15,23 +15,37 @@
     } = $props();
 </script>
 
-<div class="spinner" class:spinning class:linked {style} {onclick}>
-    <div class="background offset">
-        <SpinnerImage fill={shadowFill} opacity={0.5} />
-    </div>
-    <div class="background">
-        <SpinnerImage {fill} />
-    </div>
-    <div class="content-wrapper">
-        <slot />
+<div class="spinner">
+    <div class="spinner-content">
+        <div class="background offset" class:spinning>
+            <SpinnerImage fill={shadowFill} opacity={0.5} />
+        </div>
+        <div class="background" class:spinning>
+            <SpinnerImage {fill} />
+        </div>
+        <div class="content-wrapper">
+            <slot />
+        </div>
     </div>
 </div>
 
 <style>
     .spinner {
-        width: 100%;
+        width: min-content;
         height: 100%;
         aspect-ratio: 1 / 1;
+
+        container-type: size;
+        container-name: resize-box;
+    }
+
+    .spinner-content {
+        height: 100%;
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        box-sizing: border-box;
+        display: flex;
+        margin: auto;
         position: relative;
     }
 
@@ -61,7 +75,7 @@
         left: 15px;
     }
 
-    :global(.spinning > .background svg) {
+    :global(.background.spinning svg) {
         animation: spin 10s linear infinite;
     }
 
@@ -74,5 +88,8 @@
     .spinner.linked,
     .spinner.linked > * {
         cursor: pointer;
+    }
+
+    @container box (aspect-ratio > 1 / 1) {
     }
 </style>
