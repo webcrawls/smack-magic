@@ -1,15 +1,13 @@
 <script>
-    let { children, cite } = $props()
+    let { children, cite } = $props();
 </script>
 
-<div>
-    <blockquote>
-        {@render children?.()}
-        <footer>
-            <cite>&nbsp;{cite}</cite>
-        </footer>
-    </blockquote>
-</div>
+<blockquote>
+    {@render children?.()}
+    <footer>
+        <cite>&nbsp;{cite}</cite>
+    </footer>
+</blockquote>
 
 <style>
     blockquote {
