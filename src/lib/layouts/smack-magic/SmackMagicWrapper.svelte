@@ -7,6 +7,7 @@
     import { popups } from "$lib/common/popup/index.svelte";
     import { randomRange } from "$lib/utils/math";
     import { userAgent } from "$lib/utils/agent.svelte";
+    import Notepad from "./Notepad.svelte";
     $effect(() => console.log({userAgent}))
 
     let {
@@ -17,6 +18,7 @@
     onMount(() => {
         if (!browser) return
         if (navigator.userAgent.indexOf('Safari') != -1) userAgent.agent = "safari"
+        if (true) popups.add( { render: Notepad, position: "center" })
     })
 </script>
 
@@ -82,9 +84,6 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
-
-        padding-block: 5rem;
-        padding-inline: 1rem;
 
         background: linear-gradient(
             180deg,
