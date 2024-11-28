@@ -27,7 +27,11 @@
         <Showcase />
         <Testimonial {...testimonials[2]} />
     </div>
-    <Testimonial {...testimonials[1]} />
+
+    <div class="game-grid">
+        <Testimonial {...testimonials[1]} />
+        <ClickerGame/>
+    </div>
 </div>
 
 <style>
@@ -61,6 +65,14 @@
         display: grid;
         grid-template-rows: 1fr;
         grid-template-columns: 2fr minmax(0, 1fr);
+        gap: var(--page-gap);    
+    }
+
+    .game-grid {
+        width: 100%; height: 100%;
+        display: grid;
+        grid-template-rows: 1fr;
+        grid-template-columns: minmax(0, 1fr) 2fr;
         gap: var(--page-gap);    
     }
 </style>
