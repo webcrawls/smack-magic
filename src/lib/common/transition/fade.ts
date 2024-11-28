@@ -1,5 +1,3 @@
-import { clamp, map } from "$lib/utils/math";
-import { elasticIn } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
 
 type Direction = "up" | "down" | "left" | "right"

@@ -8,7 +8,8 @@ export interface UserData {
     unlocks: string[],
     equipped: string[],
     cart: string[],
-    statistics: { [key: string]: any }
+    statistics: { [key: string]: any },
+    testimonials: {}[],
 }
 
 export const createUserStore = (): UserData => {
@@ -21,12 +22,14 @@ export const createUserStore = (): UserData => {
         equipped: [],
         statistics: { },
         cart: [],
+        testimonials: []
     })
 
     $effect(() => {
         if (!data.value.cart) data.value.cart = []
         if (!data.value.statistics) data.value.statistics = {}
         if (!data.value.unlocks) data.value.unlocks = []
+        if (!data.value.testimonials) data.value.testimonials = []
     })
 
     let settings = localStore("sm:settings", {})
@@ -37,6 +40,9 @@ export const createUserStore = (): UserData => {
         
         get unlocks() { return data.value.unlocks },
         get equipped() { return data.value.equipped },
+
+        get testimonials() { return data.value.testimonials },
+        set testimonials(newTestimonials) { data.value.testimonials = newTestimonials },
         isEquipped: (id) => data.value.equipped.includes(id),
         equip: (id) => data.value.equipped = [...data.value.equipped, id],
         unlocked: (id) => data.value.unlocks.includes(id),

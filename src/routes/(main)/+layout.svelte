@@ -1,8 +1,7 @@
 <script>
     import Metadata from "$lib/common/Metadata.svelte";
     import { wrapper as Wrapper, meta } from "$lib/layouts/smack-magic";
-    import { createUserStore } from "$lib/services/user/user.svelte";
-    import { getContext, setContext } from "svelte";
+    import Notepad from "$lib/layouts/smack-magic/Notepad.svelte";
 
     let { children } = $props();
     const user = getContext("user")

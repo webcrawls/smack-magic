@@ -15,7 +15,6 @@
 <Headline />
 
 <div class="landing-wrapper">
-
     <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
 
     <div id="introduction">
@@ -24,10 +23,6 @@
 
     <div id="testimonial-1">
         <Testimonial {...testimonials[0]} />
-        <!-- <div class="image-wrapper"> -->
-        <!-- <img src={positiveSsl} alt="secure 100% no lie" /> -->
-        <!-- <img src={warranty} alt="3 year warranty" /> -->
-        <!-- </div> -->
     </div>
 
     <div id="testimonial-2">
@@ -43,7 +38,7 @@
     </div>
 
     <div id="ideal-choice">
-        <IdealChoice/>
+        <IdealChoice />
     </div>
 
     <div id="game">
@@ -64,7 +59,6 @@
         height: 100%;
     }
 
-
     aside {
         width: 100%;
         height: min-content;
@@ -75,19 +69,18 @@
         padding: 1rem;
         background-position: center;
         background-size: 100% 100%;
-        
+
         & .smack-magic-wrapper {
             margin-right: 5rem;
         }
 
         & .aside-inner {
             display: flex;
-        gap: 1rem;
+            gap: 1rem;
             margin-inline: 5rem;
             transform: scale(0.7);
         }
     }
-
 
     .landing-wrapper.game-only {
         display: flex;
@@ -167,7 +160,7 @@
         grid-column: 1 / -1;
         width: 100%;
         height: 100%;
-        display: flex;   
+        display: flex;
     }
 
     .image-wrapper {
