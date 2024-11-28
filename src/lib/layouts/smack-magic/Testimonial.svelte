@@ -39,10 +39,9 @@
         height: 100%;
 
         & img {
-            width: 100%;
             height: 100%;
-            width: min-content;
             aspect-ratio: 1 / 1;
+            overflow: hidden;
         }
     }
 </style>

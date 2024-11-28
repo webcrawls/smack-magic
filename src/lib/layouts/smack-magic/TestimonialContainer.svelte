@@ -26,6 +26,9 @@
 
         background-color: aliceblue;
         padding: 0.5rem;
+
+        height: 100%;
+        width: 100%;
     }
 
     header {

@@ -16,7 +16,6 @@
     article {
         width: 100%;
         height: 100%;
-        height: 1.65rem;
         overflow: hidden;
 
         border-block: 1px solid white;

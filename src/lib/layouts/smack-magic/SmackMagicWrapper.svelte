@@ -84,6 +84,7 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        padding-block: 4rem;
 
         background: linear-gradient(
             180deg,
