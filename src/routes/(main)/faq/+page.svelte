@@ -1,7 +1,10 @@
 <script>
     import faq from "$lib/assets/copy/faq";
     import pin from "$lib/assets/icon/pin.gif"
+    import PageTitle from "$lib/layouts/smack-magic/PageTitle.svelte";
 </script>
+
+<PageTitle><h1>Frequently Asked Questions</h1></PageTitle>
 
 {#each faq as { question, answer }}
     <article class="container light">
