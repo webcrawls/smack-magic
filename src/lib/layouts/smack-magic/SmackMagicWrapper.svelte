@@ -67,7 +67,7 @@
     }
 
     :global(html) {
-        background-color: white;
+        background: linear-gradient(45deg, white, gray);
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         padding-top: 3rem;
     }
