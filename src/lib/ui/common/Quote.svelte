@@ -15,8 +15,10 @@
         height: 100%;
 
         position: relative;
-        margin: 0.5em;
-        padding: 0.5em 1em 0.5em 2em;
+
+        padding-top: 14px;
+        padding-right: 0.2rem;
+        padding-left: 0.35rem;
         width: fit-content;
 
         display: flex;
@@ -30,13 +32,12 @@
         position: absolute;
         font-size: 3em;
         line-height: 1;
-        top: 0;
+        top: -6px;
         left: 0;
         content: "\201C";
     }
     blockquote:after {
         position: absolute;
-        /* display: block; don't use this, it raised the quote too high from the bottom - defeated line-height? */
         float: right;
         font-size: 3em;
         line-height: 1;
