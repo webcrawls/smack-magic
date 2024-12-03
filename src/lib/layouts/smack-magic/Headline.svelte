@@ -1,6 +1,6 @@
 <script lang="ts">
     import "$lib/layouts/smack-magic/styles.css"
-    import backgroundImage from "$lib/assets/Headline 5.svg"
+    import backgroundImage from "$lib/assets/HeadlinePow.svg"
     import asSeenOnTv from "$lib/assets/icon/As_seen_on_TV.svg.png"
 </script>
 
