@@ -1,25 +1,16 @@
 <script lang="ts">
-    import { onMount, setContext, type Component, type Snippet } from "svelte";
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import PopupWrapper from "$lib/common/popup/PopupWrapper.svelte";
     import { browser } from "$app/environment";
     import { popups } from "$lib/common/popup/index.svelte";
     import { randomRange } from "$lib/utils/math";
-    import { userAgent } from "$lib/utils/agent.svelte";
-    import Notepad from "./Notepad.svelte";
     import "./styles.fonts.css"
 
     let {
-        children = undefined as Snippet | undefined,
+        children,
         user,
     } = $props();
-
-    onMount(() => {
-        if (!browser) return
-        if (navigator.userAgent.indexOf('Safari') != -1) userAgent.agent = "safari"
-        // if (true) popups.add( { render: Notepad, position: "center" })
-    })
 </script>
 
 <svelte:head>
