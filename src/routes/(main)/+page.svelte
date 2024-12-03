@@ -1,13 +1,13 @@
 <script lang="ts">
-    import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
-    import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
-    import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
-    import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
-    import IdealChoice from "$lib/layouts/smack-magic/IdealChoice.svelte";
-    import Headline from "$lib/layouts/smack-magic/Headline.svelte";
+    import ClickerGame from "$lib/ui/common/clicker/ClickerGame.svelte";
+    import Introduction from "$lib/ui/layouts/smack-magic/landing/Introduction.svelte";
+    import Testimonial from "$lib/ui/layouts/smack-magic/Testimonial.svelte";
+    import Showcase from "$lib/ui/layouts/smack-magic/showcase/Showcase.svelte";
+    import Headline from "$lib/ui/layouts/smack-magic/Headline.svelte";
+    import IdealChoice from "$lib/ui/layouts/smack-magic/IdealChoice.svelte";
     import { browser } from "$app/environment";
-    import { popups } from "$lib/common/popup/index.svelte";
-    import Ad from "$lib/common/popup/types/Ad.svelte";
+    import { popups } from "$lib/ui/common/popup/index.svelte";
+    import Ad from "$lib/ui/common/popup/types/Ad.svelte";
     import { onMount } from "svelte";
 
     let { data } = $props();

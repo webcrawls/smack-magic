@@ -1,5 +1,5 @@
 <script>
-    import TruthWrapper from "$lib/layouts/the-truth/TruthWrapper.svelte";
+    import TruthWrapper from "$lib/ui/layouts/the-truth/TruthWrapper.svelte";
 </script>
 
 <TruthWrapper>
