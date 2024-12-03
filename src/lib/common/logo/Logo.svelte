@@ -3,8 +3,6 @@
     import logo from "./logo.png";
 
     let { growOnHover = true } = $props();
-
-    let imageStyle = $derived(`transform: scale(var(--scale))`);
 </script>
 
 <a
@@ -18,7 +16,6 @@
         class:hover={growOnHover}
         src={logo}
         alt="the Smack Magic logo"
-        style={imageStyle}
     />
 </a>
 
@@ -32,27 +29,17 @@
         justify-content: center;
         align-items: center;
         transition: transform 0.2s;
-        transform: translateX(var(--offset-x, 0)) translateY(var(--offset-y, 0))
+        transform: translateX(var(--offset-x, 0)) translateY(var(--offset-y, 0)) 
             scale(var(--scale));
         --offset-x: 0px;
         --offset-y: 0px;
         user-select: none;
 
         & img {
-            width: 100%;
-            max-width: 100%;
             max-height: 100%;
             object-fit: contain;
             pointer-events: none;
             user-select: none;
-        }
-    }
-
-    .logo.safari {
-        transform: none;
-        opacity: 0;
-        & img {
-            height: 50px;
         }
     }
 
