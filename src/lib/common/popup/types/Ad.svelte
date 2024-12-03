@@ -1,15 +1,21 @@
 <script>
     import BasicPopupContainer from "../BasicPopupContainer.svelte";
-    import ad from "$lib/assets/Smack_Magic_Ad.png"
-    let { removeSelf } = $props()
+    import ad from "$lib/assets/Smack_Magic_Ad.png";
+    let { removeSelf } = $props();
 </script>
+
 {#snippet header()}
     <h1>CALL NOW!</h1>
 {/snippet}
 
-<BasicPopupContainer {header} {removeSelf} center={true} style="max-height: 90vh;">
+<BasicPopupContainer
+    {header}
+    {removeSelf}
+    center={true}
+    style="max-height: 90vh;"
+>
     <div class="container">
-        <img src="{ad}"/>
+        <img src={ad} />
     </div>
 </BasicPopupContainer>
 
@@ -19,5 +25,11 @@
         justify-content: center;
         width: 100%;
         height: 100%;
+
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
     }
 </style>
