@@ -1,5 +1,4 @@
 <script>
-    import "./styles.css";
     import "$lib/assets/styles/text-squish.css";
 
     import { page } from "$app/stores";
