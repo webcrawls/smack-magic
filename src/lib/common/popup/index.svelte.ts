@@ -34,6 +34,17 @@ export interface ActivePopup {
 const makeOverlayStore = () => {
     let children: { [id: string]: ActivePopup } = $state({})
 
+    const isComponentTypeShown = (type: Component): boolean => {
+        for (const [id, popup] of Object.entries(children)) {
+            if (popup.data === type) {
+                console.log({type})
+                return true
+            }
+        }
+
+        return false
+    }
+
     const add = (data: PopupData) => {
         const id = newId("popup", Object.keys(children))
         children = {
@@ -57,7 +68,8 @@ const makeOverlayStore = () => {
 
     return {
         get popups(): ActivePopup[] { return Object.values(children) },
-        add, remove, opened
+        add, remove, opened,
+        isComponentTypeShown
     }
 }
 

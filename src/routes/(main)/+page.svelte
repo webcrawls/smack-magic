@@ -1,24 +1,24 @@
-<script>
+<script lang="ts">
     import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
-    import SmackMagic from "$lib/common/smack-magic/SmackMagic.svelte";
     import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
-    import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
     import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
-    import Headline from "$lib/layouts/smack-magic/Headline.svelte";
+    import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
     import IdealChoice from "$lib/layouts/smack-magic/IdealChoice.svelte";
-    import { onMount } from "svelte";
+    import Headline from "$lib/layouts/smack-magic/Headline.svelte";
     import { browser } from "$app/environment";
     import { popups } from "$lib/common/popup/index.svelte";
     import Ad from "$lib/common/popup/types/Ad.svelte";
+    import { onMount } from "svelte";
 
     let { data } = $props();
-    let { testimonials } = data;
-    $effect(() => console.log({ data }));
+    const { testimonials } = data
 
     onMount(() => {
         if (!browser) return
         setTimeout(() => {
-            popups.add({ render: Ad, focus: true, position: "center" })
+            if (!popups.isComponentTypeShown(Ad)) {
+                popups.add({ render: Ad, focus: true, position: "center" })
+            }
         }, 1500)
     })
 </script>

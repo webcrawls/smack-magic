@@ -1,17 +1,18 @@
 {
-	"name": "smack-magic-web",
+	"name": "smack-magic",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
+		"build:static": "env VITE_MODE=static vite build",
+		"build:server": "env VITE_MODE=server vite build",
+		"build:cloudflare": "env VITE_MODE=cloudflare vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
 	},
 	"devDependencies": {
-		"@sveltejs/adapter-auto": "^3.3.1",
-		"@sveltejs/enhanced-img": "^0.4.1",
 		"@sveltejs/kit": "^2.5.27",
 		"@sveltejs/vite-plugin-svelte": "^4.0.0",
 		"svelte": "^5.0.0",
@@ -21,9 +22,9 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@sveltejs/adapter-cloudflare": "^4.7.4",
+		"@sveltejs/adapter-cloudflare": "^4.8.0",
+		"@sveltejs/adapter-node": "^5.2.9",
 		"@sveltejs/adapter-static": "^3.0.6",
-		"7.css": "^0.17.0",
 		"date-fns": "^4.1.0"
 	}
 }
