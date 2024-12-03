@@ -8,6 +8,7 @@
     import { randomRange } from "$lib/utils/math";
     import { userAgent } from "$lib/utils/agent.svelte";
     import Notepad from "./Notepad.svelte";
+    import "./styles.fonts.css"
 
     let {
         children = undefined as Snippet | undefined,
@@ -37,26 +38,6 @@
 <PopupWrapper {user} />
 
 <style>
-    @font-face {
-        src: url("/font/verdana.woff") format("woff");
-        font-family: "Verdana";
-    }
-
-    @font-face {
-        src: url("/font/comic-sans.woff") format("woff");
-        font-family: "Comic Sans";
-    }
-
-    @font-face {
-        src: url("/font/impact.woff") format("woff");
-        font-family: "Impact";
-    }
-
-    @font-face {
-        src: url("/font/impact.woff") format("woff");
-        font-family: "Comic Sans";
-    }
-
     :global(:root) {
         --theme-bg-1: #05137c;
         --theme-bg-2: rgb(91, 148, 255);

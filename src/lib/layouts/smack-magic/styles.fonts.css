@@ -1,0 +1,19 @@
+@font-face {
+    src: url("/font/verdana.woff") format("woff");
+    font-family: "Verdana";
+}
+
+@font-face {
+    src: url("/font/comic-sans.woff") format("woff");
+    font-family: "Comic Sans";
+}
+
+@font-face {
+    src: url("/font/impact.woff") format("woff");
+    font-family: "Impact";
+}
+
+@font-face {
+    src: url("/font/impact.woff") format("woff");
+    font-family: "Comic Sans";
+}
