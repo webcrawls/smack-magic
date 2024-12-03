@@ -2,20 +2,10 @@
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import PopupWrapper from "$lib/ui/common/popup/PopupWrapper.svelte";
-    import { popups } from "$lib/ui/common/popup/index.svelte";
-    import { browser } from "$app/environment";
-    import { randomRange } from "$lib/utils/math";
     import "$lib/ui/layouts/smack-magic/styles.css";
     import "$lib/ui/layouts/smack-magic/styles.fonts.css";
-    import { onMount } from "svelte";
 
     let { children, user } = $props();
-
-    // onMount(() => {
-    //     if (!browser) return;
-    //     document.body.parentElement?.classList.add("smack");
-    //     document.body.classList.add("smack");
-    // });
 </script>
 
 <svelte:head>
@@ -32,7 +22,7 @@
 
     <Footer />
 
-    <PopupWrapper {user} />
+    <PopupWrapper />
 </div>
 
 <style>

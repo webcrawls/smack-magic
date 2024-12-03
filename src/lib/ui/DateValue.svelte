@@ -1,7 +1,8 @@
 <script>
     import { formatDate } from "date-fns";
-    import { BLOG_FORMAT } from "$lib/utils/consts";
-    let { date, format = BLOG_FORMAT } = $props();
+    
+    const DEFAULT_FORMAT = "MM/dd/yyyy hh:mm a"
+    let { date, format = DEFAULT_FORMAT } = $props();
 </script>
 
 {#if date === undefined || date === null}

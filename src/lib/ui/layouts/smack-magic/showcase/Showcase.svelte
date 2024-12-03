@@ -1,25 +1,45 @@
 <script lang="ts">
     import SmackMagic from "$lib/ui/common/SmackMagic.svelte";
-    import { rumbler } from "$lib/ui/rumble.svelte";
-    import ShowcaseItem from "./ShowcaseItem.svelte";
+    import Spinner from "$lib/ui/common/spinner/Spinner.svelte";
 
-    let item
+    const objects = [
+        {
+            src: import.meta.glob("$lib/assets/food/onion-icon.png")[0],
+            weight: 1,
+        },
+        {
+            src: import.meta.glob("$lib/assets/food/strawberries-icon.png")[0],
+            weight: 1,
+        },
+        {
+            src: import.meta.glob("$lib/assets/food/cucumbers-icon.png")[0],
+            weight: 1,
+        },
+        {
+            src: import.meta.glob("$lib/assets/icon/player-face.png")[0],
+            weight: 1,
+        },
+    ];
 
-    let rumblr = rumbler()
-
-    const onclick = () => {
-        item.next()
-        rumblr.rumble()
-    }
+    let currentObject: number = $state(0);
 </script>
 
-<section role="application">
-    <div class="product-wrapper">
-        <SmackMagic clickable={true} {onclick}/>
+<section>
+    <h1>SMACK THE COMPETITION AWAY!</h1>
+    <div class="product">
+        <SmackMagic clickable={true} />
     </div>
-    <h1 class="smack-text">SMACK THE COMPETITION AWAY!</h1>
-    <div class="item-wrapper" style="--offset-x: {rumblr.x}px; --offset-y: {rumblr.y}px;">
-        <ShowcaseItem bind:this={item}/>
+    <div class="item">
+        <Spinner>
+            <div class="icon">
+                {#if objects[currentObject]}
+                    <img
+                        src={objects[currentObject]?.src}
+                        alt={objects[currentObject]?.description ?? ""}
+                    />
+                {/if}
+            </div>
+        </Spinner>
     </div>
 </section>
 
@@ -30,61 +50,80 @@
         position: relative;
         overflow: hidden;
         background: linear-gradient(to right, red, orange);
+
         container-type: inline-size;
         container-name: showcase;
         border: 3px solid black;
     }
 
-    .product-wrapper {
+    /* Title */
+    section > :first-child {
+        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
         position: absolute;
         top: 0;
-        left: 0;
-        transition: transform 0.2s;
-        transform: scale(1) translateX(34px) translateY(10px) rotate(20deg);
-    }
-
-    .smack-text {
-        position: absolute;
-        top: 10%;
         right: 5%;
-        transform: rotate(10deg);
-        font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+        transform: scale(1.3) translateX(-10%) translateY(25%) rotate(-20deg);
         font-size: 1.5rem;
         text-align: center;
         font-weight: normal;
-
         max-width: 10ch;
-
         text-shadow: rgba(0, 0, 0, 0.2) 4px 4px 2px;
     }
 
-    .item-wrapper {
+    /* Product */
+    section > :nth-child(2) {
         position: absolute;
-        bottom: 15%;
-        right: 30%;
-        transform: translateX(var(--offset-x)) translateY(var(--offset-y, 0px));
-        width: 160px;
-        height: 160px;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        transform: rotate(20deg) scale(1.35) translateY(20%);
     }
 
-    @container showcase (max-width: 360px) {
-        .product-wrapper {
-            transform: scale(1) translateX(-20px) translateY(40px)
-                rotate(20deg);
-        }
+    /* Spinner */
+    section > :nth-child(3) {
+        position: absolute;
+        height: 100%;
+        right: 55%;
+        transform: translateX(50%);
+        aspect-ratio: 1 / 1;
+    }
 
-        .item-wrapper {
-            top: 20%;
-            right: 10%;
-        }
+    .icon {
+        transition:
+            opacity 0.2s,
+            transform 0.2s;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        .smack-text {
-            top: 0;
-            left: 0;
-            right: auto;
-            transform: none;
-            width: 100%;
-            max-width: unset;
-        }
+    .icon.left {
+        transform: translateX(-100%);
+    }
+
+    .icon.right {
+        transform: translateX(100%);
+    }
+
+    .icon.visible {
+        opacity: 1;
+    }
+
+    .icon.hidden {
+        opacity: 0;
+    }
+
+    .image-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 </style>

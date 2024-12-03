@@ -1,5 +1,4 @@
 import type { Component, Snippet } from "svelte"
-import { newId } from "$lib/utils/consts";
 import TermsOfService from "./types/TermsOfService.svelte";
 import PrivacyPolicy from "./types/PrivacyPolicy.svelte";
 
@@ -18,6 +17,14 @@ export interface ActivePopup {
     id: string;
     visible: boolean;
 }
+
+const newId = (base, ids) => {
+    let id = base;
+    while (ids.includes(id)) {
+        id += Math.floor(Math.random());
+    }
+    return id;
+};
 
 const makeOverlayStore = () => {
     let children: { [id: string]: ActivePopup } = $state({})

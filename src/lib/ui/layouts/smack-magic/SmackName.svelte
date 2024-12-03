@@ -11,12 +11,12 @@
         display: inline-block;
         font-style: italic;
     }
-    .smack {
+    /* .smack {
         color: red;
         position: absolute;
         font-family: Kimberley;
         transform: translateX(0px) translateY(-22px);
-    }
+    } */
     .magic {
         color: blue;
         position: absolute;

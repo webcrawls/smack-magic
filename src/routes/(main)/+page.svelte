@@ -9,6 +9,7 @@
     import { popups } from "$lib/ui/common/popup/index.svelte";
     import Ad from "$lib/ui/common/popup/types/Ad.svelte";
     import { onMount } from "svelte";
+    import PageTitle from "$lib/ui/layouts/smack-magic/PageTitle.svelte";
 
     let { data } = $props();
     const { testimonials } = data
@@ -25,7 +26,7 @@
 
 <div class="page">
     <Headline />
-    <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
+    <PageTitle>The #1 Kitchen Chopping Appliance!</PageTitle>
 
     <div class="introduction-grid">
         <Testimonial {...testimonials[0]} />
@@ -41,7 +42,7 @@
 
     <div class="game-grid">
         <Testimonial {...testimonials[1]} />
-        <ClickerGame/>
+        <!-- <ClickerGame/> -->
     </div>
 </div>
 
@@ -55,12 +56,6 @@
         flex-direction: column;
         gap: 1rem;
         padding-inline: 1rem;
-    }
-
-    #title {
-        color: yellow;
-        text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 28px;
-        text-align: center;
     }
 
     .introduction-grid {

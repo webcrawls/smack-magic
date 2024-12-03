@@ -1,11 +1,9 @@
 <script lang="ts">
     import backgroundImage from "$lib/assets/HeadlinePow.svg"
-    import asSeenOnTv from "$lib/assets/icon/As_seen_on_TV.svg.png"
 </script>
 
 <div class="headline-wrapper" aria-hidden="true">
-    <img class="headline" src={backgroundImage}/>
-    <!-- <img class="as-seen" src={asSeenOnTv}/> -->
+    <img class="headline" src={backgroundImage} alt="the Smack Magic logo"/>
 </div>
 
 <style>

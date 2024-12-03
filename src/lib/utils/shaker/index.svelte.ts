@@ -1,4 +1,4 @@
-export const rumbler = () => {
+export const shaker = () => {
     const rumbleTime = 100
 
     let rumbleTick = 0
