@@ -2,20 +2,23 @@
     import { goto } from "$app/navigation";
     import SpinnerImage from "./SpinnerImage.svelte";
 
+    const defaultOnclick = () => {
+            if (!linked) return;
+            if (linked) goto(link);
+        }
+
     let {
         spinning = true,
         linked = false,
         link = "/shop",
         fill = "#ffcb00",
         shadowFill = "#000000",
-        onclick = () => {
-            if (linked) goto(link);
-        },
+        onclick = defaultOnclick,
         style = "",
     } = $props();
 </script>
 
-<div class="spinner">
+<div class="spinner" {onclick} class:linked={linked || onclick !== defaultOnclick}>
     <div class="spinner-content">
         <div class="background offset" class:spinning>
             <SpinnerImage fill={shadowFill} opacity={0.5} />

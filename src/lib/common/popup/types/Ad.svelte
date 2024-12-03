@@ -1,35 +1,65 @@
 <script>
-    import BasicPopupContainer from "../BasicPopupContainer.svelte";
-    import ad from "$lib/assets/Smack_Magic_Ad.png";
+    import Spinner from "$lib/common/spinner/Spinner.svelte";
+
     let { removeSelf } = $props();
 </script>
 
-{#snippet header()}
-    <h1>CALL NOW!</h1>
-{/snippet}
-
-<BasicPopupContainer
-    {header}
-    {removeSelf}
-    center={true}
-    style="max-height: 90vh;"
->
-    <div class="container">
-        <img src={ad} />
+<div class="container">
+    <div class="image-container">
+        <img src="/img/Smack_Magic_Ad.png" alt="Smack Magic Ad" />
+        <div class="close">
+            <Spinner onclick={removeSelf}>
+                <div class="close-inner">
+                    <h1>CLICK to<br/>CLOSE</h1>
+                </div>
+            </Spinner>
+        </div>
     </div>
-</BasicPopupContainer>
+</div>
 
 <style>
     .container {
         display: flex;
         justify-content: center;
-        width: 100%;
+        max-width: 100vw;
         height: 100%;
+        padding: 3rem;
+
+        position: relative;
+
+        & .image-container {
+            scrollbar-width: 10px;
+            border: 8px ridge black;
+            height: 100%;
+            max-width: 800px;
+            width: 100%;
+            overflow-y: scroll;
+        }
 
         & img {
             width: 100%;
+        }
+    }
+
+    .close {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        max-width: 300px;
+        aspect-ratio: 1 / 1;
+        transform: translateX(-100%) scale(0.5);
+        z-index: 1;
+
+        & .close-inner {
+            width: 100%;
             height: 100%;
-            object-fit: contain;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            font-family: "Comic Sans";
+            font-size: 26px;
         }
     }
 </style>
