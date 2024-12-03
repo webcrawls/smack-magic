@@ -1,10 +1,12 @@
-<script>
+<script lang="ts">
     import Spinner from "$lib/common/spinner/Spinner.svelte";
+    import { fly } from "svelte/transition"
 
     let { removeSelf } = $props();
 </script>
 
-<div class="container">
+<div class="container" in:fly={{duration: 350, x: -1000, opacity: 0}}
+                       out:fly={{duration: 350, x: 1000, opacity: 0}}>
     <div class="image-container">
         <img src="/img/Smack_Magic_Ad.png" alt="Smack Magic Ad" />
         <div class="close">

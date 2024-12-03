@@ -1,5 +1,6 @@
 <script lang="ts">
     import { popups } from "./index.svelte";
+    import { fade } from "svelte/transition"
 
     let root: HTMLElement;
 
@@ -21,17 +22,13 @@
         <div
             class="popup-wrapper"
             class:darken={popup.data.focus ?? popup.data.focus?.darken ?? false}
+            in:fade={{duration: 100}}
             style={popup.data.position.x
                 ? `--position-x: ${popup.data.position.x}px; --position-y: ${popup.data.position.y}px;`
                 : ``}
             class:fit={popup.data.position.x || popup.data.position.y}
-            onclick={closePopup.bind(this, popup)}
-        >
-            <popup.data.render
-                id={popup.id}
-                onopen={() => popups.opened(popup)}
-                removeSelf={popups.remove.bind(this, popup)}
-            />
+            onclick={closePopup.bind(this, popup)}>
+            <popup.data.render id={popup.id} removeSelf={popups.remove.bind(this, popup)}/>
         </div>
     {/each}
 </div>

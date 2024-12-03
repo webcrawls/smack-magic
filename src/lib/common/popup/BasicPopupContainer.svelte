@@ -1,11 +1,16 @@
 <script lang="ts">
     import "$lib/layouts/smack-magic/styles.css";
+    import { fly } from "svelte/transition";
 
     let { children, header, footer, center = false, showClose = true, removeSelf, id, style } = $props();
+
+    // todo: set in/outTransition to multiple dif transitions
+    const inTransition = (e) => fly.bind(this, e, { duration: 250, y: -1000 })
+    const outTransition = (e) => fly.bind(this, e, { duration: 250, y: 1000 })
 </script>
 
-<section class:center style="{style ? style : ''}">
-    <header class="glossy gradient gray">
+<section class:center style="{style ? style : ''}" in:inTransition out:outTransition>
+    <header class="glossy gradient gray"> 
         {@render header?.()}
         {#if showClose}
           <button onclick={removeSelf}>X</button>
