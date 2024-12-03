@@ -1,6 +1,5 @@
 <script>
     import "$lib/layouts/smack-magic/styles.css";
-    import { userAgent } from "$lib/utils/agent.svelte";
     import logo from "./logo.png";
 
     let { growOnHover = true } = $props();
