@@ -1,10 +1,10 @@
 <script lang="ts">
     import "$lib/layouts/smack-magic/styles.css";
 
-    let { children, header, footer, center = false, showClose = true, removeSelf, id } = $props();
+    let { children, header, footer, center = false, showClose = true, removeSelf, id, style } = $props();
 </script>
 
-<section class:center>
+<section class:center style="{style ? style : ''}">
     <header class="glossy gradient gray">
         {@render header?.()}
         {#if showClose}
