@@ -1,5 +1,7 @@
 <script lang="ts" module>
     import onion from "$lib/assets/food/onion-icon.png";
+    import strawberry from "$lib/assets/food/strawberries-icon.png";
+    import cucumbers from "$lib/assets/food/cucumbers-icon.png";
     import playerFace from "$lib/assets/icon/player-face.png";
 
     const component = (component, props, weight) => ({
@@ -13,6 +15,8 @@
     // item types
     export const items = [
         image(onion, 1),
+        image(strawberry, 1),
+        image(cucumbers, 1),
         image(playerFace, 1),
         // component(PercentOffSale, { percent: 50 }, 1),
         // component(FreeJoeCoinz, {}, 1),
