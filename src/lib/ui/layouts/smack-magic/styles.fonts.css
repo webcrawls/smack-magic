@@ -12,8 +12,3 @@
     src: url("/font/impact.woff") format("woff");
     font-family: "Impact";
 }
-
-@font-face {
-    src: url("/font/impact.woff") format("woff");
-    font-family: "Comic Sans";
-}
