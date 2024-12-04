@@ -69,7 +69,7 @@
         right: 50%;
         transform: translateX(50%);
         top: -100%;
-        z-index: -1;
+        z-index: -2;
     }
 
     .tab {
