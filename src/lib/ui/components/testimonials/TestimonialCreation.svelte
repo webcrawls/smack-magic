@@ -17,7 +17,8 @@
 
         user.testimonials = [...user.testimonials, { content: text, name, date: formatDate(new Date(), "MMMM dd") }]
 
-        submit(name, text)
+        // todo: figure out what to do w/ this.
+        if (false) submit(name, text)
     }
 
     const submit = async (name: string, content: string) => {
