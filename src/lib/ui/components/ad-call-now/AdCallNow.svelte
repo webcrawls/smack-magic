@@ -1,7 +1,8 @@
 <script lang="ts">
     import Spinner from "$lib/ui/common/spinner/Spinner.svelte";
     import { fly } from "svelte/transition";
-    import { BurstButton } from "./burst-button";
+    import src from "./Smack_Magic_Ad.png"
+    import { BurstButton } from "../burst-button";
 
     let { removeSelf } = $props();
 </script>
@@ -15,7 +16,7 @@
         <div class="close">
             <BurstButton onclick={removeSelf} />
         </div>
-        <img src="/img/Smack_Magic_Ad.png" alt="Smack Magic Ad" />
+        <img {src} alt="Smack Magic Ad" />
     </div>
 </div>
 
