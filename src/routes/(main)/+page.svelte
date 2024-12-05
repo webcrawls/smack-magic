@@ -7,7 +7,7 @@
     import IdealChoice from "$lib/ui/layouts/smack-magic/IdealChoice.svelte";
     import { browser } from "$app/environment";
     import { popups } from "$lib/ui/common/popup/index.svelte";
-    import Ad from "$lib/ui/common/popup/types/Ad.svelte";
+    import Ad from "$lib/ui/components/AdCallNow.svelte";
     import { onMount } from "svelte";
     import PageTitle from "$lib/ui/layouts/smack-magic/PageTitle.svelte";
 

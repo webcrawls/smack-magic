@@ -69,7 +69,6 @@
         left: 0;
         z-index: 1;
         display: flex;
-        padding: 1.5rem;
         transform: scale(0.9);
     }
 
