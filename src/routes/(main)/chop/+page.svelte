@@ -1,5 +1,5 @@
 <script>
-    import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
+    import ClickerGame from "$lib/ui/common/clicker/ClickerGame.svelte";
     import PageTitle from "$lib/layouts/smack-magic/PageTitle.svelte";
 </script>
 
