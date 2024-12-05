@@ -1,7 +1,4 @@
-<script>
-    import avatar from "$lib/assets/icon/default.png";
-    import star from "$lib/assets/icon/star-rainbow.gif";
-
+<script lang="ts">
     let { children, header } = $props();
 </script>
 

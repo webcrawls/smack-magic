@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import avatar from "$lib/assets/icon/default.png";
     import star from "$lib/assets/icon/star-rainbow.gif";
     import Quote from "$lib/ui/common/Quote.svelte";

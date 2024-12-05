@@ -1,12 +1,14 @@
-<script>
-    let { children, cite } = $props();
+<script lang="ts">
+    let { children, cite }: any & { cite?: string } = $props();
 </script>
 
 <blockquote>
     {@render children?.()}
-    <footer>
-        <cite>&nbsp;{cite}</cite>
-    </footer>
+    {#if cite}
+        <footer>
+            <cite>&nbsp;{cite}</cite>
+        </footer>
+    {/if}
 </blockquote>
 
 <style>

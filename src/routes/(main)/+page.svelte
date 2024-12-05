@@ -1,7 +1,7 @@
 <script lang="ts">
     import ClickerGame from "$lib/ui/common/clicker/ClickerGame.svelte";
     import Introduction from "$lib/ui/layouts/smack-magic/landing/Introduction.svelte";
-    import Testimonial from "$lib/ui/layouts/smack-magic/Testimonial.svelte";
+    import Testimonial from "$lib/ui/components/testimonials/Testimonial.svelte";
     import Showcase from "$lib/ui/layouts/smack-magic/showcase/Showcase.svelte";
     import Headline from "$lib/ui/components/headline/Headline.svelte";
     import IdealChoice from "$lib/ui/layouts/smack-magic/IdealChoice.svelte";
