@@ -1,9 +1,10 @@
 <script lang="ts">
-    import backgroundImage from "$lib/assets/HeadlinePow.svg"
+    import src from "./pow.svg"
 </script>
 
+<!-- TODO 2024-12-04: accessibility (alt text, provide substitute for SVG content-->
 <div class="headline-wrapper" aria-hidden="true">
-    <img class="headline" src={backgroundImage} alt="the Smack Magic logo"/>
+    <img class="headline" {src} alt="the Smack Magic logo"/>
 </div>
 
 <style>
@@ -25,13 +26,6 @@
     .headline {
         align-self: flex-start;
         margin-right: 3rem;
-    }
-
-    .as-seen {
-        position: absolute;
-        width: 128px;
-        bottom: 0;
-        right: 0;
     }
 
     img {
