@@ -1,6 +1,6 @@
 <script>
     import Metadata from "$lib/ui/common/Metadata.svelte";
-    import { wrapper as Wrapper, meta } from "$lib/ui/layouts/smack-magic";
+    import { wrapper as Wrapper, meta } from "$lib/ui/layouts/shop";
     import { getContext } from "svelte";
 
     let { children } = $props();

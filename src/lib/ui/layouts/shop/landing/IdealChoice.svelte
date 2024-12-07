@@ -1,5 +1,5 @@
 <article>
-    <h2>The Ideal Cutting Choice</h2>
+    <h2>The Ideal Cutting Choice!</h2>
     <ul>
         <li><p>Nuts</p></li>
         <li><p>Onions</p></li>
@@ -8,7 +8,7 @@
         <li><p>Chicken</p></li>
         <li><p>Beef</p></li>
         <li><p>Eggs</p></li>
-        <li><p>And many, many more</p></li>
+        <li><p>And many, many more!</p></li>
     </ul>
 </article>
 
@@ -26,6 +26,9 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        gap: 1rem;
+        padding-inline: 0.5rem;
+        justify-content: space-between;
     }
 
     h2 {
@@ -36,7 +39,7 @@
 
     ul {
         height: 100%;
-        width: 100%;
+        width: fit-content;
 
         display: flex;
         flex-direction: row;

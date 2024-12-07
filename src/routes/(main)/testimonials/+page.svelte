@@ -1,6 +1,6 @@
 <script lang="ts">
     import testimonials from "$lib/assets/copy/testimonials";
-    import PageTitle from "$lib/ui/layouts/smack-magic/PageTitle.svelte";
+    import PageTitle from "$lib/ui/layouts/shop/PageTitle.svelte";
     import Testimonial from "$lib/ui/components/testimonials/Testimonial.svelte";
     import TestimonialCreation from "$lib/ui/components/testimonials/TestimonialCreation.svelte";
     import { getContext } from "svelte";

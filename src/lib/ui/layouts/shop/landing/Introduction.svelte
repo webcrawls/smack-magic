@@ -1,13 +1,13 @@
 <script>
     import joeImg from "$lib/assets/joe/pose-1.png";
-    import JoeName from "../JoeName.svelte";
-    import SmackName from "../SmackName.svelte";
+    import NameJoe from "$lib/ui/components/util/NameJoe.svelte";
+    import NameProduct from "$lib/ui/components/util/NameProduct.svelte";
 </script>
 
 <article class="quote">
     <img class="joe" src={joeImg}/>
     <p>
-        Created by <JoeName />, the king of infomercials, The <SmackName /> Vegetable
+        Created by <NameJoe />, the king of infomercials, The <NameProduct /> Vegetable
         Chopper has revolutionized prep in the kitchen, sending it into a future
         of easy use, less stress, and more fun!
     </p>
@@ -21,11 +21,11 @@
     <p style="font-family: monospace; font-style: italic;">
         “The Smack Magic has changed more than just my life. Hundreds of
         thousands alike have chopped their way to victory. Don't be a loser.
-        Join the winners. Buy a <SmackName /> today!”
+        Join the winners. Buy a <NameProduct /> today!”
     </p>
     <br />
     <p style="text-align: end;">
-        - <JoeName />, CEO of Smack Magic Corp
+        - <NameJoe />, CEO of Smack Magic Corp
     </p>
 </article>
 

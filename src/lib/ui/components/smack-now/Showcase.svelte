@@ -1,27 +1,33 @@
 <script lang="ts">
     import SmackMagic from "$lib/ui/common/SmackMagic.svelte";
     import Spinner from "$lib/ui/common/spinner/Spinner.svelte";
+    import ExplodingImage from "./ExplodingImage.svelte";
+    import onionImg from "$lib/assets/food/onion-icon.png";
+    import strawberriesImg from "$lib/assets/food/strawberries-icon.png";
+    import cucumbersImg from "$lib/assets/food/cucumbers-icon.png";
+    import playerFaceImg from "$lib/assets/icon/player-face.png";
 
     const objects = [
         {
-            src: import.meta.glob("$lib/assets/food/onion-icon.png")[0],
+            src: onionImg,
             weight: 1,
         },
         {
-            src: import.meta.glob("$lib/assets/food/strawberries-icon.png")[0],
+            src: strawberriesImg,
             weight: 1,
         },
         {
-            src: import.meta.glob("$lib/assets/food/cucumbers-icon.png")[0],
+            src: cucumbersImg,
             weight: 1,
         },
         {
-            src: import.meta.glob("$lib/assets/icon/player-face.png")[0],
+            src: playerFaceImg,
             weight: 1,
         },
     ];
 
     let currentObject: number = $state(0);
+    $effect(() => console.log(objects[currentObject]))
 </script>
 
 <section>
@@ -33,7 +39,7 @@
         <Spinner>
             <div class="icon">
                 {#if objects[currentObject]}
-                    <img
+                    <ExplodingImage
                         src={objects[currentObject]?.src}
                         alt={objects[currentObject]?.description ?? ""}
                     />

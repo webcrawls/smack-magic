@@ -2,8 +2,8 @@
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
     import PopupWrapper from "$lib/ui/common/popup/PopupWrapper.svelte";
-    import "$lib/ui/layouts/smack-magic/styles.css";
-    import "$lib/ui/layouts/smack-magic/styles.fonts.css";
+    import "./styles.css";
+    import "./styles.fonts.css";
 
     let { children, user } = $props();
 </script>
