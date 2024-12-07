@@ -1,5 +1,5 @@
 <script>
-	import { createUserStore } from "$lib/user.svelte";
+	import { createUserStore } from "$lib/state/user.svelte";
 	import { setContext } from "svelte";
 	let { children } = $props();
 

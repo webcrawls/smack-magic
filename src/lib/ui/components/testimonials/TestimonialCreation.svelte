@@ -1,13 +1,17 @@
 <script lang="ts">
-    import { formatDate, roundToNearestMinutes } from "date-fns";
+    import { formatDate } from "date-fns";
     import TestimonialContainer from "./TestimonialContainer.svelte";
     import { getContext } from "svelte";
     import Quote from "$lib/ui/common/Quote.svelte";
+    import star from "$lib/assets/icon/star-rainbow.gif";
 
     const user = getContext("user")
 
     let textInput: HTMLDivElement = undefined
     let nameInput: HTMLInputElement = undefined
+
+    let hoveredRating: number = 0
+    let rating: number = 0
 
     const save = (e: MouseEvent) => {
         e.preventDefault()
@@ -39,6 +43,13 @@
 		const response = await apiResponse.text()
         console.log(response)
     }
+
+    const hoverIn = (idx, e) => {
+        hoveredRating = idx
+    }
+    const hoverOut = (idx, e) => {
+        hoveredRating = 0
+    }
 </script>
 
 {#snippet header()}
@@ -48,6 +59,17 @@
 {/snippet}
 
 <TestimonialContainer {header}>
+    <div class="rating" aria-hidden="true">
+        <p>Rating:</p>
+        {#each Array(5) as _, idx}
+            <img src={star}
+                 data-idx={idx + 1}
+                 onmouseover={hoverIn.bind(this, idx + 1)}
+                 onmouseout={hoverOut.bind(this, idx + 1)}
+                 onclick={() => rating = idx + 1}
+                 class:selected={(hoveredRating || rating) >= idx + 1} />
+        {/each}
+    </div>
     <Quote>
         <div class="edit">
             <div class="text-enter" placeholder="I love the Smack Magic because... " bind:this={textInput} contenteditable="true"></div>
@@ -73,5 +95,21 @@
         height: 100%;
         min-height: 4ch;
         border-inline: 2px black solid;
+    }
+
+    .rating {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.3rem;
+    }
+
+    img {
+        filter: grayscale(1.0);
+        cursor: pointer;
+    }
+
+    img.selected {
+        filter: unset;
     }
 </style>

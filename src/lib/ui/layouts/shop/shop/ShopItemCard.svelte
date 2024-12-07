@@ -1,6 +1,6 @@
 <script>
-    import { cart } from "$lib/shop.svelte";
-    import Currency from "../../../Currency.svelte";
+    import { cart } from "$lib/state/shop.svelte";
+    import Currency from "../../../components/util/Currency.svelte";
     import "$lib/layouts/smack-magic/styles.css";
 
     let { item } = $props();

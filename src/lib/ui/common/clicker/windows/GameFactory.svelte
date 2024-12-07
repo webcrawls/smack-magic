@@ -1,5 +1,5 @@
 <script lang='ts'>
-    import SmackMagic from "$lib/ui/common/SmackMagic.svelte";
+    import SmackMagic from "$lib/ui/components/util/SmackMagic.svelte";
     import { onMount } from "svelte";
     import GameWindow from "./GameWindow.svelte";
     import { browser } from "$app/environment";

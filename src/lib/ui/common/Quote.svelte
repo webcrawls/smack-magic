@@ -21,7 +21,7 @@
         padding-top: 14px;
         padding-right: 0.2rem;
         padding-left: 0.35rem;
-        width: fit-content;
+        /* width: fit-content; */
 
         display: flex;
         flex-direction: column;

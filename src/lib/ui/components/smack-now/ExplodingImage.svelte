@@ -19,7 +19,7 @@
         if (!canvas) return;
 
         const ctx: CanvasRenderingContext2D | null = canvas.getContext("2d");
-        ctx?.drawImage(currentImage, 0, 0);
+        ctx?.drawImage(currentImage, 0, 0, canvas.width, canvas.height);
     };
 
     onMount(() => {
@@ -37,3 +37,13 @@
 <div class="canvas-container" bind:this={container}>
     <canvas bind:this={canvas} {alt} />
 </div>
+
+<style>
+    .canvas-container, canvas {
+        width: 100%; height: 100%;
+    }
+
+    .canvas-container {
+        padding: 1.5rem;
+    }
+</style>

@@ -1,7 +1,7 @@
 <script>
-    import Currency from "../../../Currency.svelte";
+    import Currency from "../../../components/util/Currency.svelte";
     import { goto } from "$app/navigation";
-    import { cart } from "$lib/shop.svelte"
+    import { cart } from "$lib/state/shop.svelte"
 
     const checkout = () => goto('/shop/checkout')
 

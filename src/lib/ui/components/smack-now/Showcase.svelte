@@ -1,6 +1,6 @@
 <script lang="ts">
-    import SmackMagic from "$lib/ui/common/SmackMagic.svelte";
-    import Spinner from "$lib/ui/components/spinner/Spinner.svelte";
+    import SmackMagic from "$lib/ui/components/util/SmackMagic.svelte";
+    import Spinner from "$lib/ui/components/util/Spinner.svelte";
     import ExplodingImage from "./ExplodingImage.svelte";
     import onionImg from "$lib/assets/food/onion-icon.png";
     import strawberriesImg from "$lib/assets/food/strawberries-icon.png";
@@ -28,18 +28,22 @@
 
     let currentObject: number = $state(0);
     $effect(() => console.log(objects[currentObject]))
+
+    let image: ExplodingImage = undefined
+    const next = () => {}
 </script>
 
 <section>
     <h1>SMACK THE COMPETITION AWAY!</h1>
     <div class="product">
-        <SmackMagic clickable={true} />
+        <SmackMagic clickable={true} onclick={next} />
     </div>
     <div class="item">
         <Spinner>
             <div class="icon">
                 {#if objects[currentObject]}
                     <ExplodingImage
+                        bind:this={image}
                         src={objects[currentObject]?.src}
                         alt={objects[currentObject]?.description ?? ""}
                     />
