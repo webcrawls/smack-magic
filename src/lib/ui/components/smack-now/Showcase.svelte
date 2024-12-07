@@ -1,6 +1,6 @@
 <script lang="ts">
     import SmackMagic from "$lib/ui/common/SmackMagic.svelte";
-    import Spinner from "$lib/ui/common/spinner/Spinner.svelte";
+    import Spinner from "$lib/ui/components/spinner/Spinner.svelte";
     import ExplodingImage from "./ExplodingImage.svelte";
     import onionImg from "$lib/assets/food/onion-icon.png";
     import strawberriesImg from "$lib/assets/food/strawberries-icon.png";

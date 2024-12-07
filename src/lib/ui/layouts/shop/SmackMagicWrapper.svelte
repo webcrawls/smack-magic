@@ -8,11 +8,6 @@
     let { children, user } = $props();
 </script>
 
-<svelte:head>
-    <!-- Image Asset Preloads -->
-    <link rel="preload" href="/img/Smack_Magic_Ad.png" as="image" />
-</svelte:head>
-
 <div class="smack">
     <Header />
 

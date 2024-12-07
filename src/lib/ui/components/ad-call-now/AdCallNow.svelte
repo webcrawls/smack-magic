@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Spinner from "$lib/ui/common/spinner/Spinner.svelte";
+    import Spinner from "$lib/ui/components/spinner/Spinner.svelte";
     import { fly } from "svelte/transition";
     import src from "./Smack_Magic_Ad.png"
     import { BurstButton } from "../burst-button";
