@@ -1,37 +1,44 @@
 <script lang="ts">
-    import { getContext, onMount } from "svelte";
-    import { createWindowManager } from "./windows/windows.svelte";
-    import { createGameStore } from "./game.svelte";
-    import { browser } from "$app/environment";
-    import ClickerHeader from "./ClickerHeader.svelte";
-    import ClickerFooter from "./ClickerFooter.svelte";
-    import ClickerWindow from "./ClickerWindow.svelte";
+    // import { getContext, onMount } from "svelte";
+    import Layout from "./layout/Layout.svelte";
+    import { createGame } from "./_old/game.svelte";
+    import { getContext } from "svelte";
+    // import { createWindowManager } from "./_old/windows/windows.svelte";
+    // import { createGameStore } from "./game.svelte";
+    // import { browser } from "$app/environment";
+    // import ClickerHeader from "./ClickerHeader.svelte";
+    // import ClickerFooter from "./layout/ClickerFooter.svelte";
+    // import ClickerWindow from "./ClickerWindow.svelte";
 
-    let { shouldStart = true } = $props();
+    // let {
+    //     ui = {
+    //         autostart: false,
+    //         enabled: true
+    //     }
+    // } = $props();
+
+    // const user = getContext("user")
+    // const game = createGameStore(user);
+
+    // let { window, windows, route } = createWindowManager(user);
+
+    // onMount(() => {
+    //     if (!browser) return;
+    //     if (shouldStart) {
+    //         game.start();
+    //     }
+    // });
 
     const user = getContext("user")
-    const game = createGameStore(user);
-
-    let { window, windows, route } = createWindowManager(user);
-
-    onMount(() => {
-        if (!browser) return;
-        if (shouldStart) {
-            game.start();
-        }
-    });
+    const game = createGame(user)
 </script>
 
-<section role="presentation">
-    <div class="game-ui">
-        <ClickerHeader />
-        <ClickerWindow {user} {game} {windows} {route} />
-        <ClickerFooter {user} {game} />
-    </div>
-</section>
+<div class="clicker-game">
+    <Layout {game}/>
+</div>
 
 <style>
-    section {
+    .clicker-game {
         width: 100%;
         height: 100%;
 
@@ -40,18 +47,6 @@
 
         flex: 1 1;
 
-        background-color: gray;
-        border-radius: 10px;
         overflow: hidden;
-    }
-
-    .game-ui {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-rows: min-content 3fr 1fr;
-        grid-template-columns: 1fr;
-        container-name: game;
-        container-type: size;
     }
 </style>

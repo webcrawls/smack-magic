@@ -66,12 +66,12 @@ const createInventory = (user) => {
 
     return {
         get unlocked() { return unlocked },
-        unlocked: (id) => unlocked.includes(id),
+        isUnlocked: (id) => unlocked.includes(id),
         canAfford, ifAfford, shouldShow, buy
     }
 }
 
-export const createGameStore = (user: UserData) => {
+export const createGame = (user: UserData) => {
     const damageReward = (damage: number, rewardModifier: number = 0.5) => user.coins += (damage * rewardModifier)
 
 
