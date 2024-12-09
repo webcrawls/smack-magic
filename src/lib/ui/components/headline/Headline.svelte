@@ -2,7 +2,7 @@
     import src from "./pow.svg"
 </script>
 
-\<div class="headline-wrapper" aria-hidden="true">
+<div class="headline-wrapper" aria-hidden="true">
     <img class="headline" {src} alt="the Smack Magic logo"/>
 </div>
 
