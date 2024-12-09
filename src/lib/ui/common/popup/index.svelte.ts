@@ -1,6 +1,6 @@
+import PrivacyPolicy from "$lib/ui/components/window/types/PrivacyPolicy.svelte";
+import TermsOfService from "$lib/ui/components/window/types/TermsOfService.svelte";
 import type { Component, Snippet } from "svelte"
-import TermsOfService from "./types/TermsOfService.svelte";
-import PrivacyPolicy from "./types/PrivacyPolicy.svelte";
 
 export interface PopupData {
     render: Component,

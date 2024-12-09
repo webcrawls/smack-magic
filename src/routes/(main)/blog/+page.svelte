@@ -1,7 +1,7 @@
 <script>
-    import BlogPost from "$lib/layouts/smack-magic/blog/BlogPost.svelte";
     import blog from "$lib/assets/copy/blog";
-    import PageTitle from "$lib/layouts/smack-magic/PageTitle.svelte";
+    import BlogPost from "$lib/ui/layouts/shop/blog/BlogPost.svelte";
+    import PageTitle from "$lib/ui/layouts/shop/PageTitle.svelte";
 </script>
 
 <PageTitle><h1>Blog</h1></PageTitle>

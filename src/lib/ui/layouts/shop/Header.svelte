@@ -86,6 +86,10 @@
         overflow: hidden;
     }
 
+    a {
+        text-decoration: none;
+    }
+
     .tab.active {
         margin-top: 0.5rem;
     }

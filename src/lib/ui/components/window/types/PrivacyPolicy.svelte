@@ -1,5 +1,5 @@
 <script>
-    import BasicPopupContainer from "../BasicPopupContainer.svelte";
+    import BasicPopupContainer from "../WindowContainer.svelte";
     import errorIcon from "$lib/assets/icon/error.gif"
     
     let { removeSelf } = $props()
