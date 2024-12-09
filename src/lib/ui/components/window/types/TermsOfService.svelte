@@ -11,7 +11,7 @@
 
 <BasicPopupContainer {header} center={true} {removeSelf}>
     <div class="privacy-policy">
-        <img src={errorIcon}/>
+        <img src={errorIcon} alt="a symbol indicating an error"/>
     </div>
 </BasicPopupContainer>
 
