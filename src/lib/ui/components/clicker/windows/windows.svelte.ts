@@ -1,5 +1,5 @@
-import { type UserData } from "$lib/user.svelte";
 import type { Component } from "svelte";
+import type { UserData } from "$lib/state/user.svelte";
 import GameChop from "./chop/GameChop.svelte";
 import GameShop from "./GameShop.svelte";
 import GameStatistics from "./GameStatistics.svelte";

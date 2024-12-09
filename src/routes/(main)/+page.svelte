@@ -9,6 +9,7 @@
     import PageTitle from "$lib/ui/layouts/shop/PageTitle.svelte";
     import Showcase from "$lib/ui/components/smack-now/Showcase.svelte";
     import Introduction from "$lib/ui/layouts/shop/landing/Introduction.svelte";
+    import ClickerGame from "$lib/ui/components/clicker/ClickerGame.svelte";
 
     let { data } = $props();
     const { testimonials } = data
@@ -41,7 +42,7 @@
 
     <div class="game-grid">
         <Testimonial {...testimonials[1]} />
-        <!-- <ClickerGame/> -->
+        <ClickerGame/>
     </div>
 </div>
 

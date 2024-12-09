@@ -12,8 +12,8 @@
         <a href="#">customer service</a>
         <a href="#">site map</a> -->
         <a href="#warranty">limited warranty</a>
-        <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.privacyPolicy)} }>privacy policy</a>
-        <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.tos)} }>terms of service</a>
+        <a href="#privacy-policy" onclick={(e) => { e.preventDefault(); popups.add(types.privacyPolicy)} }>privacy policy</a>
+        <a href="#terms-of-service" onclick={(e) => { e.preventDefault(); popups.add(types.tos)} }>terms of service</a>
         <a href="/shop">order now</a>
     </nav>
     <p>

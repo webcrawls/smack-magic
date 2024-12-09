@@ -1,5 +1,5 @@
 <script>
-    import GameWindow from "$lib/ui/common/clicker/windows/GameWindow.svelte";
+    import GameWindow from "../GameWindow.svelte";
     import { browser } from "$app/environment";
     import { onDestroy, onMount } from "svelte";
     import DamageOverlay from "./DamageOverlay.svelte";

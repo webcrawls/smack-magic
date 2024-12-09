@@ -1,5 +1,5 @@
 <script>
-    import GameWindow from "$lib/ui/common/clicker/windows/GameWindow.svelte";
+    import GameWindow from "./GameWindow.svelte";
     import { items } from "../shop";
     import GameInfoContainer from "./GameInfoContainer.svelte";
     import GameInfoIcon from "./GameInfoIcon.svelte";

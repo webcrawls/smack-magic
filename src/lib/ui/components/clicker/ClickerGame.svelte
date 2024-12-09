@@ -1,16 +1,16 @@
 <script lang="ts">
-    import { onMount } from "svelte";
+    import { getContext, onMount } from "svelte";
     import { createWindowManager } from "./windows/windows.svelte";
     import { createGameStore } from "./game.svelte";
-    import { createUserStore } from "$lib/user.svelte";
     import { browser } from "$app/environment";
     import ClickerHeader from "./ClickerHeader.svelte";
     import ClickerFooter from "./ClickerFooter.svelte";
     import ClickerWindow from "./ClickerWindow.svelte";
     let { shouldStart } = $props();
 
-    const user = createUserStore();
+    const user = getContext("user")
     const game = createGameStore(user);
+    
     let { window, windows, route } = createWindowManager(user);
 
     onMount(() => {

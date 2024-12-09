@@ -1,5 +1,5 @@
 <script>
-    import GameWindow from '$lib/ui/common/clicker/windows/GameWindow.svelte';
+    import GameWindow from "./GameWindow.svelte";
 </script>
 
 <GameWindow>
