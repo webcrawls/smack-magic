@@ -21,7 +21,6 @@
 
         user.testimonials = [...user.testimonials, { content: text, name, date: formatDate(new Date(), "MMMM dd") }]
 
-        // todo: figure out what to do w/ this.
         if (false) submit(name, text)
     }
 

@@ -3,7 +3,6 @@
 
     let { children, header, footer, center = false, showClose = true, removeSelf, id, style } = $props();
 
-    // todo: set in/outTransition to multiple dif transitions
     const inTransition = (e) => fly.bind(this, e, { duration: 250, y: -1000 })
     const outTransition = (e) => fly.bind(this, e, { duration: 250, y: 1000 })
 </script>

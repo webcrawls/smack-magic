@@ -2,8 +2,7 @@
     import src from "./pow.svg"
 </script>
 
-<!-- TODO 2024-12-04: accessibility (alt text, provide substitute for SVG content-->
-<div class="headline-wrapper" aria-hidden="true">
+\<div class="headline-wrapper" aria-hidden="true">
     <img class="headline" {src} alt="the Smack Magic logo"/>
 </div>
 
