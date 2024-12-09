@@ -2,7 +2,7 @@
     import { formatDate } from "date-fns";
     import TestimonialContainer from "./TestimonialContainer.svelte";
     import { getContext } from "svelte";
-    import Quote from "$lib/ui/common/Quote.svelte";
+    import Quote from "$lib/ui/components/util/Quote.svelte";
     import star from "$lib/assets/icon/star-rainbow.gif";
 
     const user = getContext("user")

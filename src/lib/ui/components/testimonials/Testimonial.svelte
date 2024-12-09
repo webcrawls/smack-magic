@@ -1,7 +1,7 @@
 <script lang="ts">
     import avatar from "$lib/assets/icon/default.png";
     import star from "$lib/assets/icon/star-rainbow.gif";
-    import Quote from "$lib/ui/common/Quote.svelte";
+    import Quote from "$lib/ui/components/util/Quote.svelte";
     import TestimonialContainer from "./TestimonialContainer.svelte";
 
     let { name, content, date } = $props();

@@ -1,6 +1,6 @@
 <script lang="ts">
     import { onDestroy, onMount } from "svelte";
-    import { observeResize } from "../mutation.svelte";
+    import { observeResize } from "../../../utils/mutation.svelte";
     import { windowMap } from "./windows/windows.svelte";
 
     let { game, user, route = $bindable("chop"), windows } = $props();
