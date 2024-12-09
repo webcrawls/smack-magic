@@ -1,6 +1,6 @@
 <script>
     import "$lib/assets/styles/text-squish.css";
-    import Ellipses from "../Ellipses.svelte";
+    import Ellipses from "../../components/util/Ellipses.svelte";
     import loadingGif from "$lib/assets/icon/loading.gif";
 
     let { game, user } = $props();

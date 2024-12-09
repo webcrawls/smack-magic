@@ -18,7 +18,8 @@
 }
 
 .glossy.gradient.gray {
-    --gradient: linear-gradient(to right, rgb(97, 97, 97), rgb(116, 116, 116));
+    --gradient: linear-gradient(to right, rgb(200, 200, 200), rgb(225, 225, 225));
+    color: black;
 }
 
 .glossy.gradient::after {

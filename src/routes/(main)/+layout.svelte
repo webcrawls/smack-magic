@@ -1,5 +1,5 @@
 <script>
-    import Metadata from "$lib/ui/common/Metadata.svelte";
+    import Metadata from "$lib/ui/components/util/Metadata.svelte";
     import { wrapper as Wrapper, meta } from "$lib/ui/layouts/shop";
     import { getContext } from "svelte";
 

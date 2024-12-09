@@ -1,8 +1,7 @@
 <script>
     import "$lib/assets/styles/text-squish.css";
-
     import { page } from "$app/stores";
-    import Logo from "$lib/ui/common/Logo.svelte";
+    import Logo from "$lib/ui/components/util/Logo.svelte";
 </script>
 
 {#snippet link(href, text)}
