@@ -44,6 +44,9 @@
         <Testimonial {...testimonials[1]} />
         <ClickerGame/>
     </div>
+
+    <!-- TODO: "Write your own testimonial" link -->
+    <!-- TODO: "View the commercial" link? -->
 </div>
 
 <style>
