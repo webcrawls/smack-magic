@@ -3,7 +3,7 @@
     import Headline from "$lib/ui/components/headline/Headline.svelte";
     import IdealChoice from "$lib/ui/layouts/shop/landing/IdealChoice.svelte";
     import { browser } from "$app/environment";
-    import { popups } from "$lib/ui/common/popup/index.svelte";
+    import { popups } from "$lib/ui/components/popup/index.svelte.js";
     import Ad from "$lib/ui/components/ad-call-now/AdCallNow.svelte";
     import { onMount } from "svelte";
     import PageTitle from "$lib/ui/layouts/shop/PageTitle.svelte";

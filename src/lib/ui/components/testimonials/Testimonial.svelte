@@ -9,15 +9,15 @@
 
 {#snippet header()}
     <header>
-        <img src={avatar} />
+        <img alt="{name}'s avatar" src={avatar} />
         <div class="header-content">
             <h1>{name}</h1>
             <div class="rating" aria-hidden="true">
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
-                <img src={star} />
+                <img alt="a star indicating a rating of 1" src={star} />
+                <img alt="a star indicating a rating of 2" src={star} />
+                <img alt="a star indicating a rating of 3" src={star} />
+                <img alt="a star indicating a rating of 4" src={star} />
+                <img alt="a star indicating a rating of 5" src={star} />
             </div>
         </div>
     </header>

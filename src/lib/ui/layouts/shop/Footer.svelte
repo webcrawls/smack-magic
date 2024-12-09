@@ -1,5 +1,5 @@
 <script>
-    import { popups, types } from "$lib/ui/common/popup/index.svelte";
+    import { popups, types } from "$lib/ui/components/popup/index.svelte";
 </script>
 
 <footer>
@@ -8,9 +8,9 @@
         <a href="/faq">faq</a>
         <a href="/blog">blog</a>
         <a href="/shop">shop</a>
-        <a href="#">accessibility statement</a>
+        <!-- <a href="#">accessibility statement</a>
         <a href="#">customer service</a>
-        <a href="#">site map</a>
+        <a href="#">site map</a> -->
         <a href="#warranty">limited warranty</a>
         <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.privacyPolicy)} }>Privacy Policy</a> -
         <a href="#" onclick={(e) => { e.preventDefault(); popups.add(types.tos)} }>Terms of Service</a>

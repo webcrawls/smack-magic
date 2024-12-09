@@ -8,7 +8,7 @@
 <button {onclick} style={`background-image: url('${background}')`}>
     <div class="content">
         {#if !children}
-            <img class="close-image" src={text} />
+            <img class="close-image" alt="a button that says 'close'" src={text} />
         {:else}
             {@render children()}
         {/if}

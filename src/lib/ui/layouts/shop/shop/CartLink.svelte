@@ -2,7 +2,7 @@
     import CartPopup from "./CartPopup.svelte";
     import Currency from "../../../components/util/Currency.svelte";
     import { cart } from "$lib/state/shop.svelte";
-    import { popups } from "$lib/ui/common/popup/index.svelte";
+    import { popups } from "$lib/ui/components/popup/index.svelte";
     import Page from "../../../../routes/(main)/+page.svelte";
 
     const onclick = (e: MouseEvent) => {

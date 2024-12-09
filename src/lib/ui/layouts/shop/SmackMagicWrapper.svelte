@@ -1,7 +1,7 @@
 <script lang="ts">
     import Header from "./Header.svelte";
     import Footer from "./Footer.svelte";
-    import PopupWrapper from "$lib/ui/common/popup/PopupWrapper.svelte";
+    import PopupWrapper from "$lib/ui/components/popup/PopupWrapper.svelte";
     import "./styles.css";
     import "./styles.fonts.css";
 
