@@ -34,9 +34,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                name, content
-            })
+            body: JSON.stringify({ name, content })
         })
 		
 		const response = await apiResponse.text()
@@ -61,7 +59,9 @@
     <div class="rating" aria-hidden="true">
         <p>Rating:</p>
         {#each Array(5) as _, idx}
+            <!-- todo: fix accessibility re - clickable elements-->
             <img src={star}
+                 alt="a star indicating a rating of {idx + 1}"
                  data-idx={idx + 1}
                  onmouseover={hoverIn.bind(this, idx + 1)}
                  onmouseout={hoverOut.bind(this, idx + 1)}
