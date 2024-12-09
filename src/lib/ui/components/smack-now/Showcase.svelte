@@ -6,6 +6,7 @@
     import strawberriesImg from "$lib/assets/food/strawberries-icon.png";
     import cucumbersImg from "$lib/assets/food/cucumbers-icon.png";
     import playerFaceImg from "$lib/assets/icon/player-face.png";
+    import { randomRange } from "$lib/utils/math";
 
     const objects = [
         {
@@ -30,7 +31,10 @@
     $effect(() => console.log(objects[currentObject]))
 
     let image: ExplodingImage = undefined
-    const next = () => {}
+
+    const next = () => {
+        image.explode()
+    }
 </script>
 
 <section>
@@ -43,6 +47,7 @@
             <div class="icon">
                 {#if objects[currentObject]}
                     <ExplodingImage
+                        done={() => currentObject = randomRange(0, objects.length - 1)}
                         bind:this={image}
                         src={objects[currentObject]?.src}
                         alt={objects[currentObject]?.description ?? ""}
