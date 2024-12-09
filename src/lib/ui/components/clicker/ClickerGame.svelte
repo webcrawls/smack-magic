@@ -6,11 +6,12 @@
     import ClickerHeader from "./ClickerHeader.svelte";
     import ClickerFooter from "./ClickerFooter.svelte";
     import ClickerWindow from "./ClickerWindow.svelte";
-    let { shouldStart } = $props();
+
+    let { shouldStart = true } = $props();
 
     const user = getContext("user")
     const game = createGameStore(user);
-    
+
     let { window, windows, route } = createWindowManager(user);
 
     onMount(() => {
