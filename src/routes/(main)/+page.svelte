@@ -1,14 +1,15 @@
 <script lang="ts">
-    import ClickerGame from "$lib/common/clicker/ClickerGame.svelte";
-    import Introduction from "$lib/layouts/smack-magic/landing/Introduction.svelte";
-    import Testimonial from "$lib/layouts/smack-magic/Testimonial.svelte";
-    import Showcase from "$lib/layouts/smack-magic/showcase/Showcase.svelte";
-    import IdealChoice from "$lib/layouts/smack-magic/IdealChoice.svelte";
-    import Headline from "$lib/layouts/smack-magic/Headline.svelte";
+    import Testimonial from "$lib/ui/components/testimonials/Testimonial.svelte";
+    import Headline from "$lib/ui/components/headline/Headline.svelte";
+    import IdealChoice from "$lib/ui/layouts/shop/landing/IdealChoice.svelte";
     import { browser } from "$app/environment";
-    import { popups } from "$lib/common/popup/index.svelte";
-    import Ad from "$lib/common/popup/types/Ad.svelte";
+    import { popups } from "$lib/ui/components/popup/index.svelte.js";
+    import Ad from "$lib/ui/components/ad-call-now/AdCallNow.svelte";
     import { onMount } from "svelte";
+    import PageTitle from "$lib/ui/layouts/shop/PageTitle.svelte";
+    import Showcase from "$lib/ui/components/smack-now/Showcase.svelte";
+    import Introduction from "$lib/ui/layouts/shop/landing/Introduction.svelte";
+    import ClickerGame from "$lib/ui/components/clicker/ClickerGame.svelte";
 
     let { data } = $props();
     const { testimonials } = data
@@ -25,7 +26,7 @@
 
 <div class="page">
     <Headline />
-    <h1 id="title">The #1 Kitchen Chopping Appliance!</h1>
+    <PageTitle>The #1 Kitchen Chopping Appliance!</PageTitle>
 
     <div class="introduction-grid">
         <Testimonial {...testimonials[0]} />
@@ -55,12 +56,6 @@
         flex-direction: column;
         gap: 1rem;
         padding-inline: 1rem;
-    }
-
-    #title {
-        color: yellow;
-        text-shadow: rgba(255, 255, 255, 0.9) 0px 0px 28px;
-        text-align: center;
     }
 
     .introduction-grid {

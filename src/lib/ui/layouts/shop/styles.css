@@ -1,0 +1,95 @@
+.glossy {
+    --base-color: transparent;
+    position: relative;
+    z-index: 1;
+}
+
+.glossy.gradient {
+    --base-color: transparent;
+    --gradient: linear-gradient(to right, red, orange)
+}
+
+.glossy.gradient.blue {
+    --gradient: linear-gradient(to right, blue, green);
+}
+
+.glossy.gradient.red {
+    --gradient: linear-gradient(to right, red, orange);
+}
+
+.glossy.gradient.gray {
+    --gradient: linear-gradient(to right, rgb(200, 200, 200), rgb(225, 225, 225));
+    color: black;
+}
+
+.glossy.gradient::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -2;
+    background-image: var(--gradient);
+}
+
+.glossy::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    content: "";
+    z-index: -1;
+
+    background: linear-gradient(to top,
+            transparent 0%,
+            rgba(0, 0, 0, 0.3) 40%,
+            transparent 50%),
+        linear-gradient(to top,
+            transparent 0%,
+            transparent 50%,
+            rgba(255, 255, 255, 0.3) 55%,
+            rgba(255, 255, 255, 0.5) 100%),
+        linear-gradient(to top,
+            transparent 0%,
+            transparent 65%,
+            rgba(255, 255, 255, 0.7) 100%),
+        var(--base-color);
+
+}
+
+@property --offset-x {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 1px;
+}
+
+@property --offset-y {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 1px;
+}
+
+.shadow {
+    --color: black;
+    --offset-x: 1px;
+    --offset-y: 1px;
+    --spread: 0px;
+
+    transition: --offset-x 0.15s, --offset-y 0.15s, --spread 0.15s, --color 0.15s;
+}
+
+.shadow.filter {
+    filter: drop-shadow(var(--offset-x) var(--offset-y) var(--spread) var(--color));
+    -webkit-filter: drop-shadow(var(--offset-x) var(--offset-y) var(--spread) var(--color));
+}
+
+.shadow.hover:hover {
+    --offset-x: 2.5px;
+    --offset-y: 2.5px;
+}
+
+.shadow.box {
+    box-shadow: calc(var(--offset-x) * 4) calc(var(--offset-y) * 4) var(--spread) var(--color);
+}

@@ -1,0 +1,41 @@
+<script lang="ts">
+    let { children, header } = $props();
+</script>
+
+<article class="container light">
+    <header>
+        <div class="content">
+            {@render header?.()}
+        </div>
+    </header>
+    <div class="content">
+        {@render children?.()}
+    </div>
+</article>
+
+<style>
+    article {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        font-size: 0.75rem;
+
+        background-color: aliceblue;
+        padding: 0.5rem;
+
+        height: 100%;
+        width: 100%;
+    }
+
+    header {
+        width: 100%;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+</style>
