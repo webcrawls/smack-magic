@@ -5,7 +5,7 @@
     import "./styles.css";
     import "./styles.fonts.css";
 
-    let { children, user } = $props();
+    let { children } = $props();
 </script>
 
 <div class="smack">
